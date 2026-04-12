@@ -1,0 +1,56 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "pricing": "Tarifs",
+    "blog": "Blog",
+    "contact": "Contact",
+    "startProject": "Démarrer un projet"
+  },
+  "hero": {
+    "title": "Bekasen — Agence Digitale Premium",
+    "subtitle": "Nous créons des expériences numériques exceptionnelles pour les entreprises haïtiennes et la diaspora.",
+    "cta": "Démarrer votre projet"
+  },
+  "about": {
+    "title": "À propos de Bekasen",
+    "description": "Une agence digitale premium dédiée à la communauté haïtienne."
+  },
+  "services": {
+    "title": "Nos Services",
+    "subtitle": "Des solutions digitales sur mesure pour propulser votre entreprise."
+  },
+  "portfolio": {
+    "title": "Nos Réalisations",
+    "subtitle": "Découvrez nos projets récents.",
+    "detailTitle": "Détail du projet"
+  },
+  "pricing": {
+    "title": "Nos Tarifs",
+    "subtitle": "Des forfaits adaptés à vos besoins."
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Actualités, conseils et tendances du digital."
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "subtitle": "Parlons de votre prochain projet."
+  },
+  "startProject": {
+    "title": "Démarrer un projet",
+    "subtitle": "Décrivez votre projet et recevez une estimation gratuite."
+  },
+  "footer": {
+    "rights": "Tous droits réservés.",
+    "tagline": "Agence Digitale Premium"
+  },
+  "common": {
+    "learnMore": "En savoir plus",
+    "getStarted": "Commencer",
+    "viewAll": "Tout voir",
+    "backToHome": "Retour à l'accueil"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "hooks": {
+    "preToolUse": [
+      {
+        "toolName": "run_in_terminal",
+        "type": "command",
+        "command": "node .github/hooks/scripts/block-dangerous-commands.js",
+        "windows": "node .github/hooks/scripts/block-dangerous-commands.js",
+        "timeout": 5000
+      }
+    ]
+  }
+}

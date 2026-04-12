@@ -1,0 +1,56 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "pricing": "Pricing",
+    "blog": "Blog",
+    "contact": "Contact",
+    "startProject": "Start a Project"
+  },
+  "hero": {
+    "title": "Bekasen — Premium Digital Agency",
+    "subtitle": "We craft exceptional digital experiences for Haitian businesses and the diaspora.",
+    "cta": "Start your project"
+  },
+  "about": {
+    "title": "About Bekasen",
+    "description": "A premium digital agency dedicated to the Haitian community."
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Tailored digital solutions to propel your business forward."
+  },
+  "portfolio": {
+    "title": "Our Work",
+    "subtitle": "Discover our recent projects.",
+    "detailTitle": "Project Details"
+  },
+  "pricing": {
+    "title": "Pricing",
+    "subtitle": "Packages tailored to your needs."
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "News, tips, and digital trends."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Let's talk about your next project."
+  },
+  "startProject": {
+    "title": "Start a Project",
+    "subtitle": "Describe your project and get a free estimate."
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "tagline": "Premium Digital Agency"
+  },
+  "common": {
+    "learnMore": "Learn more",
+    "getStarted": "Get started",
+    "viewAll": "View all",
+    "backToHome": "Back to home"
+  }
+}

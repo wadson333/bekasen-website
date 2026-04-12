@@ -1,0 +1,56 @@
+{
+  "nav": {
+    "home": "Akèy",
+    "about": "Sou nou",
+    "services": "Sèvis",
+    "portfolio": "Pòtfolyo",
+    "pricing": "Tarif",
+    "blog": "Blog",
+    "contact": "Kontakte nou",
+    "startProject": "Kòmanse yon pwojè"
+  },
+  "hero": {
+    "title": "Bekasen — Ajans Dijital Premyòm",
+    "subtitle": "Nou kreye eksperyans dijital ekstraòdinè pou biznis ayisyen ak dyaspora a.",
+    "cta": "Kòmanse pwojè w"
+  },
+  "about": {
+    "title": "Sou Bekasen",
+    "description": "Yon ajans dijital premyòm dedye a kominote ayisyen an."
+  },
+  "services": {
+    "title": "Sèvis Nou yo",
+    "subtitle": "Solisyon dijital pèsonalize pou fè biznis ou avanse."
+  },
+  "portfolio": {
+    "title": "Reyalizasyon Nou yo",
+    "subtitle": "Dekouvri dènye pwojè nou yo.",
+    "detailTitle": "Detay pwojè a"
+  },
+  "pricing": {
+    "title": "Tarif Nou yo",
+    "subtitle": "Fòmil adapte ak bezwen w."
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Nouvèl, konsèy ak tandans dijital."
+  },
+  "contact": {
+    "title": "Kontakte Nou",
+    "subtitle": "Ann pale sou pwochen pwojè w."
+  },
+  "startProject": {
+    "title": "Kòmanse yon Pwojè",
+    "subtitle": "Dekri pwojè w epi resevwa yon estimasyon gratis."
+  },
+  "footer": {
+    "rights": "Tout dwa rezève.",
+    "tagline": "Ajans Dijital Premyòm"
+  },
+  "common": {
+    "learnMore": "Aprann plis",
+    "getStarted": "Kòmanse",
+    "viewAll": "Wè tout",
+    "backToHome": "Retounen akèy"
+  }
+}

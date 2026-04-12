@@ -1,0 +1,13 @@
+{
+  "hooks": {
+    "postToolUse": [
+      {
+        "toolName": "replace_string_in_file|create_file|multi_replace_string_in_file",
+        "type": "command",
+        "command": "npx eslint --fix \"$TOOL_INPUT_FILE_PATH\" 2>/dev/null || true",
+        "windows": "npx eslint --fix \"$TOOL_INPUT_FILE_PATH\" 2>$null; $null",
+        "timeout": 15000
+      }
+    ]
+  }
+}
