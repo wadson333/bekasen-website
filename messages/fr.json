@@ -7,12 +7,26 @@
     "pricing": "Tarifs",
     "blog": "Blog",
     "contact": "Contact",
-    "startProject": "Démarrer un projet"
+    "startProject": "Démarrer un projet",
+    "process": "Processus",
+    "faq": "FAQ"
   },
   "hero": {
+    "badge": "WEB • APPS • IA",
     "title": "Bekasen — Agence Digitale Premium",
-    "subtitle": "Nous créons des expériences numériques exceptionnelles pour les entreprises haïtiennes et la diaspora.",
-    "cta": "Démarrer votre projet"
+    "headline": "Propulsez votre vision avec l’excellence digitale.",
+    "titleLine1": "Propulsez votre vision",
+    "titleLine2": "avec l’excellence digitale.",
+    "subtitle": "Solutions web haute performance, applications métier et intégration IA. Une expertise technique de pointe pour les entreprises ambitieuses, où qu'elles soient.",
+    "titleLine2Before": "avec l’",
+    "titleLine2Accent": "excellence",
+    "titleLine2After": " digitale.",
+    "socialProof": "Fait confiance par des leaders de croissance.",
+    "cta": "Démarrer un projet",
+    "ctaSecondary": "Voir les démos"
+  },
+  "techMarquee": {
+    "title": "Propulsé par une stack d'ingénierie de précision"
   },
   "about": {
     "title": "À propos de Bekasen",
@@ -25,7 +39,64 @@
   "portfolio": {
     "title": "Nos Réalisations",
     "subtitle": "Découvrez nos projets récents.",
-    "detailTitle": "Détail du projet"
+    "detailTitle": "Détail du projet",
+    "closeModal": "Fermer",
+    "imagePlaceholder": "Aperçu du projet",
+    "viewCaseStudy": "Voir l'étude de cas"
+  },
+  "portfolioSection": {
+    "whoBehindBadge": "QUI EST DERRIÈRE BEKASEN ?",
+    "whoBehindTitle": "Nous créons vos plateformes comme si c'étaient",
+    "whoBehindTitleAccent": "les nôtres.",
+    "whoBehindDescription": "Bekasen est une agence digitale premium née de la diaspora haïtienne. Nous ne sommes pas de simples prestataires — nous sommes vos partenaires techniques. Chaque projet bénéficie de la même passion et rigueur que si nous le construisions pour nous-mêmes.",
+    "title": "L'excellence technique qui propulse votre vision.",
+    "kineticText1": "Conception.",
+    "kineticText2": "Code.",
+    "kineticText3": "Déploiement.",
+    "tabDesktop": "Bureau",
+    "tabMobile": "Mobile",
+    "tabTablet": "Tablette",
+    "viewProject": "Voir le projet",
+    "showDetails": "Voir les détails",
+    "hideDetails": "Masquer les détails",
+    "ctaAll": "Explorer tous les projets",
+    "project1Title": "Clinix Pro",
+    "project1Description": "ERP médical complet avec gestion de patients, rendez-vous et facturation.",
+    "project2Title": "Horizon Hôtel",
+    "project2Description": "Système de gestion hôtelière avec réservation en ligne et dashboard admin.",
+    "project3Title": "Aura Market",
+    "project3Description": "Marketplace mobile-first connectant vendeurs et acheteurs locaux.",
+    "project4Title": "Impact Global",
+    "project4Description": "Site institutionnel avec animations immersives et storytelling visuel."
+  },
+  "servicesBento": {
+    "badge": "SERVICES",
+    "title": "Ce Que Nous Faisons Pour",
+    "titleAccent": "Votre Business",
+    "subtitle": "Des solutions digitales sur mesure pour propulser votre entreprise vers le succès.",
+    "cta": "Démarrer",
+    "priceLabel": "À partir de",
+    "service1Title": "Site Web Vitrine Premium",
+    "service1Description": "Un site web élégant et performant qui reflète l'excellence de votre marque. Design sur mesure, animations fluides et optimisation SEO.",
+    "service1Price": "500 $",
+    "service1Timeline": "1 à 2 semaines",
+    "service1Feature1": "Design responsive premium",
+    "service1Feature2": "Animations Framer Motion",
+    "service1Feature3": "Optimisation SEO avancée",
+    "service2Title": "Site E-commerce / Manager",
+    "service2Description": "Votre boutique en ligne complète avec gestion de produits, paiements sécurisés et tableau de bord d'administration.",
+    "service2Price": "1 200 $",
+    "service2Timeline": "3 à 4 semaines",
+    "service2Feature1": "Paiements Stripe intégrés",
+    "service2Feature2": "Dashboard d'administration",
+    "service2Feature3": "Gestion d'inventaire",
+    "service3Title": "Application Métier & IA",
+    "service3Description": "Des applications métier intelligentes avec automatisation IA, workflows personnalisés et intégrations avancées.",
+    "service3Price": "Sur devis",
+    "service3Timeline": "Maintenance IA incluse",
+    "service3Feature1": "Automatisation IA sur mesure",
+    "service3Feature2": "Intégrations API avancées",
+    "service3Feature3": "Support et maintenance continus"
   },
   "pricing": {
     "title": "Nos Tarifs",
@@ -36,21 +107,231 @@
     "subtitle": "Actualités, conseils et tendances du digital."
   },
   "contact": {
+    "badge": "CONTACT",
     "title": "Contactez-nous",
-    "subtitle": "Parlons de votre prochain projet."
+    "subtitle": "Parlons de votre prochain projet.",
+    "formTitle": "Envoyez-nous un message",
+    "formSubtitle": "Remplissez le formulaire ci-dessous et nous vous répondrons rapidement.",
+    "labelName": "Nom complet",
+    "placeholderName": "Jean Dupont",
+    "labelEmail": "Adresse e-mail",
+    "placeholderEmail": "jean@exemple.com",
+    "labelSubject": "Sujet",
+    "subjectDefault": "Sélectionnez un sujet",
+    "subjectWebsite": "Site web",
+    "subjectBranding": "Branding & identité visuelle",
+    "subjectApp": "Application mobile",
+    "subjectOther": "Autre",
+    "labelMessage": "Message",
+    "placeholderMessage": "Décrivez votre projet ou votre question...",
+    "submitButton": "Envoyer le message",
+    "successTitle": "Message envoyé !",
+    "successMessage": "Merci pour votre message. Notre équipe vous répondra dans les 24 heures.",
+    "backHome": "Retour à l'accueil",
+    "infoTitle": "Nos coordonnées",
+    "infoSubtitle": "Vous pouvez aussi nous contacter directement.",
+    "infoEmail": "E-mail",
+    "infoPhone": "Téléphone",
+    "infoLocation": "Localisation",
+    "infoWhatsapp": "Écrivez-nous sur WhatsApp",
+    "ctaTitle": "Vous avez un projet précis ?",
+    "ctaDescription": "Utilisez notre assistant de projet pour obtenir une estimation gratuite en quelques minutes.",
+    "ctaLink": "Démarrer le projet"
   },
   "startProject": {
     "title": "Démarrer un projet",
-    "subtitle": "Décrivez votre projet et recevez une estimation gratuite."
+    "subtitle": "Décrivez votre projet et recevez une estimation gratuite.",
+    "progress": "Étape {current} sur {total}",
+    "back": "Retour",
+    "continue": "Continuer",
+    "step1": {
+      "title": "Quel est votre secteur d'activité ?",
+      "subtitle": "Sélectionnez le domaine qui correspond à votre entreprise.",
+      "industries": {
+        "hotel": "Hôtel / Tourisme",
+        "clinic": "Clinique / Santé",
+        "ecommerce": "E-commerce",
+        "church": "Église / ONG",
+        "other": "Autre"
+      }
+    },
+    "step2": {
+      "title": "De quoi avez-vous besoin ?",
+      "subtitle": "Sélectionnez un ou plusieurs services.",
+      "services": {
+        "showcase": "Site Vitrine",
+        "custom": "Application sur-mesure",
+        "chatbot": "Intégration Chatbot IA",
+        "ecommerce": "E-commerce"
+      }
+    },
+    "step3": {
+      "title": "Quelle ambiance correspond à votre vision ?",
+      "subtitle": "Choisissez le style qui vous inspire.",
+      "styles": {
+        "tech": {
+          "label": "Tech / Dark Mode",
+          "description": "Moderne et audacieux, inspiré par Scalar"
+        },
+        "minimal": {
+          "label": "Épuré / Minimaliste",
+          "description": "Propre et élégant, inspiré par Apple"
+        },
+        "corporate": {
+          "label": "Classique / Corporatif",
+          "description": "Professionnel et structuré"
+        }
+      }
+    },
+    "step4": {
+      "title": "Derniers détails",
+      "subtitle": "Comment pouvons-nous vous contacter ?",
+      "name": "Nom complet",
+      "namePlaceholder": "Jean Dupont",
+      "email": "Adresse e-mail",
+      "emailPlaceholder": "jean@exemple.com",
+      "whatsapp": "Numéro WhatsApp",
+      "whatsappPlaceholder": "+509 0000 0000",
+      "budget": "Budget estimé",
+      "budgetPlaceholder": "Sélectionnez un budget",
+      "budgets": {
+        "500_1000": "$500 – $1 000",
+        "1000_3000": "$1 000 – $3 000",
+        "3000_plus": "$3 000+"
+      },
+      "details": "Détails du projet",
+      "detailsPlaceholder": "Parlez-nous brièvement de votre projet...",
+      "submit": "Envoyer ma demande"
+    },
+    "success": {
+      "title": "Merci !",
+      "message": "Notre équipe vous contacte sous 24h."
+    }
+  },
+  "processTimeline": {
+    "badge": "PROCESSUS",
+    "title": "Comment ça marche",
+    "subtitle": "Un processus éprouvé en 4 étapes pour transformer votre vision en réalité digitale.",
+    "step1Title": "Découverte & Stratégie",
+    "step1Description": "Nous analysons vos besoins, votre marché et vos objectifs pour définir une stratégie digitale sur mesure.",
+    "step2Title": "Design & Prototypage",
+    "step2Description": "Création de maquettes interactives et d'un design premium qui reflète l'identité de votre marque.",
+    "step3Title": "Développement & Tests",
+    "step3Description": "Code propre, performant et testé. Chaque fonctionnalité est validée avant la mise en production.",
+    "step4Title": "Lancement & Croissance",
+    "step4Description": "Déploiement, optimisation SEO et suivi des performances pour une croissance continue."
+  },
+  "testimonials": {
+    "badge": "TÉMOIGNAGES",
+    "title": "Ce que disent nos clients",
+    "subtitle": "Des résultats concrets qui parlent d'eux-mêmes.",
+    "testimonial1Text": "Bekasen a transformé notre présence en ligne. Le design est magnifique et nos ventes ont augmenté de 300% en 3 mois.",
+    "testimonial1Name": "Marie-Claire Duval",
+    "testimonial1Role": "Fondatrice, Lakay Market",
+    "testimonial2Text": "Une équipe exceptionnelle qui comprend vraiment les besoins de la communauté haïtienne. Le résultat dépasse toutes nos attentes.",
+    "testimonial2Name": "Jean-Baptiste Pierre",
+    "testimonial2Role": "CEO, Kreyòl Academy",
+    "testimonial3Text": "Professionnalisme, créativité et résultats. Bekasen est le partenaire digital idéal pour la diaspora haïtienne.",
+    "testimonial3Name": "Sophie Laurent",
+    "testimonial3Role": "Directrice, Diaspora Connect",
+    "stat1Label": "Hausse des ventes",
+    "stat2Label": "Mois de livraison",
+    "stat3Label": "Rétention augmentée",
+    "stat4Label": "Satisfaction client",
+    "stat5Label": "Croissance du trafic",
+    "stat6Label": "Projets livrés"
+  },
+  "pricingFAQ": {
+    "badge": "PAIEMENT & FAQ",
+    "title": "Paiement & Questions",
+    "subtitle": "Tout ce que vous devez savoir avant de commencer.",
+    "paymentTitle": "Méthodes de paiement",
+    "paymentDescription": "Nous acceptons plusieurs méthodes pour votre confort.",
+    "method1": "Carte de crédit / débit",
+    "method2": "Virement bancaire",
+    "method3": "Mobile Money (MonCash)",
+    "method4": "PayPal / Zelle",
+    "faqTitle": "Questions fréquentes",
+    "faqBadge": "FAQS",
+    "faqHeading": "Des questions ?! On a les réponses !",
+    "contactMessage": "Vous n'avez pas trouvé la réponse ? Nous sommes de vraies personnes — posez-nous vos questions.",
+    "contactEmailLabel": "Envoyer un email",
+    "contactWhatsappLabel": "Chatter sur WhatsApp",
+    "faq1Question": "Combien de temps prend la création d'un site web ?",
+    "faq1Answer": "Un site vitrine premium est livré en 1 à 2 semaines. Une application de gestion prend 3 à 4 semaines. Les projets sur mesure varient selon la complexité.",
+    "faq2Question": "Offrez-vous un support après la livraison ?",
+    "faq2Answer": "Oui, tous nos forfaits incluent 30 jours de support gratuit après la livraison. Des plans de maintenance mensuels sont également disponibles.",
+    "faq3Question": "Puis-je modifier le contenu moi-même ?",
+    "faq3Answer": "Absolument. Nous intégrons un système de gestion de contenu intuitif pour que vous puissiez mettre à jour votre site facilement.",
+    "faq4Question": "Travaillez-vous avec des clients internationaux ?",
+    "faq4Answer": "Oui, nous servons des clients dans le monde entier, avec une spécialisation pour la communauté haïtienne et la diaspora.",
+    "faq5Question": "Comment fonctionne le processus de paiement ?",
+    "faq5Answer": "Nous demandons un acompte de 50% pour commencer le projet, et le solde de 50% à la livraison finale.",
+    "contactEmail": "hello@bekasen.com",
+    "contactWhatsapp": "+1 (786) 555-0123"
+  },
+  "finalCTA": {
+    "badge": "PRÊT À COMMENCER ?",
+    "title": "Transformons votre vision en réalité",
+    "subtitle": "Rejoignez les entreprises qui font confiance à Bekasen pour leur transformation digitale.",
+    "cta": "Démarrer mon projet",
+    "clockLabel": "Heure de Miami (EST)"
   },
   "footer": {
     "rights": "Tous droits réservés.",
-    "tagline": "Agence Digitale Premium"
+    "tagline": "Agence Digitale Premium",
+    "navTitle": "Navigation",
+    "servicesTitle": "Services",
+    "serviceWeb": "Site Web Premium",
+    "serviceBrand": "Branding Digital",
+    "serviceSEO": "SEO & Marketing",
+    "serviceApp": "Applications Métier",
+    "contactTitle": "Contact",
+    "location": "Miami, FL — Port-au-Prince, HT",
+    "madeWith": "Fait avec passion pour la communauté haïtienne 🇭🇹"
   },
   "common": {
     "learnMore": "En savoir plus",
     "getStarted": "Commencer",
     "viewAll": "Tout voir",
     "backToHome": "Retour à l'accueil"
+  },
+  "chatbot": {
+    "title": "Assistant Bekasen",
+    "openLabel": "Ouvrir le chat",
+    "closeLabel": "Fermer le chat",
+    "bubbleLabel": "Parler à l'assistant",
+    "inputPlaceholder": "Écrivez votre message…",
+    "sendLabel": "Envoyer le message",
+    "autoReply": "Merci pour votre message ! Notre assistant IA arrive bientôt. En attendant, utilisez les questions rapides ci-dessous ou contactez-nous directement.",
+    "greeting": "Bonjour ! 👋 Je suis l'assistant Bekasen. Comment puis-je vous aider ?",
+    "quickRepliesLabel": "Questions rapides :",
+    "faq": {
+      "services": {
+        "label": "Services",
+        "question": "Quels services propose Bekasen ?",
+        "answer": "Nous concevons et développons des sites web haute performance, des applications métier sur mesure et des solutions propulsées par l'IA — pour les entreprises ambitieuses."
+      },
+      "pricing": {
+        "label": "Tarifs",
+        "question": "Combien coûtent vos services ?",
+        "answer": "Nos projets démarrent par un appel découverte. Les tarifs dépendent de la portée, de la complexité et du calendrier. Consultez notre page tarifs ou démarrez un projet pour obtenir un devis personnalisé."
+      },
+      "timeline": {
+        "label": "Délais",
+        "question": "Combien de temps dure un projet ?",
+        "answer": "Un site web typique prend 4 à 8 semaines du lancement à la mise en ligne. Les applications complexes peuvent prendre 8 à 16 semaines. Nous vous tenons informé à chaque étape."
+      },
+      "techStack": {
+        "label": "Technologies",
+        "question": "Quelles technologies utilisez-vous ?",
+        "answer": "Nous travaillons avec Next.js, React, TypeScript, Tailwind CSS, Node.js, PostgreSQL et des frameworks IA modernes. Toujours le bon outil pour le bon usage."
+      },
+      "contact": {
+        "label": "Contact",
+        "question": "Comment contacter l'équipe ?",
+        "answer": "Vous pouvez démarrer un projet via notre formulaire ou nous écrire directement à hello@bekasen.com. Nous répondons généralement sous 24 heures."
+      }
+    }
   }
 }

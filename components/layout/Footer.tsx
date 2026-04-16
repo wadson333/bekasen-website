@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { Mail, Phone, MapPin } from "lucide-react";
 
 export default function Footer() {
   const t = useTranslations("footer");
@@ -9,51 +10,137 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-border bg-bg-secondary">
-      <div className="max-w-6xl mx-auto px-6 py-12">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex flex-col items-center md:items-start gap-1">
+      <div className="max-w-6xl mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8">
+          {/* Brand */}
+          <div className="md:col-span-1">
             <Link
               href="/"
-              className="text-xl font-[family-name:var(--font-syne)] font-bold text-gradient"
+              className="inline-block relative h-6 w-24"
             >
-              Bekasen
+              <img
+                src="/logo-dark-clean.png"
+                alt="Bekasen"
+                className="absolute inset-0 h-full w-auto object-contain block dark:hidden"
+              />
+              <img
+                src="/logo-clean.png"
+                alt="Bekasen"
+                className="absolute inset-0 h-full w-auto object-contain hidden dark:block"
+              />
             </Link>
-            <p className="text-sm text-text-secondary">{t("tagline")}</p>
+            <p className="mt-2 text-sm text-text-secondary leading-relaxed">
+              {t("tagline")}
+            </p>
           </div>
 
-          <nav>
-            <ul className="flex flex-wrap items-center justify-center gap-4">
+          {/* Navigation */}
+          <div>
+            <h4 className="text-sm font-semibold text-text-primary font-[family-name:var(--font-syne)] mb-4">
+              {t("navTitle")}
+            </h4>
+            <ul className="space-y-2">
               <li>
-                <Link
-                  href="/about"
-                  className="text-sm text-text-secondary hover:text-text-primary transition-colors"
-                >
-                  {tNav("about")}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services"
-                  className="text-sm text-text-secondary hover:text-text-primary transition-colors"
+                <a
+                  href="/#services"
+                  className="text-sm text-text-secondary hover:text-purple-400 transition-colors"
                 >
                   {tNav("services")}
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
-                  href="/contact"
-                  className="text-sm text-text-secondary hover:text-text-primary transition-colors"
+                <a
+                  href="/#portfolio"
+                  className="text-sm text-text-secondary hover:text-purple-400 transition-colors"
                 >
-                  {tNav("contact")}
-                </Link>
+                  {tNav("portfolio")}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/#faq"
+                  className="text-sm text-text-secondary hover:text-purple-400 transition-colors"
+                >
+                  {tNav("faq")}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/#process"
+                  className="text-sm text-text-secondary hover:text-purple-400 transition-colors"
+                >
+                  {tNav("process")}
+                </a>
               </li>
             </ul>
-          </nav>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h4 className="text-sm font-semibold text-text-primary font-[family-name:var(--font-syne)] mb-4">
+              {t("servicesTitle")}
+            </h4>
+            <ul className="space-y-2">
+              <li>
+                <a
+                  href="/#services"
+                  className="text-sm text-text-secondary hover:text-purple-400 transition-colors"
+                >
+                  {t("serviceWeb")}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/#services"
+                  className="text-sm text-text-secondary hover:text-purple-400 transition-colors"
+                >
+                  {t("serviceApp")}
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="text-sm font-semibold text-text-primary font-[family-name:var(--font-syne)] mb-4">
+              {t("contactTitle")}
+            </h4>
+            <ul className="space-y-3">
+              <li className="flex items-center gap-2">
+                <Mail className="h-4 w-4 shrink-0 text-purple-400" />
+                <a
+                  href="mailto:hello@bekasen.com"
+                  className="text-sm text-text-secondary hover:text-purple-400 transition-colors"
+                >
+                  hello@bekasen.com
+                </a>
+              </li>
+              <li className="flex items-center gap-2">
+                <Phone className="h-4 w-4 shrink-0 text-purple-400" />
+                <a
+                  href="tel:+17865550123"
+                  className="text-sm text-text-secondary hover:text-purple-400 transition-colors"
+                >
+                  +1 (786) 555-0123
+                </a>
+              </li>
+              <li className="flex items-start gap-2">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-purple-400" />
+                <span className="text-sm text-text-secondary">
+                  {t("location")}
+                </span>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <div className="mt-8 pt-6 border-t border-border text-center">
+        {/* Bottom bar */}
+        <div className="mt-12 pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-text-secondary">
             &copy; {currentYear} Bekasen. {t("rights")}
+          </p>
+          <p className="text-xs text-text-secondary">
+            {t("madeWith")}
           </p>
         </div>
       </div>

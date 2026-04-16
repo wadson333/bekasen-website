@@ -1,63 +1,87 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
 import ThemeToggle from "@/components/ui/ThemeToggle";
+import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 
 export default function Navbar() {
   const t = useTranslations("nav");
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navLinks = [
-    { href: "/", label: t("home") },
-    { href: "/about", label: t("about") },
-    { href: "/services", label: t("services") },
-    { href: "/portfolio", label: t("portfolio") },
-    { href: "/pricing", label: t("pricing") },
-    { href: "/blog", label: t("blog") },
-    { href: "/contact", label: t("contact") },
-  ] as const;
+    { href: "/#portfolio", label: t("portfolio") },
+    { href: "/#services", label: t("services") },
+    { href: "/#faq", label: t("faq") },
+    { href: "/#process", label: t("process") },
+  ];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-bg-primary/80 backdrop-blur-md">
-      <nav className="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
-        <Link
-          href="/"
-          className="text-xl font-[family-name:var(--font-syne)] font-bold text-gradient"
-        >
-          Bekasen
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-bg-primary/70 backdrop-blur-xl border-b border-border shadow-lg shadow-black/5"
+          : "bg-transparent"
+      }`}
+    >
+      <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16 lg:h-20">
+        {/* Logo */}
+        <Link href="/" className="flex items-center group relative h-8 w-32">
+          <img
+            src="/logo-dark-clean.png"
+            alt="Bekasen"
+            className="absolute inset-0 h-full w-auto object-contain block dark:hidden"
+          />
+          <img
+            src="/logo-clean.png"
+            alt="Bekasen"
+            className="absolute inset-0 h-full w-auto object-contain hidden dark:block"
+          />
         </Link>
 
-        {/* Desktop nav */}
-        <ul className="hidden md:flex items-center gap-6">
+        {/* Desktop nav links */}
+        <ul className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => (
             <li key={link.href}>
-              <Link
+              <a
                 href={link.href}
-                className="text-sm text-text-secondary hover:text-text-primary transition-colors"
+                className="text-sm text-text-secondary hover:text-text-primary transition-colors duration-200 cursor-pointer"
               >
                 {link.label}
-              </Link>
+              </a>
             </li>
           ))}
         </ul>
 
-        <div className="flex items-center gap-4">
+        {/* Right side */}
+        <div className="flex items-center gap-3">
           <ThemeToggle />
-          <Link
-            href="/start-project"
-            className="hidden md:inline-flex items-center gap-2 rounded-full bg-purple-600 px-4 py-2 text-sm font-medium text-white hover:bg-purple-700 transition-colors"
+
+          <LanguageSwitcher />
+
+          {/* Contact CTA */}
+          <a
+            href="/#contact"
+            className="hidden lg:inline-flex items-center gap-2 rounded-full bg-purple-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-purple-500 transition-colors cursor-pointer"
           >
             {t("startProject")}
-          </Link>
+          </a>
 
           {/* Mobile menu button */}
           <button
             type="button"
-            className="md:hidden p-2"
+            className="lg:hidden p-2 rounded-lg text-text-secondary hover:text-text-primary cursor-pointer"
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close menu" : "Open menu"}
           >
@@ -73,28 +97,29 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-t border-border bg-bg-primary"
+            transition={{ duration: 0.2 }}
+            className="lg:hidden bg-bg-primary/95 backdrop-blur-xl border-t border-border overflow-y-auto max-h-[calc(100vh-4rem)]"
           >
-            <ul className="flex flex-col gap-2 px-6 py-4">
+            <ul className="flex flex-col gap-1 px-6 py-4">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <Link
+                  <a
                     href={link.href}
-                    className="block py-2 text-text-secondary hover:text-text-primary transition-colors"
+                    className="block py-3 text-text-secondary hover:text-text-primary transition-colors cursor-pointer"
                     onClick={() => setIsOpen(false)}
                   >
                     {link.label}
-                  </Link>
+                  </a>
                 </li>
               ))}
-              <li>
-                <Link
-                  href="/start-project"
-                  className="inline-flex items-center gap-2 rounded-full bg-purple-600 px-4 py-2 text-sm font-medium text-white hover:bg-purple-700 transition-colors mt-2"
+              <li className="pt-2">
+                <a
+                  href="/#contact"
+                  className="inline-flex items-center gap-2 rounded-full bg-purple-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-purple-500 transition-colors cursor-pointer"
                   onClick={() => setIsOpen(false)}
                 >
                   {t("startProject")}
-                </Link>
+                </a>
               </li>
             </ul>
           </motion.div>

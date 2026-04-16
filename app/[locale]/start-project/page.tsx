@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
-import { useTranslations } from "next-intl";
+import Navbar from "@/components/layout/Navbar";
+import StartProjectWizard from "@/components/start-project/StartProjectWizard";
 
 export const metadata: Metadata = {
   title: "Démarrer un projet",
 };
 
 export default function StartProjectPage() {
-  const t = useTranslations("startProject");
-
   return (
-    <main className="flex flex-1 flex-col items-center justify-center px-6">
-      <h1 className="text-4xl font-[family-name:var(--font-syne)] font-bold">
-        {t("title")}
-      </h1>
-    </main>
+    <>
+      <Navbar />
+      <main className="flex flex-1 flex-col items-center justify-center py-24 md:py-32">
+        <StartProjectWizard />
+      </main>
+    </>
   );
 }

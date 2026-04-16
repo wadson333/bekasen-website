@@ -1,16 +1,25 @@
-import { useTranslations } from "next-intl";
+import Navbar from "@/components/layout/Navbar";
+import Hero from "@/components/home/Hero";
+import TechMarquee from "@/components/home/TechMarquee";
+import PortfolioSection from "@/components/home/PortfolioSection";
+import ServicesBento from "@/components/home/ServicesBento";
+import ProcessTimeline from "@/components/home/ProcessTimeline";
+import Testimonials from "@/components/home/Testimonials";
+import PricingFAQ from "@/components/home/PricingFAQ";
+import FinalCTA from "@/components/home/FinalCTA";
 
 export default function HomePage() {
-  const t = useTranslations("hero");
-
   return (
-    <main className="flex flex-1 flex-col items-center justify-center px-6">
-      <h1 className="text-4xl font-[family-name:var(--font-syne)] font-bold text-gradient">
-        {t("title")}
-      </h1>
-      <p className="mt-4 max-w-xl text-center text-text-secondary text-lg">
-        {t("subtitle")}
-      </p>
+    <main className="overflow-x-hidden">
+      <Navbar />
+      <Hero />
+      <TechMarquee />
+      <PortfolioSection />
+      <ServicesBento />
+      <ProcessTimeline />
+      <Testimonials />
+      <PricingFAQ />
+      <FinalCTA />
     </main>
   );
 }

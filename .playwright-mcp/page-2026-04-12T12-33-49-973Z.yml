@@ -1,0 +1,85 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - navigation [ref=e4]:
+      - link "Bekasen" [ref=e5] [cursor=pointer]:
+        - /url: /fr
+        - img [ref=e6]
+        - generic [ref=e9]: Bekasen
+      - list [ref=e10]:
+        - listitem [ref=e11]:
+          - link "Portfolio" [ref=e12] [cursor=pointer]:
+            - /url: "#portfolio"
+        - listitem [ref=e13]:
+          - link "Services" [ref=e14] [cursor=pointer]:
+            - /url: "#services"
+        - listitem [ref=e15]:
+          - link "Processus" [ref=e16] [cursor=pointer]:
+            - /url: "#process"
+        - listitem [ref=e17]:
+          - link "Tarifs" [ref=e18] [cursor=pointer]:
+            - /url: "#pricing"
+        - listitem [ref=e19]:
+          - link "FAQ" [ref=e20] [cursor=pointer]:
+            - /url: "#faq"
+      - generic [ref=e21]:
+        - button "Change language" [ref=e23] [cursor=pointer]:
+          - img [ref=e24]
+        - link "Contact" [ref=e27] [cursor=pointer]:
+          - /url: /fr/contact
+    - generic [ref=e28]:
+      - generic [ref=e33]:
+        - generic [ref=e35]: AGENCE DIGITALE NEXT-GEN
+        - heading "L'intelligence digitale. Des conversions réelles." [level=1] [ref=e37]:
+          - text: L'intelligence digitale.
+          - text: Des conversions réelles.
+        - paragraph [ref=e38]: De la conception au déploiement, Bekasen crée des sites web premium et des applications métiers automatisées par l'IA.
+        - generic [ref=e39]:
+          - link "Démarrer un projet" [ref=e40] [cursor=pointer]:
+            - /url: /fr/start-project
+            - text: Démarrer un projet
+            - img [ref=e41]
+          - button "Voir les démos" [ref=e43] [cursor=pointer]:
+            - img [ref=e44]
+            - text: Voir les démos
+      - img [ref=e48]
+    - generic [ref=e50]:
+      - paragraph [ref=e51]: Propulsé par les meilleures technologies
+      - generic [ref=e52]:
+        - generic [ref=e53]:
+          - img [ref=e54]
+          - generic [ref=e58]: Next.js
+        - generic [ref=e59]:
+          - img [ref=e60]
+          - generic [ref=e64]: React
+        - generic [ref=e65]:
+          - img [ref=e66]
+          - generic [ref=e72]: Tailwind CSS
+        - generic [ref=e73]:
+          - img [ref=e74]
+          - generic [ref=e76]: Vercel
+        - generic [ref=e77]:
+          - img [ref=e78]
+          - generic [ref=e80]: Stripe
+        - generic [ref=e81]:
+          - img [ref=e82]
+          - generic [ref=e86]: Supabase
+        - generic [ref=e87]:
+          - img [ref=e88]
+          - generic [ref=e92]: Next.js
+        - generic [ref=e93]:
+          - img [ref=e94]
+          - generic [ref=e98]: React
+        - generic [ref=e99]:
+          - img [ref=e100]
+          - generic [ref=e106]: Tailwind CSS
+        - generic [ref=e107]:
+          - img [ref=e108]
+          - generic [ref=e110]: Vercel
+        - generic [ref=e111]:
+          - img [ref=e112]
+          - generic [ref=e114]: Stripe
+        - generic [ref=e115]:
+          - img [ref=e116]
+          - generic [ref=e120]: Supabase
+  - button "Open Next.js Dev Tools" [ref=e126] [cursor=pointer]:
+    - img [ref=e127]

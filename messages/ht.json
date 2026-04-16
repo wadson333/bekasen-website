@@ -7,12 +7,26 @@
     "pricing": "Tarif",
     "blog": "Blog",
     "contact": "Kontakte nou",
-    "startProject": "Kòmanse yon pwojè"
+    "startProject": "Kòmanse yon pwojè",
+    "process": "Pwosesis",
+    "faq": "FAQ"
   },
   "hero": {
+    "badge": "WEB • APPS • IA",
     "title": "Bekasen — Ajans Dijital Premyòm",
-    "subtitle": "Nou kreye eksperyans dijital ekstraòdinè pou biznis ayisyen ak dyaspora a.",
-    "cta": "Kòmanse pwojè w"
+    "headline": "Pouse vizyon ou pi lwen ak ekselans dijital.",
+    "titleLine1": "Pouse vizyon ou pi lwen",
+    "titleLine2": "ak ekselans dijital.",
+    "subtitle": "Solisyon web ki mache vit, aplikasyon biznis ak entegrasyon IA. Yon nivo ekspètiz teknik solid pou antrepriz ki gen anbisyon, kèlkeswa kote yo ye.",
+    "titleLine2Before": "ak ",
+    "titleLine2Accent": "ekselans",
+    "titleLine2After": " dijital.",
+    "socialProof": "Lidè kwasans yo fè nou konfyans.",
+    "cta": "Kòmanse yon pwojè",
+    "ctaSecondary": "Wè demo yo"
+  },
+  "techMarquee": {
+    "title": "Alimante pa yon stack jeni presizyon"
   },
   "about": {
     "title": "Sou Bekasen",
@@ -25,7 +39,64 @@
   "portfolio": {
     "title": "Reyalizasyon Nou yo",
     "subtitle": "Dekouvri dènye pwojè nou yo.",
-    "detailTitle": "Detay pwojè a"
+    "detailTitle": "Detay pwojè a",
+    "closeModal": "Fèmen",
+    "imagePlaceholder": "Apèsi pwojè a",
+    "viewCaseStudy": "Wè etid ka a"
+  },
+  "portfolioSection": {
+    "whoBehindBadge": "KIYÈS KI DÈYÈ BEKASEN ?",
+    "whoBehindTitle": "Nou kreye platfòm ou yo tankou se",
+    "whoBehindTitleAccent": "pa nou.",
+    "whoBehindDescription": "Bekasen se yon ajans dijital premium ki soti nan dyaspora ayisyen an. Nou pa jis founisè sèvis — nou se patnè teknik ou. Chak pwojè resevwa menm pasyon ak rigè tankou si nou tap konstwi l pou tèt nou.",
+    "title": "Ekselans teknik ki pouse vizyon ou pi devan.",
+    "kineticText1": "Konsepsyon.",
+    "kineticText2": "Kòd.",
+    "kineticText3": "Deplwaman.",
+    "tabDesktop": "Biwo",
+    "tabMobile": "Mobil",
+    "tabTablet": "Tablèt",
+    "viewProject": "Wè pwojè a",
+    "showDetails": "Wè detay yo",
+    "hideDetails": "Kache detay yo",
+    "ctaAll": "Eksplore tout pwojè yo",
+    "project1Title": "Clinix Pro",
+    "project1Description": "ERP medikal konplè ak jesyon pasyan, randevou ak faktirasyon.",
+    "project2Title": "Horizon Hôtel",
+    "project2Description": "Sistèm jesyon otèl ak rezèvasyon anliy ak tablo bò administratè.",
+    "project3Title": "Aura Market",
+    "project3Description": "Marketplace mobil-premye ki konekte vandè ak achetè lokal yo.",
+    "project4Title": "Impact Global",
+    "project4Description": "Sit enstitisyonèl ak animasyon imèrsif ak istwa vizyèl."
+  },
+  "servicesBento": {
+    "badge": "SÈVIS",
+    "title": "Sa Nou Fè Pou",
+    "titleAccent": "Biznis Ou",
+    "subtitle": "Solisyon dijital pèsonalize pou pouse biznis ou pi devan.",
+    "cta": "Kòmanse",
+    "priceLabel": "Apati",
+    "service1Title": "Sit Wèb Vitrin Premium",
+    "service1Description": "Yon sit wèb elegant ak pèfòman ki reflete ekselans mak ou. Dizayn pèsonalize, animasyon flwid ak optimize SEO.",
+    "service1Price": "500 $",
+    "service1Timeline": "1 a 2 semèn",
+    "service1Feature1": "Dizayn responsiv premium",
+    "service1Feature2": "Animasyon Framer Motion",
+    "service1Feature3": "Optimize SEO avanse",
+    "service2Title": "Sit E-komès / Manadjè",
+    "service2Description": "Boutik anliy konplè ou ak jesyon pwodwi, peman sekirize ak tablo bò administrasyon.",
+    "service2Price": "1 200 $",
+    "service2Timeline": "3 a 4 semèn",
+    "service2Feature1": "Peman Stripe entegre",
+    "service2Feature2": "Tablo bò administrasyon",
+    "service2Feature3": "Jesyon envantè",
+    "service3Title": "Aplikasyon Biznis & IA",
+    "service3Description": "Aplikasyon biznis entelijan ak otomatizasyon IA, workflow pèsonalize ak entegrasyon avanse.",
+    "service3Price": "Sou devi",
+    "service3Timeline": "Antretyen IA enkli",
+    "service3Feature1": "Otomatizasyon IA pèsonalize",
+    "service3Feature2": "Entegrasyon API avanse",
+    "service3Feature3": "Sipò ak antretyen kontinyèl"
   },
   "pricing": {
     "title": "Tarif Nou yo",
@@ -36,21 +107,231 @@
     "subtitle": "Nouvèl, konsèy ak tandans dijital."
   },
   "contact": {
+    "badge": "KONTAK",
     "title": "Kontakte Nou",
-    "subtitle": "Ann pale sou pwochen pwojè w."
+    "subtitle": "Ann pale sou pwochen pwojè w.",
+    "formTitle": "Voye yon mesaj ban nou",
+    "formSubtitle": "Ranpli fòm sa a epi n ap reponn ou byen vit.",
+    "labelName": "Non konplè",
+    "placeholderName": "Jan Batis",
+    "labelEmail": "Adrès imèl",
+    "placeholderEmail": "jan@egzanp.com",
+    "labelSubject": "Sijè",
+    "subjectDefault": "Chwazi yon sijè",
+    "subjectWebsite": "Sit wèb",
+    "subjectBranding": "Branding & idantite vizyèl",
+    "subjectApp": "Aplikasyon mobil",
+    "subjectOther": "Lòt",
+    "labelMessage": "Mesaj",
+    "placeholderMessage": "Dekri pwojè w oswa kesyon w...",
+    "submitButton": "Voye mesaj la",
+    "successTitle": "Mesaj voye !",
+    "successMessage": "Mèsi pou mesaj ou. Ekip nou an ap reponn ou nan 24 èdtan.",
+    "backHome": "Retounen lakay",
+    "infoTitle": "Enfòmasyon kontak",
+    "infoSubtitle": "Ou ka kontakte nou dirèkteman tou.",
+    "infoEmail": "Imèl",
+    "infoPhone": "Telefòn",
+    "infoLocation": "Lokasyon",
+    "infoWhatsapp": "Ekri nou sou WhatsApp",
+    "ctaTitle": "Ou gen yon pwojè presi ?",
+    "ctaDescription": "Sèvi ak asistan pwojè nou an pou jwenn yon estimasyon gratis nan kèk minit.",
+    "ctaLink": "Kòmanse pwojè a"
   },
   "startProject": {
     "title": "Kòmanse yon Pwojè",
-    "subtitle": "Dekri pwojè w epi resevwa yon estimasyon gratis."
+    "subtitle": "Dekri pwojè w epi resevwa yon estimasyon gratis.",
+    "progress": "Etap {current} sou {total}",
+    "back": "Retounen",
+    "continue": "Kontinye",
+    "step1": {
+      "title": "Nan ki sektè ou ye ?",
+      "subtitle": "Chwazi domèn ki koresponn ak biznis ou.",
+      "industries": {
+        "hotel": "Otèl / Touris",
+        "clinic": "Klinik / Sante",
+        "ecommerce": "E-komès",
+        "church": "Legliz / ONG",
+        "other": "Lòt"
+      }
+    },
+    "step2": {
+      "title": "Kisa w bezwen ?",
+      "subtitle": "Chwazi youn oswa plizyè sèvis.",
+      "services": {
+        "showcase": "Sit Vitrin",
+        "custom": "Aplikasyon pèsonalize",
+        "chatbot": "Entegrasyon Chatbot IA",
+        "ecommerce": "E-komès"
+      }
+    },
+    "step3": {
+      "title": "Ki stil ki koresponn ak vizyon w ?",
+      "subtitle": "Chwazi stil ki enspire w.",
+      "styles": {
+        "tech": {
+          "label": "Tech / Mòd Nwa",
+          "description": "Modèn e odasye, enspire pa Scalar"
+        },
+        "minimal": {
+          "label": "Pwòp / Minimalis",
+          "description": "Pwòp e elegan, enspire pa Apple"
+        },
+        "corporate": {
+          "label": "Klasik / Kòporatif",
+          "description": "Pwofesyonèl e estrikti"
+        }
+      }
+    },
+    "step4": {
+      "title": "Dènye detay yo",
+      "subtitle": "Kijan nou ka kontakte w ?",
+      "name": "Non konplè",
+      "namePlaceholder": "Jan Batis",
+      "email": "Adrès imèl",
+      "emailPlaceholder": "jan@egzanp.com",
+      "whatsapp": "Nimewo WhatsApp",
+      "whatsappPlaceholder": "+509 0000 0000",
+      "budget": "Bidjè estime",
+      "budgetPlaceholder": "Chwazi yon bidjè",
+      "budgets": {
+        "500_1000": "$500 – $1 000",
+        "1000_3000": "$1 000 – $3 000",
+        "3000_plus": "$3 000+"
+      },
+      "details": "Detay pwojè a",
+      "detailsPlaceholder": "Pale nou yon ti kras sou pwojè w...",
+      "submit": "Voye demann mwen"
+    },
+    "success": {
+      "title": "Mèsi !",
+      "message": "Ekip nou ap kontakte w nan 24 èdtan."
+    }
+  },
+  "processTimeline": {
+    "badge": "PWOSESIS",
+    "title": "Kijan sa mache",
+    "subtitle": "Yon pwosesis 4 etap ki pwouve pou transfòme vizyon w an reyalite dijital.",
+    "step1Title": "Dekouvèt & Estrateji",
+    "step1Description": "Nou analize bezwen w, mache w ak objektif ou pou defini yon estrateji dijital pèsonalize.",
+    "step2Title": "Dizayn & Pwototip",
+    "step2Description": "Kreyasyon makèt entèraktif ak yon dizayn premium ki reflete idantite mak ou.",
+    "step3Title": "Devlopman & Tès",
+    "step3Description": "Kòd pwòp, pèfòman ak teste. Chak fonksyonalite valide anvan pwodiksyon.",
+    "step4Title": "Lansman & Kwasans",
+    "step4Description": "Deployman, optimize SEO ak swivi pèfòmans pou yon kwasans kontinyèl."
+  },
+  "testimonials": {
+    "badge": "TEMWAYAJ",
+    "title": "Sa kliyan nou yo di",
+    "subtitle": "Rezilta konkrè ki pale pou tèt yo.",
+    "testimonial1Text": "Bekasen transfòme prezans nou sou entènèt la. Dizayn nan bèl anpil e lavant nou ogmante 300% nan 3 mwa.",
+    "testimonial1Name": "Marie-Claire Duval",
+    "testimonial1Role": "Fondatris, Lakay Market",
+    "testimonial2Text": "Yon ekip eksepsyonèl ki vrèman konprann bezwen kominote ayisyen an. Rezilta a depase tout atant nou.",
+    "testimonial2Name": "Jean-Baptiste Pierre",
+    "testimonial2Role": "CEO, Kreyòl Academy",
+    "testimonial3Text": "Pwofesyonalism, kreyativite ak rezilta. Bekasen se patnè dijital ideyal pou dyaspora ayisyen an.",
+    "testimonial3Name": "Sophie Laurent",
+    "testimonial3Role": "Direktris, Diaspora Connect",
+    "stat1Label": "Ogmantasyon lavant",
+    "stat2Label": "Mwa pou livre",
+    "stat3Label": "Retansyon ogmante",
+    "stat4Label": "Satisfaksyon kliyan",
+    "stat5Label": "Kwasans trafik",
+    "stat6Label": "Pwojè livre"
+  },
+  "pricingFAQ": {
+    "badge": "PEMAN & FAQ",
+    "title": "Peman & Kesyon",
+    "subtitle": "Tout sa w bezwen konnen anvan ou kòmanse.",
+    "paymentTitle": "Metòd peman",
+    "paymentDescription": "Nou aksepte plizyè metòd pou konfò w.",
+    "method1": "Kat kredi / debi",
+    "method2": "Transfè labank",
+    "method3": "Lajan Mobil (MonCash)",
+    "method4": "PayPal / Zelle",
+    "faqTitle": "Kesyon yo poze souvan",
+    "faqBadge": "FAQS",
+    "faqHeading": "Ou gen kesyon?! Nou la pou ou!",
+    "contactMessage": "Ou pa jwenn repons lan? Nou se moun tankou ou — mande nou nenpòt bagay.",
+    "contactEmailLabel": "Voye yon imèl",
+    "contactWhatsappLabel": "Pale sou WhatsApp",
+    "faq1Question": "Konbyen tan sa pran pou kreye yon sit wèb?",
+    "faq1Answer": "Yon sit vitrin premium livre nan 1 a 2 semèn. Yon aplikasyon jesyon pran 3 a 4 semèn. Pwojè pèsonalize varye selon konpleksite.",
+    "faq2Question": "Èske nou ofri sipò apre livrezon?",
+    "faq2Answer": "Wi, tout fòmil nou yo gen 30 jou sipò gratis apre livrezon. Plan antretyen mansyèl disponib tou.",
+    "faq3Question": "Èske m ka modifye kontni an mwen menm?",
+    "faq3Answer": "Absoliman. Nou entegre yon sistèm jesyon kontni entwisif pou ou ka mete ajou sit ou fasilman.",
+    "faq4Question": "Èske nou travay ak kliyan entènasyonal?",
+    "faq4Answer": "Wi, nou sèvi kliyan toupatou nan mond lan, ak yon espesyalizasyon pou kominote ayisyen an ak dyaspora a.",
+    "faq5Question": "Kijan pwosesis peman an mache?",
+    "faq5Answer": "Nou mande yon akont 50% pou kòmanse pwojè a, ak balans 50% nan livrezon final la.",
+    "contactEmail": "hello@bekasen.com",
+    "contactWhatsapp": "+1 (786) 555-0123"
+  },
+  "finalCTA": {
+    "badge": "PARE POU KÒMANSE?",
+    "title": "Ann transfòme vizyon w an reyalite",
+    "subtitle": "Rejwenn biznis ki fè konfyans Bekasen pou transfòmasyon dijital yo.",
+    "cta": "Kòmanse pwojè m",
+    "clockLabel": "Lè Miami (EST)"
   },
   "footer": {
     "rights": "Tout dwa rezève.",
-    "tagline": "Ajans Dijital Premyòm"
+    "tagline": "Ajans Dijital Premyòm",
+    "navTitle": "Navigasyon",
+    "servicesTitle": "Sèvis",
+    "serviceWeb": "Sit Wèb Premium",
+    "serviceBrand": "Branding Dijital",
+    "serviceSEO": "SEO & Maketing",
+    "serviceApp": "Aplikasyon Biznis",
+    "contactTitle": "Kontak",
+    "location": "Miami, FL — Pòtoprens, HT",
+    "madeWith": "Fèt ak pasyon pou kominote ayisyen an 🇭🇹"
   },
   "common": {
     "learnMore": "Aprann plis",
     "getStarted": "Kòmanse",
     "viewAll": "Wè tout",
     "backToHome": "Retounen akèy"
+  },
+  "chatbot": {
+    "title": "Asistan Bekasen",
+    "openLabel": "Ouvri chat la",
+    "closeLabel": "Fèmen chat la",
+    "bubbleLabel": "Pale ak asistan an",
+    "inputPlaceholder": "Ekri mesaj ou…",
+    "sendLabel": "Voye mesaj",
+    "autoReply": "Mèsi pou mesaj ou ! Asistan IA nou an ap vini byento. Annatandan, itilize kesyon rapid yo anba a oswa kontakte nou dirèkteman.",
+    "greeting": "Bonjou ! 👋 Mwen se asistan Bekasen. Kijan mwen ka ede w ?",
+    "quickRepliesLabel": "Kesyon rapid :",
+    "faq": {
+      "services": {
+        "label": "Sèvis",
+        "question": "Ki sèvis Bekasen ofri ?",
+        "answer": "Nou konsevwa epi bati sit entènèt pèfòman, aplikasyon biznis pèsonalize ak solisyon ki itilize entèlijans atifisyèl — pou antrepriz ki gen anbisyon."
+      },
+      "pricing": {
+        "label": "Tarif",
+        "question": "Konbyen sèvis nou yo koute ?",
+        "answer": "Pwojè nou yo kòmanse ak yon apèl dekouvèt. Pri a depann de dimansyon, konpleksite ak kalandriye. Vizite paj tarif nou an oswa kòmanse yon pwojè pou jwenn yon devi pèsonalize."
+      },
+      "timeline": {
+        "label": "Delè",
+        "question": "Konbyen tan yon pwojè pran ?",
+        "answer": "Yon sit entènèt tipik pran 4 a 8 semèn soti nan lanse rive nan mete an liy. Aplikasyon konplèks ka pran 8 a 16 semèn. Nou kenbe w enfòme nan chak etap."
+      },
+      "techStack": {
+        "label": "Teknoloji",
+        "question": "Ki teknoloji nou itilize ?",
+        "answer": "Nou travay ak Next.js, React, TypeScript, Tailwind CSS, Node.js, PostgreSQL ak framework IA modèn. Toujou bon zouti pou bon travay la."
+      },
+      "contact": {
+        "label": "Kontak",
+        "question": "Kijan pou kontakte ekip la ?",
+        "answer": "Ou ka kòmanse yon pwojè atravè fòmilè nou an oswa ekri nou dirèkteman nan hello@bekasen.com. Nou reponn jeneralman nan 24 è."
+      }
+    }
   }
 }

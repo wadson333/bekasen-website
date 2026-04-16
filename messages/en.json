@@ -7,12 +7,26 @@
     "pricing": "Pricing",
     "blog": "Blog",
     "contact": "Contact",
-    "startProject": "Start a Project"
+    "startProject": "Start a Project",
+    "process": "Process",
+    "faq": "FAQ"
   },
   "hero": {
+    "badge": "WEB • APPS • AI",
     "title": "Bekasen — Premium Digital Agency",
-    "subtitle": "We craft exceptional digital experiences for Haitian businesses and the diaspora.",
-    "cta": "Start your project"
+    "headline": "Accelerate your vision with digital excellence.",
+    "titleLine1": "Accelerate your vision",
+    "titleLine2": "with digital excellence.",
+    "subtitle": "High-performance websites, business applications and AI integration. Advanced technical expertise for ambitious companies, wherever they are.",
+    "titleLine2Before": "with digital ",
+    "titleLine2Accent": "excellence",
+    "titleLine2After": ".",
+    "socialProof": "Trusted by growth-minded leaders.",
+    "cta": "Start a project",
+    "ctaSecondary": "View demos"
+  },
+  "techMarquee": {
+    "title": "Powered by a precision engineering stack"
   },
   "about": {
     "title": "About Bekasen",
@@ -25,7 +39,64 @@
   "portfolio": {
     "title": "Our Work",
     "subtitle": "Discover our recent projects.",
-    "detailTitle": "Project Details"
+    "detailTitle": "Project Detail",
+    "closeModal": "Close",
+    "imagePlaceholder": "Project preview",
+    "viewCaseStudy": "View case study"
+  },
+  "portfolioSection": {
+    "whoBehindBadge": "WHO'S BEHIND BEKASEN?",
+    "whoBehindTitle": "We build your platforms as if they were",
+    "whoBehindTitleAccent": "our own.",
+    "whoBehindDescription": "Bekasen is a premium digital agency born from the Haitian diaspora. We're not just service providers — we're your technical partners. Every project receives the same passion and rigor as if we were building it for ourselves.",
+    "title": "Technical excellence that drives your vision.",
+    "kineticText1": "Design.",
+    "kineticText2": "Code.",
+    "kineticText3": "Deploy.",
+    "tabDesktop": "Desktop",
+    "tabMobile": "Mobile",
+    "tabTablet": "Tablet",
+    "viewProject": "View project",
+    "showDetails": "Show details",
+    "hideDetails": "Hide details",
+    "ctaAll": "Explore all projects",
+    "project1Title": "Clinix Pro",
+    "project1Description": "Complete medical ERP with patient management, appointments and billing.",
+    "project2Title": "Horizon Hôtel",
+    "project2Description": "Hotel management system with online booking and admin dashboard.",
+    "project3Title": "Aura Market",
+    "project3Description": "Mobile-first marketplace connecting local sellers and buyers.",
+    "project4Title": "Impact Global",
+    "project4Description": "Institutional website with immersive animations and visual storytelling."
+  },
+  "servicesBento": {
+    "badge": "SERVICES",
+    "title": "What We Do For",
+    "titleAccent": "Your Business",
+    "subtitle": "Tailored digital solutions to propel your business toward success.",
+    "cta": "Get Started",
+    "priceLabel": "Starting at",
+    "service1Title": "Premium Showcase Website",
+    "service1Description": "An elegant, high-performance website that reflects your brand's excellence. Custom design, smooth animations and SEO optimization.",
+    "service1Price": "$500",
+    "service1Timeline": "1 to 2 weeks",
+    "service1Feature1": "Premium responsive design",
+    "service1Feature2": "Framer Motion animations",
+    "service1Feature3": "Advanced SEO optimization",
+    "service2Title": "E-commerce / Manager Site",
+    "service2Description": "Your complete online store with product management, secure payments and admin dashboard.",
+    "service2Price": "$1,200",
+    "service2Timeline": "3 to 4 weeks",
+    "service2Feature1": "Integrated Stripe payments",
+    "service2Feature2": "Admin dashboard",
+    "service2Feature3": "Inventory management",
+    "service3Title": "Business App & AI",
+    "service3Description": "Intelligent business applications with AI automation, custom workflows and advanced integrations.",
+    "service3Price": "Custom quote",
+    "service3Timeline": "AI maintenance included",
+    "service3Feature1": "Custom AI automation",
+    "service3Feature2": "Advanced API integrations",
+    "service3Feature3": "Ongoing support and maintenance"
   },
   "pricing": {
     "title": "Pricing",
@@ -36,21 +107,231 @@
     "subtitle": "News, tips, and digital trends."
   },
   "contact": {
+    "badge": "CONTACT",
     "title": "Contact Us",
-    "subtitle": "Let's talk about your next project."
+    "subtitle": "Let's talk about your next project.",
+    "formTitle": "Send us a message",
+    "formSubtitle": "Fill out the form below and we'll get back to you shortly.",
+    "labelName": "Full name",
+    "placeholderName": "John Doe",
+    "labelEmail": "Email address",
+    "placeholderEmail": "john@example.com",
+    "labelSubject": "Subject",
+    "subjectDefault": "Select a subject",
+    "subjectWebsite": "Website",
+    "subjectBranding": "Branding & visual identity",
+    "subjectApp": "Mobile application",
+    "subjectOther": "Other",
+    "labelMessage": "Message",
+    "placeholderMessage": "Describe your project or question...",
+    "submitButton": "Send message",
+    "successTitle": "Message sent!",
+    "successMessage": "Thank you for your message. Our team will get back to you within 24 hours.",
+    "backHome": "Back to home",
+    "infoTitle": "Contact information",
+    "infoSubtitle": "You can also reach us directly.",
+    "infoEmail": "Email",
+    "infoPhone": "Phone",
+    "infoLocation": "Location",
+    "infoWhatsapp": "Message us on WhatsApp",
+    "ctaTitle": "Have a specific project?",
+    "ctaDescription": "Use our project assistant to get a free estimate in just a few minutes.",
+    "ctaLink": "Start project"
   },
   "startProject": {
     "title": "Start a Project",
-    "subtitle": "Describe your project and get a free estimate."
+    "subtitle": "Describe your project and get a free estimate.",
+    "progress": "Step {current} of {total}",
+    "back": "Back",
+    "continue": "Continue",
+    "step1": {
+      "title": "What is your industry?",
+      "subtitle": "Select the field that matches your business.",
+      "industries": {
+        "hotel": "Hotel / Tourism",
+        "clinic": "Clinic / Healthcare",
+        "ecommerce": "E-commerce",
+        "church": "Church / NGO",
+        "other": "Other"
+      }
+    },
+    "step2": {
+      "title": "What do you need?",
+      "subtitle": "Select one or more services.",
+      "services": {
+        "showcase": "Showcase Website",
+        "custom": "Custom Application",
+        "chatbot": "AI Chatbot Integration",
+        "ecommerce": "E-commerce"
+      }
+    },
+    "step3": {
+      "title": "Which style matches your vision?",
+      "subtitle": "Choose the style that inspires you.",
+      "styles": {
+        "tech": {
+          "label": "Tech / Dark Mode",
+          "description": "Modern and bold, inspired by Scalar"
+        },
+        "minimal": {
+          "label": "Clean / Minimalist",
+          "description": "Clean and elegant, inspired by Apple"
+        },
+        "corporate": {
+          "label": "Classic / Corporate",
+          "description": "Professional and structured"
+        }
+      }
+    },
+    "step4": {
+      "title": "Final details",
+      "subtitle": "How can we reach you?",
+      "name": "Full name",
+      "namePlaceholder": "John Doe",
+      "email": "Email address",
+      "emailPlaceholder": "john@example.com",
+      "whatsapp": "WhatsApp number",
+      "whatsappPlaceholder": "+1 000 000 0000",
+      "budget": "Estimated budget",
+      "budgetPlaceholder": "Select a budget",
+      "budgets": {
+        "500_1000": "$500 – $1,000",
+        "1000_3000": "$1,000 – $3,000",
+        "3000_plus": "$3,000+"
+      },
+      "details": "Project details",
+      "detailsPlaceholder": "Tell us briefly about your project...",
+      "submit": "Send my request"
+    },
+    "success": {
+      "title": "Thank you!",
+      "message": "Our team will contact you within 24 hours."
+    }
+  },
+  "processTimeline": {
+    "badge": "PROCESS",
+    "title": "How it works",
+    "subtitle": "A proven 4-step process to turn your vision into digital reality.",
+    "step1Title": "Discovery & Strategy",
+    "step1Description": "We analyze your needs, market and goals to define a tailored digital strategy.",
+    "step2Title": "Design & Prototyping",
+    "step2Description": "Creating interactive mockups and a premium design that reflects your brand identity.",
+    "step3Title": "Development & Testing",
+    "step3Description": "Clean, performant and tested code. Every feature is validated before going to production.",
+    "step4Title": "Launch & Growth",
+    "step4Description": "Deployment, SEO optimization and performance tracking for continuous growth."
+  },
+  "testimonials": {
+    "badge": "TESTIMONIALS",
+    "title": "What our clients say",
+    "subtitle": "Concrete results that speak for themselves.",
+    "testimonial1Text": "Bekasen transformed our online presence. The design is beautiful and our sales increased by 300% in 3 months.",
+    "testimonial1Name": "Marie-Claire Duval",
+    "testimonial1Role": "Founder, Lakay Market",
+    "testimonial2Text": "An exceptional team that truly understands the needs of the Haitian community. The result exceeds all our expectations.",
+    "testimonial2Name": "Jean-Baptiste Pierre",
+    "testimonial2Role": "CEO, Kreyòl Academy",
+    "testimonial3Text": "Professionalism, creativity and results. Bekasen is the ideal digital partner for the Haitian diaspora.",
+    "testimonial3Name": "Sophie Laurent",
+    "testimonial3Role": "Director, Diaspora Connect",
+    "stat1Label": "Sales increase",
+    "stat2Label": "Months to deliver",
+    "stat3Label": "Retention increase",
+    "stat4Label": "Client satisfaction",
+    "stat5Label": "Traffic growth",
+    "stat6Label": "Projects delivered"
+  },
+  "pricingFAQ": {
+    "badge": "PAYMENT & FAQ",
+    "title": "Payment & Questions",
+    "subtitle": "Everything you need to know before getting started.",
+    "paymentTitle": "Payment methods",
+    "paymentDescription": "We accept several methods for your convenience.",
+    "method1": "Credit / Debit card",
+    "method2": "Bank transfer",
+    "method3": "Mobile Money (MonCash)",
+    "method4": "PayPal / Zelle",
+    "faqTitle": "Frequently asked questions",
+    "faqBadge": "FAQS",
+    "faqHeading": "Have questions?! We've got you!",
+    "contactMessage": "Didn't find the answer? We're real people, just like you — ask us anything.",
+    "contactEmailLabel": "Email Us",
+    "contactWhatsappLabel": "Chat on WhatsApp",
+    "faq1Question": "How long does it take to create a website?",
+    "faq1Answer": "A premium showcase site is delivered in 1 to 2 weeks. A management application takes 3 to 4 weeks. Custom projects vary depending on complexity.",
+    "faq2Question": "Do you offer support after delivery?",
+    "faq2Answer": "Yes, all our packages include 30 days of free support after delivery. Monthly maintenance plans are also available.",
+    "faq3Question": "Can I edit the content myself?",
+    "faq3Answer": "Absolutely. We integrate an intuitive content management system so you can update your site easily.",
+    "faq4Question": "Do you work with international clients?",
+    "faq4Answer": "Yes, we serve clients worldwide, with a specialization for the Haitian community and diaspora.",
+    "faq5Question": "How does the payment process work?",
+    "faq5Answer": "We require a 50% deposit to start the project, and the remaining 50% upon final delivery.",
+    "contactEmail": "hello@bekasen.com",
+    "contactWhatsapp": "+1 (786) 555-0123"
+  },
+  "finalCTA": {
+    "badge": "READY TO START?",
+    "title": "Let's turn your vision into reality",
+    "subtitle": "Join the businesses that trust Bekasen for their digital transformation.",
+    "cta": "Start my project",
+    "clockLabel": "Miami time (EST)"
   },
   "footer": {
     "rights": "All rights reserved.",
-    "tagline": "Premium Digital Agency"
+    "tagline": "Premium Digital Agency",
+    "navTitle": "Navigation",
+    "servicesTitle": "Services",
+    "serviceWeb": "Premium Website",
+    "serviceBrand": "Digital Branding",
+    "serviceSEO": "SEO & Marketing",
+    "serviceApp": "Business Applications",
+    "contactTitle": "Contact",
+    "location": "Miami, FL — Port-au-Prince, HT",
+    "madeWith": "Made with passion for the Haitian community 🇭🇹"
   },
   "common": {
     "learnMore": "Learn more",
     "getStarted": "Get started",
     "viewAll": "View all",
     "backToHome": "Back to home"
+  },
+  "chatbot": {
+    "title": "Bekasen Assistant",
+    "openLabel": "Open chat",
+    "closeLabel": "Close chat",
+    "bubbleLabel": "Talk to assistant",
+    "inputPlaceholder": "Type your message…",
+    "sendLabel": "Send message",
+    "autoReply": "Thanks for your message! Our AI assistant is coming soon. In the meantime, feel free to use the quick questions below or contact us directly.",
+    "greeting": "Hi! 👋 I'm the Bekasen assistant. How can I help you?",
+    "quickRepliesLabel": "Quick questions:",
+    "faq": {
+      "services": {
+        "label": "Services",
+        "question": "What services does Bekasen offer?",
+        "answer": "We design and build high-performance websites, custom business applications, and AI-powered solutions — tailored for ambitious companies."
+      },
+      "pricing": {
+        "label": "Pricing",
+        "question": "How much do your services cost?",
+        "answer": "Our projects start from a discovery call. Pricing depends on scope, complexity and timeline. Visit our pricing page or start a project to get a custom quote."
+      },
+      "timeline": {
+        "label": "Timeline",
+        "question": "How long does a project take?",
+        "answer": "A typical website takes 4–8 weeks from kickoff to launch. Complex apps can take 8–16 weeks. We keep you in the loop at every stage."
+      },
+      "techStack": {
+        "label": "Tech stack",
+        "question": "What technologies do you use?",
+        "answer": "We work with Next.js, React, TypeScript, Tailwind CSS, Node.js, PostgreSQL and modern AI frameworks. Always the right tool for the job."
+      },
+      "contact": {
+        "label": "Contact",
+        "question": "How can I reach the team?",
+        "answer": "You can start a project through our form, or email us directly at hello@bekasen.com. We typically respond within 24 hours."
+      }
+    }
   }
 }
