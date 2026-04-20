@@ -30,7 +30,7 @@ export default function Hero() {
   const t = useTranslations("hero");
 
   return (
-    <section className="relative flex min-h-[90vh] items-center justify-center px-6 pt-24 overflow-x-hidden" style={{ clipPath: 'inset(0 0 -200px 0)' }}>
+    <section className="relative flex min-h-[90vh] items-center justify-center px-6 pt-24 overflow-clip" style={{ clipPath: 'inset(0 0 -200px 0)' }}>
       {/* Background glow effects - purely mauve/purple, no white/gray */}
       <div className="absolute inset-0 pointer-events-none text-transparent" aria-hidden="true">
         <div className="absolute inset-0 bg-bg-primary" />

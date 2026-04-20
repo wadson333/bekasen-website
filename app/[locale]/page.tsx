@@ -10,7 +10,7 @@ import FinalCTA from "@/components/home/FinalCTA";
 
 export default function HomePage() {
   return (
-    <main className="overflow-x-hidden">
+    <main className="overflow-x-clip">
       <Navbar />
       <Hero />
       <TechMarquee />

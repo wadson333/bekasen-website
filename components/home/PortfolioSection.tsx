@@ -257,7 +257,7 @@ export default function PortfolioSection() {
               <div className="p-4">
                 <div className="relative aspect-video overflow-hidden bg-white/[0.01]">
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className={`${mockupByTab[activeTab].width} ${mockupByTab[activeTab].height} ${mockupByTab[activeTab].radius} border border-white/[0.06] bg-white/[0.02] overflow-hidden flex flex-col transition-all duration-500`}>
+                    <div className={`${mockupByTab[activeTab].width} ${mockupByTab[activeTab].height} ${mockupByTab[activeTab].radius} border border-white/[0.06] bg-white/[0.02] overflow-hidden flex flex-col transition-[width,height,border-radius] duration-500`}>
                       {/* Browser chrome bar */}
                       <div className="flex items-center gap-1.5 px-3 py-2 bg-white/[0.04] border-b border-white/[0.06] shrink-0">
                         <div className="w-2 h-2 rounded-full bg-[#FF5F57]/70" />
@@ -270,6 +270,7 @@ export default function PortfolioSection() {
                       {/* Screenshot */}
                       <div className="relative flex-1 min-h-0">
                         <Image
+                          key={activeTab}
                           src={project.images[activeTab]}
                           alt={t(project.titleKey)}
                           fill
