@@ -27,6 +27,9 @@ const FAQ_KEYS = [
   'timeline',
   'techStack',
   'contact',
+  'portfolio',
+  'process',
+  'location',
 ] as const;
 
 export default function ChatBot() {
@@ -176,7 +179,7 @@ export default function ChatBot() {
     });
   };
 
-  const EnhancedFAQKeys = [...FAQ_KEYS, 'portfolio', 'process', 'location'] as const;
+  const EnhancedFAQKeys = [...FAQ_KEYS] as const;
 
   return (
     <>
