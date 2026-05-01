@@ -5,10 +5,10 @@ import { Link } from "@/i18n/navigation";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
-import avatarEntreprenor from "../../_docs/avatar_entreprenor.png";
-import avatarDoctor from "../../_docs/avatar_doctor.png";
-import avatarPastor from "../../_docs/avatar_pastor.png";
-import avatarCanditates from "../../_docs/avatar_canditates.png";
+import avatarEntreprenor from "../../_docs/images/hero_avatar_1.png";
+import avatarDoctor from "../../_docs/images/hero_avatar_2.png";
+import avatarPastor from "../../_docs/images/hero_avatar_3.png";
+import avatarCanditates from "../../_docs/images/hero_avatar_4.png";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 18 },
@@ -20,10 +20,10 @@ const fadeUp = {
 };
 
 const avatars = [
-  { src: avatarEntreprenor, alt: "Entrepreneur client", position: "object-[55%_28%]" },
-  { src: avatarDoctor, alt: "Doctor client", position: "object-[52%_24%]" },
-  { src: avatarPastor, alt: "Pastor client", position: "object-[50%_22%]" },
-  { src: avatarCanditates, alt: "Candidate client", position: "object-[50%_20%]" },
+  { src: avatarEntreprenor, alt: "Entrepreneur client", position: "object-center" },
+  { src: avatarDoctor, alt: "Doctor client", position: "object-center" },
+  { src: avatarPastor, alt: "Pastor client", position: "object-center" },
+  { src: avatarCanditates, alt: "Candidate client", position: "object-center" },
 ] as const;
 
 export default function Hero() {
@@ -31,19 +31,26 @@ export default function Hero() {
 
   return (
     <section className="relative flex min-h-[90vh] items-center justify-center px-6 pt-24 overflow-clip" style={{ clipPath: 'inset(0 0 -200px 0)' }}>
-      {/* Background glow effects - purely mauve/purple, no white/gray */}
-      <div className="absolute inset-0 pointer-events-none text-transparent" aria-hidden="true">
-        <div className="absolute inset-0 bg-bg-primary" />
+      <div className="absolute inset-0 pointer-events-none -z-10" aria-hidden="true">
+        <Image 
+          src="/images/home/hero_light.png" 
+          alt="Light Theme Background" 
+          fill 
+          priority 
+          sizes="100vw"
+          className="object-cover object-center opacity-80 dark:hidden" 
+        />
+        <Image 
+          src="/images/home/hero_dark.png" 
+          alt="Dark Theme Background" 
+          fill 
+          priority 
+          sizes="100vw"
+          className="hidden object-cover object-center opacity-80 dark:block" 
+        />
         
-        {/* Soft upper ambient glow */}
-        <div className="absolute left-1/2 top-[10%] h-[30vh] w-[40vw] -translate-x-1/2 rounded-full bg-purple-500/10 blur-[100px]" />
-        
-        {/* Rich bottom mauve/purple glow */}
-        <div className="absolute -bottom-[20%] left-[-10%] h-[40vh] w-[60%] rounded-[100%] bg-purple-600/15 blur-[120px] dark:bg-purple-600/20" />
-        <div className="absolute -bottom-[20%] right-[-10%] h-[40vh] w-[60%] rounded-[100%] bg-fuchsia-600/15 blur-[120px] dark:bg-fuchsia-600/20" />
-        
-        {/* Very subtle transition at the bottom edge */}
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-linear-to-t from-purple-500/5 to-transparent" />
+        {/* Very subtle transition at the bottom edge to blend into the rest of the page */}
+        <div className="absolute inset-x-0 bottom-0 h-48 bg-linear-to-t from-[var(--bg-primary)] via-[var(--bg-primary)]/50 to-transparent" />
       </div>
 
       <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center text-center">
@@ -107,7 +114,7 @@ export default function Hero() {
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 className="relative h-12 w-12 cursor-pointer overflow-hidden rounded-full border-2 border-bg-primary shadow-sm"
               >
-                <div className="absolute inset-0 scale-[1.35] origin-center">
+                <div className="absolute inset-0">
                   <Image
                     src={avatar.src}
                     alt={avatar.alt}

@@ -38,15 +38,19 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16 lg:h-20">
         {/* Logo */}
         <Link href="/" className="flex items-center group relative h-8 w-32">
-          <img
+          <Image
             src="/logo-dark-clean.png"
             alt="Bekasen"
-            className="absolute inset-0 h-full w-auto object-contain block dark:hidden"
+            fill
+            sizes="128px"
+            className="object-contain block dark:hidden"
           />
-          <img
+          <Image
             src="/logo-clean.png"
             alt="Bekasen"
-            className="absolute inset-0 h-full w-auto object-contain hidden dark:block"
+            fill
+            sizes="128px"
+            className="object-contain hidden dark:block"
           />
         </Link>
 
@@ -54,12 +58,12 @@ export default function Navbar() {
         <ul className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => (
             <li key={link.href}>
-              <a
+              <Link
                 href={link.href}
                 className="text-sm text-text-secondary hover:text-text-primary transition-colors duration-200 cursor-pointer"
               >
                 {link.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -70,13 +74,21 @@ export default function Navbar() {
 
           <LanguageSwitcher />
 
+          {/* Portal Link */}
+          <Link
+            href="/portal"
+            className="hidden lg:inline-flex text-sm font-medium text-text-secondary hover:text-text-primary transition-colors cursor-pointer mr-2"
+          >
+            {t("portal")}
+          </Link>
+
           {/* Contact CTA */}
-          <a
-            href="/#contact"
+          <Link
+            href="/contact"
             className="hidden lg:inline-flex items-center gap-2 rounded-full bg-purple-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-purple-500 transition-colors cursor-pointer"
           >
-            {t("startProject")}
-          </a>
+            {t("contact")}
+          </Link>
 
           {/* Mobile menu button */}
           <button
@@ -103,23 +115,23 @@ export default function Navbar() {
             <ul className="flex flex-col gap-1 px-6 py-4">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <a
+                  <Link
                     href={link.href}
                     className="block py-3 text-text-secondary hover:text-text-primary transition-colors cursor-pointer"
                     onClick={() => setIsOpen(false)}
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
               <li className="pt-2">
-                <a
-                  href="/#contact"
+                <Link
+                  href="/contact"
                   className="inline-flex items-center gap-2 rounded-full bg-purple-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-purple-500 transition-colors cursor-pointer"
                   onClick={() => setIsOpen(false)}
                 >
-                  {t("startProject")}
-                </a>
+                  {t("contact")}
+                </Link>
               </li>
             </ul>
           </motion.div>

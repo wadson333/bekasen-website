@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { ArrowRight, Clock } from "lucide-react";
@@ -29,9 +30,29 @@ export default function FinalCTA() {
   }, []);
 
   return (
-    <section id="contact" className="py-32 md:py-40 bg-bg-secondary relative overflow-hidden">
+    <section id="contact" className="py-32 md:py-40 bg-bg-secondary relative overflow-hidden z-0">
+      {/* Background Images */}
+      <div className="absolute inset-0 -z-10">
+        <Image
+          src="/images/home/cta_light.png"
+          alt="Abstract Background Light"
+          fill
+          priority
+          className="object-cover dark:hidden"
+        />
+        <Image
+          src="/images/home/cta_dark.png"
+          alt="Abstract Background Dark"
+          fill
+          priority
+          className="object-cover hidden dark:block"
+        />
+        {/* Semi-transparent tint overlay to ensure text readability */}
+        <div className="absolute inset-0 bg-white/70 dark:bg-black/60 pointer-events-none" />
+      </div>
+
       {/* Gradient background orbs */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none -z-10">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-purple-500/5 blur-3xl" />
         <div className="absolute top-1/4 right-1/4 w-[300px] h-[300px] rounded-full bg-indigo-500/5 blur-3xl" />
       </div>

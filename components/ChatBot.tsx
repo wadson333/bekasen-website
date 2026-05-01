@@ -1,9 +1,15 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, X, Send, Bot, User, Loader2 } from 'lucide-react';
+import {
+  ensureChatSessionId,
+  readConsentPreferences,
+  type ConsentPreferences,
+} from '@/lib/consent';
+import { loadLocalChatHistory, saveLocalChatHistory, type StoredChatMessage } from '@/lib/chat-history';
 
 interface Message {
   id: number;
@@ -19,6 +25,33 @@ interface ChatResponse {
   category?: string;
   suggestions?: string[];
   suggestedQuestions?: string[];
+}
+
+interface PersistedChatMessage {
+  id: string;
+  role: 'user' | 'assistant';
+  content: string;
+  createdAt: string;
+}
+
+function isSameConsent(
+  a: ConsentPreferences | null,
+  b: ConsentPreferences | null,
+): boolean {
+  if (a === b) {
+    return true;
+  }
+
+  if (!a || !b) {
+    return false;
+  }
+
+  return (
+    a.version === b.version &&
+    a.preferences === b.preferences &&
+    a.aiChat === b.aiChat &&
+    a.updatedAt === b.updatedAt
+  );
 }
 
 const FAQ_KEYS = [
@@ -41,21 +74,14 @@ export default function ChatBot() {
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [connectionStatus, setConnectionStatus] = useState<'idle' | 'connected' | 'error'>('idle');
+  const [consent, setConsent] = useState<ConsentPreferences | null>(null);
+  const [chatSessionId, setChatSessionId] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const syncTimeoutRef = useRef<number | null>(null);
+  const lastSyncedMessageCountRef = useRef(0);
 
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages]);
-
-  useEffect(() => {
-    // Test API connection when chatbot opens
-    if (isOpen && connectionStatus === 'idle') {
-      checkApiConnection();
-    }
-  }, [isOpen]);
-
-  const checkApiConnection = async () => {
+  const checkApiConnection = useCallback(async () => {
     try {
       const response = await fetch('/api/chat');
       if (response.ok) {
@@ -66,7 +92,186 @@ export default function ChatBot() {
     } catch (error) {
       setConnectionStatus('error');
     }
-  };
+  }, []);
+
+  const toStoredMessage = useCallback((message: Message): StoredChatMessage => ({
+    id: message.id,
+    text: message.text,
+    sender: message.sender,
+    timestamp: message.timestamp,
+  }), []);
+
+  const fromStoredMessage = useCallback((message: StoredChatMessage): Message => ({
+    id: message.id,
+    text: message.text,
+    sender: message.sender,
+    timestamp: message.timestamp,
+  }), []);
+
+  const fromPersistedMessage = useCallback((message: PersistedChatMessage, index: number): Message => ({
+    id: Number(message.id) || Date.parse(message.createdAt) || index + 1,
+    text: message.content,
+    sender: message.role === 'assistant' ? 'bot' : 'user',
+    timestamp: Date.parse(message.createdAt) || Date.now(),
+  }), []);
+
+  const ensureChatSession = useCallback(async (nextConsent: ConsentPreferences | null = null) => {
+    const localSessionId = ensureChatSessionId();
+    setChatSessionId(localSessionId);
+
+    if (!nextConsent?.aiChat) {
+      return localSessionId;
+    }
+
+    const response = await fetch('/api/chat/session', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ locale }),
+    });
+
+    if (!response.ok) {
+      return localSessionId;
+    }
+
+    const body = await response.json() as { sessionId?: unknown };
+
+    if (typeof body.sessionId !== 'string') {
+      return localSessionId;
+    }
+
+    setChatSessionId(body.sessionId);
+
+    return body.sessionId;
+  }, [locale]);
+
+  const flushChatHistory = useCallback(async (nextMessages: Message[]) => {
+    if (!consent?.aiChat || !chatSessionId || nextMessages.length === 0) {
+      return;
+    }
+
+    if (syncTimeoutRef.current) {
+      window.clearTimeout(syncTimeoutRef.current);
+      syncTimeoutRef.current = null;
+    }
+
+    const response = await fetch('/api/chat/history', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        locale,
+        messages: nextMessages.map(toStoredMessage),
+      }),
+    });
+
+    if (!response.ok) {
+      return;
+    }
+
+    lastSyncedMessageCountRef.current = nextMessages.length;
+  }, [chatSessionId, consent?.aiChat, locale, toStoredMessage]);
+
+  const initializeChatHistory = useCallback(async (nextConsent: ConsentPreferences | null) => {
+    const sessionId = ensureChatSessionId();
+    setChatSessionId(sessionId);
+
+    const cachedMessages = loadLocalChatHistory(sessionId).map(fromStoredMessage);
+
+    if (cachedMessages.length > 0) {
+      setMessages(cachedMessages);
+      setHasGreeted(true);
+    }
+
+    if (!nextConsent?.aiChat) {
+      return;
+    }
+
+    await ensureChatSession(nextConsent);
+
+    const response = await fetch('/api/chat/history');
+
+    if (!response.ok) {
+      return;
+    }
+
+    const body = await response.json() as { messages?: PersistedChatMessage[] };
+    const persistedMessages = Array.isArray(body.messages) ? body.messages.map(fromPersistedMessage) : [];
+
+    if (cachedMessages.length === 0 && persistedMessages.length > 0) {
+      lastSyncedMessageCountRef.current = persistedMessages.length;
+      setMessages(persistedMessages);
+      setHasGreeted(true);
+    }
+  }, [ensureChatSession, fromPersistedMessage, fromStoredMessage]);
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
+
+  useEffect(() => {
+    // Test API connection when chatbot opens
+    if (isOpen && connectionStatus === 'idle') {
+      checkApiConnection();
+    }
+  }, [isOpen, connectionStatus, checkApiConnection]);
+
+  useEffect(() => {
+    const currentConsent = readConsentPreferences();
+    setConsent((previousConsent) =>
+      isSameConsent(previousConsent, currentConsent) ? previousConsent : currentConsent,
+    );
+
+    void initializeChatHistory(currentConsent);
+  }, [locale, initializeChatHistory]);
+
+  useEffect(() => {
+    const handleConsentChange = (event: Event) => {
+      const nextConsent = (event as CustomEvent<ConsentPreferences | null>).detail;
+      setConsent(nextConsent);
+
+      void initializeChatHistory(nextConsent);
+    };
+
+    window.addEventListener('bekasen-consent-change', handleConsentChange);
+    return () => window.removeEventListener('bekasen-consent-change', handleConsentChange);
+  }, [initializeChatHistory]);
+
+  useEffect(() => {
+    if (!chatSessionId) {
+      return;
+    }
+
+    saveLocalChatHistory(chatSessionId, messages.map(toStoredMessage));
+  }, [chatSessionId, messages, toStoredMessage]);
+
+  useEffect(() => {
+    if (!chatSessionId || !consent?.aiChat || messages.length === 0) {
+      return;
+    }
+
+    const unsyncedMessages = messages.length - lastSyncedMessageCountRef.current;
+
+    if (unsyncedMessages >= 10) {
+      void flushChatHistory(messages);
+      return;
+    }
+
+    if (syncTimeoutRef.current) {
+      window.clearTimeout(syncTimeoutRef.current);
+    }
+
+    syncTimeoutRef.current = window.setTimeout(() => {
+      void flushChatHistory(messages);
+    }, 30_000);
+
+    return () => {
+      if (syncTimeoutRef.current) {
+        window.clearTimeout(syncTimeoutRef.current);
+        syncTimeoutRef.current = null;
+      }
+    };
+  }, [chatSessionId, consent?.aiChat, messages, flushChatHistory]);
 
   const handleOpen = () => {
     if (!hasGreeted) {
@@ -84,13 +289,7 @@ export default function ChatBot() {
 
   const handleFaqClick = (key: (typeof FAQ_KEYS)[number]) => {
     const question = t(`faq.${key}.question`);
-    const answer = t(`faq.${key}.answer`);
-
-    setMessages((prev) => [
-      ...prev,
-      { id: Date.now(), text: question, sender: 'user', timestamp: Date.now() },
-      { id: Date.now() + 1, text: answer, sender: 'bot', timestamp: Date.now() + 1 },
-    ]);
+    void sendMessage(question);
   };
 
   const sendToChatAPI = async (userMessage: string): Promise<ChatResponse> => {
@@ -117,8 +316,7 @@ export default function ChatBot() {
     }
   };
 
-  const handleSendMessage = async () => {
-    const trimmed = inputValue.trim();
+  const sendMessage = async (trimmed: string) => {
     if (!trimmed || isLoading) return;
 
     // Add user message
@@ -165,6 +363,11 @@ export default function ChatBot() {
     }
   };
 
+  const handleSendMessage = async () => {
+    const trimmed = inputValue.trim();
+    await sendMessage(trimmed);
+  };
+
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
@@ -186,14 +389,14 @@ export default function ChatBot() {
       {/* Floating trigger button */}
       <motion.button
         onClick={handleOpen}
-        className="fixed bottom-6 right-6 z-50 flex items-center gap-2 rounded-full bg-gradient-to-r from-purple-700 to-indigo-700 px-4 py-3 text-white shadow-xl hover:from-purple-600 hover:to-indigo-600 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2"
+        className="fixed bottom-6 right-6 z-50 flex items-center gap-2 rounded-full bg-linear-to-r from-purple-700 to-indigo-700 px-4 py-3 text-white shadow-xl hover:from-purple-600 hover:to-indigo-600 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         aria-label={t('openLabel')}
         style={{ display: isOpen ? 'none' : 'flex' }}
       >
         <MessageCircle className="h-5 w-5" />
-        <span className="text-sm font-medium font-[family-name:var(--font-inter)]">
+        <span className="font-(family-name:--font-inter) text-sm font-medium">
           {t('bubbleLabel')}
         </span>
         {connectionStatus === 'connected' && (
@@ -209,20 +412,20 @@ export default function ChatBot() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="fixed bottom-6 right-6 z-50 flex h-[32rem] w-[24rem] flex-col overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--bg-secondary)] shadow-2xl"
+            className="fixed bottom-6 right-6 z-50 flex h-128 w-96 flex-col overflow-hidden rounded-2xl border border-border bg-bg-secondary shadow-2xl max-sm:inset-x-4 max-sm:bottom-4 max-sm:h-[calc(100dvh-2rem)] max-sm:w-auto"
           >
             {/* Header */}
-            <div className="flex items-center justify-between bg-gradient-to-r from-purple-700 to-indigo-700 px-4 py-3 text-white">
+            <div className="flex items-center justify-between bg-linear-to-r from-purple-700 to-indigo-700 px-4 py-3 text-white">
               <div className="flex items-center gap-2">
                 <Bot className="h-4 w-4" />
-                <span className="text-sm font-semibold font-[family-name:var(--font-syne)]">
+                <span className="font-(family-name:--font-syne) text-sm font-semibold">
                   {t('title')}
                 </span>
                 {connectionStatus === 'connected' && (
-                  <span className="text-xs text-green-300">• Online</span>
+                  <span className="text-xs text-green-300">• {t('statusOnline')}</span>
                 )}
                 {connectionStatus === 'error' && (
-                  <span className="text-xs text-amber-300">• Limited</span>
+                  <span className="text-xs text-amber-300">• {t('statusLimited')}</span>
                 )}
               </div>
               <button
@@ -240,8 +443,8 @@ export default function ChatBot() {
                 <div className="flex h-full items-center justify-center text-center">
                   <div className="max-w-[80%] space-y-2">
                     <Bot className="mx-auto h-8 w-8 text-purple-400" />
-                    <p className="text-sm text-[var(--text-secondary)]">
-                      Hi! I'm your Bekasen assistant. Ask me about services, pricing, or anything else!
+                    <p className="text-sm text-text-secondary">
+                      {t('emptyState')}
                     </p>
                   </div>
                 </div>
@@ -258,11 +461,11 @@ export default function ChatBot() {
                         ) : (
                           <User className="h-3 w-3 text-purple-300" />
                         )}
-                        <span className="text-xs text-[var(--text-secondary)]">
-                          {msg.sender === 'bot' ? 'Bekasen Assistant' : 'You'}
+                        <span className="text-xs text-text-secondary">
+                          {msg.sender === 'bot' ? t('botLabel') : t('userLabel')}
                         </span>
                         {msg.timestamp && (
-                          <span className="text-xs text-[var(--text-tertiary)]">
+                          <span className="text-xs text-text-tertiary">
                             {formatTime(msg.timestamp)}
                           </span>
                         )}
@@ -270,8 +473,8 @@ export default function ChatBot() {
                       <div
                         className={`rounded-xl px-3 py-2 text-sm leading-relaxed ${
                           msg.sender === 'user'
-                            ? 'bg-gradient-to-r from-purple-700 to-indigo-700 text-white'
-                            : 'bg-[var(--bg-primary)] text-[var(--text-primary)] border border-[var(--border)]'
+                            ? 'bg-linear-to-r from-purple-700 to-indigo-700 text-white'
+                            : 'border border-border bg-bg-primary text-text-primary'
                         }`}
                       >
                         {msg.text}
@@ -285,14 +488,14 @@ export default function ChatBot() {
                   <div className="flex max-w-[85%] flex-col">
                     <div className="flex items-center gap-2 mb-1">
                       <Bot className="h-3 w-3 text-purple-400" />
-                      <span className="text-xs text-[var(--text-secondary)]">
-                        Bekasen Assistant
+                      <span className="text-xs text-text-secondary">
+                        {t('botLabel')}
                       </span>
                     </div>
-                    <div className="rounded-xl bg-[var(--bg-primary)] border border-[var(--border)] px-3 py-2 text-sm">
+                    <div className="rounded-xl border border-border bg-bg-primary px-3 py-2 text-sm">
                       <div className="flex items-center gap-2">
                         <Loader2 className="h-3 w-3 animate-spin text-purple-400" />
-                        <span className="text-[var(--text-secondary)]">Thinking...</span>
+                        <span className="text-text-secondary">{t('thinking')}</span>
                       </div>
                     </div>
                   </div>
@@ -302,8 +505,8 @@ export default function ChatBot() {
             </div>
 
             {/* Quick reply buttons */}
-            <div className="border-t border-[var(--border)] px-4 py-3">
-              <p className="mb-2 text-xs text-[var(--text-secondary)] font-medium">
+            <div className="border-t border-border px-4 py-3">
+              <p className="mb-2 text-xs font-medium text-text-secondary">
                 {t('quickRepliesLabel')}
               </p>
               <div className="flex flex-wrap gap-2">
@@ -325,7 +528,7 @@ export default function ChatBot() {
             </div>
 
             {/* Custom message input */}
-            <div className="border-t border-[var(--border)] px-4 py-3 bg-[var(--bg-primary)]">
+            <div className="border-t border-border bg-bg-primary px-4 py-3">
               <div className="flex items-center gap-2">
                 <input
                   ref={inputRef}
@@ -335,12 +538,12 @@ export default function ChatBot() {
                   onKeyDown={handleKeyDown}
                   placeholder={t('inputPlaceholder')}
                   disabled={isLoading}
-                  className="flex-1 rounded-lg border border-[var(--border)] bg-[var(--bg-primary)] px-3 py-2.5 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-secondary)] focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500 disabled:opacity-50 transition-colors"
+                  className="flex-1 rounded-lg border border-border bg-bg-primary px-3 py-2.5 text-sm text-text-primary transition-colors placeholder:text-text-secondary focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500 disabled:opacity-50"
                 />
                 <button
                   onClick={handleSendMessage}
                   disabled={!inputValue.trim() || isLoading}
-                  className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-r from-purple-700 to-indigo-700 text-white transition-all hover:from-purple-600 hover:to-indigo-600 disabled:opacity-40 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-purple-400 active:scale-95"
+                  className="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-r from-purple-700 to-indigo-700 text-white transition-all hover:from-purple-600 hover:to-indigo-600 focus:outline-none focus:ring-2 focus:ring-purple-400 active:scale-95 disabled:cursor-not-allowed disabled:opacity-40"
                   aria-label={t('sendLabel')}
                 >
                   {isLoading ? (
@@ -350,8 +553,8 @@ export default function ChatBot() {
                   )}
                 </button>
               </div>
-              <p className="mt-2 text-xs text-[var(--text-tertiary)] text-center">
-                Ask about services, pricing, timeline, or anything else!
+              <p className="mt-2 text-center text-xs text-text-tertiary">
+                {t('emptyState')}
               </p>
             </div>
           </motion.div>

@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import Image from "next/image";
 import { Mail, Phone, MapPin } from "lucide-react";
 
 export default function Footer() {
@@ -13,22 +14,26 @@ export default function Footer() {
   return (
     <footer className="border-t border-border bg-bg-secondary">
       <div className="max-w-6xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-10 md:gap-8">
           {/* Brand */}
           <div className="md:col-span-1">
             <Link
               href="/"
               className="inline-block relative h-6 w-24"
             >
-              <img
+              <Image
                 src="/logo-dark-clean.png"
                 alt="Bekasen"
-                className="absolute inset-0 h-full w-auto object-contain block dark:hidden"
+                fill
+                sizes="96px"
+                className="object-contain block dark:hidden"
               />
-              <img
+              <Image
                 src="/logo-clean.png"
                 alt="Bekasen"
-                className="absolute inset-0 h-full w-auto object-contain hidden dark:block"
+                fill
+                sizes="96px"
+                className="object-contain hidden dark:block"
               />
             </Link>
             <p className="mt-2 text-sm text-text-secondary leading-relaxed">
@@ -43,36 +48,36 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2">
               <li>
-                <a
+                <Link
                   href="/#services"
                   className="text-sm text-text-secondary hover:text-purple-400 transition-colors"
                 >
                   {tNav("services")}
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/#portfolio"
                   className="text-sm text-text-secondary hover:text-purple-400 transition-colors"
                 >
                   {tNav("portfolio")}
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/#faq"
                   className="text-sm text-text-secondary hover:text-purple-400 transition-colors"
                 >
                   {tNav("faq")}
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/#process"
                   className="text-sm text-text-secondary hover:text-purple-400 transition-colors"
                 >
                   {tNav("process")}
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -84,20 +89,20 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2">
               <li>
-                <a
+                <Link
                   href="/#services"
                   className="text-sm text-text-secondary hover:text-purple-400 transition-colors"
                 >
                   {t("serviceWeb")}
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/#services"
                   className="text-sm text-text-secondary hover:text-purple-400 transition-colors"
                 >
                   {t("serviceApp")}
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -131,6 +136,39 @@ export default function Footer() {
                 <span className="text-sm text-text-secondary">
                   {t("location")}
                 </span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Legal */}
+          <div>
+            <h4 className="text-sm font-semibold text-text-primary font-[family-name:var(--font-syne)] mb-4">
+              {t("legalTitle")}
+            </h4>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  href="/privacy"
+                  className="text-sm text-text-secondary hover:text-purple-400 transition-colors"
+                >
+                  {t("privacy")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/terms"
+                  className="text-sm text-text-secondary hover:text-purple-400 transition-colors"
+                >
+                  {t("terms")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/disclaimer"
+                  className="text-sm text-text-secondary hover:text-purple-400 transition-colors"
+                >
+                  {t("disclaimer")}
+                </Link>
               </li>
             </ul>
           </div>

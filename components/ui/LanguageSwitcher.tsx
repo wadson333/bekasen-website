@@ -5,6 +5,7 @@ import { useLocale } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { saveSelectedLocale } from "@/lib/consent";
 
 const locales = [
   { code: "fr", label: "Français", flag: "🇫🇷" },
@@ -28,6 +29,11 @@ export default function LanguageSwitcher() {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+  const handleLocaleSelect = (nextLocale: string) => {
+    saveSelectedLocale(nextLocale);
+    setOpen(false);
+  };
 
   return (
     <div className="relative" ref={ref}>
@@ -55,7 +61,7 @@ export default function LanguageSwitcher() {
                 key={code}
                 href={pathname}
                 locale={code}
-                onClick={() => setOpen(false)}
+                onClick={() => handleLocaleSelect(code)}
                 className={`flex items-center gap-2 w-full text-left px-4 py-2.5 text-sm transition-colors cursor-pointer ${
                   code === locale
                     ? "bg-purple-600/15 text-purple-400 font-medium"

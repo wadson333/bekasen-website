@@ -48,7 +48,7 @@
     "whoBehindBadge": "KIYÈS KI DÈYÈ BEKASEN ?",
     "whoBehindTitle": "Nou kreye platfòm ou yo tankou se",
     "whoBehindTitleAccent": "pa nou.",
-    "whoBehindDescription": "Bekasen se yon ajans dijital premium ki soti nan dyaspora ayisyen an. Nou pa jis founisè sèvis — nou se patnè teknik ou. Chak pwojè resevwa menm pasyon ak rigè tankou si nou tap konstwi l pou tèt nou.",
+    "whoBehindDescription": "Nou bati platfòm ou yo tankou se pa nou.\n\nBekasen se yon ajans dijital premyòm ak yon mantal mondyal, rasin nan rezilians ak pèspektiv dyaspora ayisyen an. Nou pa jis founisè sèvis — nou se patnè teknik ou.\n\nAvèk plis pase 6 zan eksperyans nan sektè piblik ak prive, nou delivre solisyon ki ka grandi, ki serye, ak ki sonje konstwi.\n\nNou travay ak ekip patou nan mond lan, konstwi teknoloji ki sèvi ak biznis ak komunite a.",
     "title": "Ekselans teknik ki pouse vizyon ou pi devan.",
     "kineticText1": "Konsepsyon.",
     "kineticText2": "Kòd.",
@@ -59,6 +59,9 @@
     "viewProject": "Wè pwojè a",
     "showDetails": "Wè detay yo",
     "hideDetails": "Kache detay yo",
+    "inDev": "An dev",
+    "scrollPrevious": "Fè portfolio a glise sou bò goch",
+    "scrollNext": "Fè portfolio a glise sou bò dwat",
     "ctaAll": "Eksplore tout pwojè yo",
     "project1Title": "Clinix Pro",
     "project1Description": "ERP medikal konplè ak jesyon pasyan, randevou ak faktirasyon.",
@@ -76,24 +79,24 @@
     "subtitle": "Solisyon dijital pèsonalize pou pouse biznis ou pi devan.",
     "cta": "Kòmanse",
     "priceLabel": "Apati",
-    "service1Title": "Sit Wèb Vitrin Premium",
-    "service1Description": "Yon sit wèb elegant ak pèfòman ki reflete ekselans mak ou. Dizayn pèsonalize, animasyon flwid ak optimize SEO.",
-    "service1Price": "500 $",
-    "service1Timeline": "1 a 2 semèn",
+    "service1Title": "Sit Wèb Estatik Senp",
+    "service1Description": "Yon sit vitrin estatik, elegant ak senp pou montre prezans ou sou entènèt ak yon dizayn pèsonalize.",
+    "service1Price": "200 $",
+    "service1Timeline": "1 semèn maksimòm",
     "service1Feature1": "Dizayn responsiv premium",
     "service1Feature2": "Animasyon Framer Motion",
     "service1Feature3": "Optimize SEO avanse",
-    "service2Title": "Sit E-komès / Manadjè",
-    "service2Description": "Boutik anliy konplè ou ak jesyon pwodwi, peman sekirize ak tablo bò administrasyon.",
-    "service2Price": "1 200 $",
-    "service2Timeline": "3 a 4 semèn",
-    "service2Feature1": "Peman Stripe entegre",
+    "service2Title": "Sit Dinamik ak CMS",
+    "service2Description": "Yon sit wèb ki ekipe ak yon jesyonè senp pou modifye epi ajoute kontni yon fason dinamik.",
+    "service2Price": "500 $",
+    "service2Timeline": "2 semèn",
+    "service2Feature1": "Sistèm Jesyon Kontni (CMS)",
     "service2Feature2": "Tablo bò administrasyon",
-    "service2Feature3": "Jesyon envantè",
-    "service3Title": "Aplikasyon Biznis & IA",
-    "service3Description": "Aplikasyon biznis entelijan ak otomatizasyon IA, workflow pèsonalize ak entegrasyon avanse.",
+    "service2Feature3": "Mizajou dinamik",
+    "service3Title": "Aplikasyon Wèb Konplèks",
+    "service3Description": "Pou aplikasyon ki pi konplèks, workflow pèsonalize ak entegrasyon avanse, kontakte nou.",
     "service3Price": "Sou devi",
-    "service3Timeline": "Antretyen IA enkli",
+    "service3Timeline": "Delè pèsonalize",
     "service3Feature1": "Otomatizasyon IA pèsonalize",
     "service3Feature2": "Entegrasyon API avanse",
     "service3Feature3": "Sipò ak antretyen kontinyèl"
@@ -108,35 +111,36 @@
   },
   "contact": {
     "badge": "KONTAK",
-    "title": "Kontakte Nou",
-    "subtitle": "Ann pale sou pwochen pwojè w.",
-    "formTitle": "Voye yon mesaj ban nou",
-    "formSubtitle": "Ranpli fòm sa a epi n ap reponn ou byen vit.",
-    "labelName": "Non konplè",
-    "placeholderName": "Jan Batis",
-    "labelEmail": "Adrès imèl",
+    "listeningTitle": "Ann travay ansanm.",
+    "listeningSubtitle": "Nou toujou ap chache nouvo pwojè ak patnè.",
+    "contactInfo": {
+      "emailTitle": "Imèl",
+      "phoneTitle": "Telefòn",
+      "addressTitle": "Adrès",
+      "socialsTitle": "Swiv nou",
+      "addressLine1": "Delmas 75",
+      "addressLine2": "Pòtoprens, Ayiti",
+      "phoneValue": "+509 3000-0000",
+      "emailValue": "hello@bekasen.com"
+    },
+    "labelFirstName": "Non",
+    "placeholderFirstName": "Jan",
+    "labelLastName": "Siyati",
+    "placeholderLastName": "Jozèf",
+    "labelEmail": "Imèl",
     "placeholderEmail": "jan@egzanp.com",
+    "labelPhone": "Telefòn",
+    "placeholderPhone": "+509 0000-0000",
     "labelSubject": "Sijè",
-    "subjectDefault": "Chwazi yon sijè",
-    "subjectWebsite": "Sit wèb",
-    "subjectBranding": "Branding & idantite vizyèl",
-    "subjectApp": "Aplikasyon mobil",
-    "subjectOther": "Lòt",
+    "placeholderSubject": "Kijan nou ka ede w?",
     "labelMessage": "Mesaj",
-    "placeholderMessage": "Dekri pwojè w oswa kesyon w...",
-    "submitButton": "Voye mesaj la",
-    "successTitle": "Mesaj voye !",
-    "successMessage": "Mèsi pou mesaj ou. Ekip nou an ap reponn ou nan 24 èdtan.",
-    "backHome": "Retounen lakay",
-    "infoTitle": "Enfòmasyon kontak",
-    "infoSubtitle": "Ou ka kontakte nou dirèkteman tou.",
-    "infoEmail": "Imèl",
-    "infoPhone": "Telefòn",
-    "infoLocation": "Lokasyon",
-    "infoWhatsapp": "Ekri nou sou WhatsApp",
-    "ctaTitle": "Ou gen yon pwojè presi ?",
-    "ctaDescription": "Sèvi ak asistan pwojè nou an pou jwenn yon estimasyon gratis nan kèk minit.",
-    "ctaLink": "Kòmanse pwojè a"
+    "placeholderMessage": "Pale nou de pwojè w la",
+    "submitButton": "Voye mesaj",
+    "successTitle": "Koulye a!",
+    "successMessage": "Mèsi. N ap kontakte w.",
+    "startAProject": "Kòmanse yon pwojè",
+    "partnerWithUs": "Patenè avèk nou",
+    "reachUsOut": "Kontakte nou"
   },
   "startProject": {
     "title": "Kòmanse yon Pwojè",
@@ -288,7 +292,11 @@
     "serviceApp": "Aplikasyon Biznis",
     "contactTitle": "Kontak",
     "location": "Miami, FL — Pòtoprens, HT",
-    "madeWith": "Fèt ak pasyon pou kominote ayisyen an 🇭🇹"
+    "madeWith": "Fèt ak pasyon pou kominote ayisyen an 🇭🇹",
+    "legalTitle": "Legal",
+    "privacy": "Polisik Konfidansyalite",
+    "terms": "Kondisyon itilizasyon",
+    "disclaimer": "Avètisman legal"
   },
   "common": {
     "learnMore": "Aprann plis",
@@ -296,8 +304,29 @@
     "viewAll": "Wè tout",
     "backToHome": "Retounen akèy"
   },
+  "consent": {
+    "title": "Preferans konfidansyalite",
+    "description": "Nou itilize sèlman depo ou dakò avèk yo : preferans sit la, lang, tèm ak istorik chat IA a. Istorik la sove lokalman epi, si ou dakò, nan baz Postgres nou an ak yon sesyon anonim.",
+    "preferencesTitle": "Preferans sit la",
+    "preferencesDescription": "Sove tèm, lang ou chwazi a ak preferans entèfas yo.",
+    "aiChatTitle": "Memwa chat IA",
+    "aiChatDescription": "Sove istorik chat ou lokalman ak nan Postgres pou ou ka reprann konvèsasyon an pita.",
+    "acceptAll": "Aksepte tout",
+    "rejectAll": "Refize tout",
+    "customize": "Pèsonalize",
+    "hideCustomize": "Kache opsyon yo",
+    "saveChoices": "Sove chwa mwen yo",
+    "manage": "Jere preferans yo",
+    "close": "Fèmen preferans yo"
+  },
   "chatbot": {
     "title": "Asistan Bekasen",
+    "userLabel": "Ou",
+    "botLabel": "Asistan",
+    "thinking": "Ap reflechi...",
+    "statusOnline": "Anliy",
+    "statusLimited": "Limite",
+    "emptyState": "Poze kesyon sou sèvis, tarif, delè oswa pwojè nou yo.",
     "openLabel": "Ouvri chat la",
     "closeLabel": "Fèmen chat la",
     "bubbleLabel": "Pale ak asistan an",
@@ -306,6 +335,10 @@
     "autoReply": "Mèsi pou mesaj ou ! Asistan IA nou an ap vini byento. Annatandan, itilize kesyon rapid yo anba a oswa kontakte nou dirèkteman.",
     "greeting": "Bonjou ! 👋 Mwen se asistan Bekasen. Kijan mwen ka ede w ?",
     "quickRepliesLabel": "Kesyon rapid :",
+    "memoryNoticeTitle": "Memwa chat la",
+    "memoryNoticeDescription": "Pou sove istorik chat la epi kontinye pita, aksepte memwa chat la. San pèmisyon, konvèsasyon an rete sèlman nan sesyon sa a.",
+    "acceptMemory": "Sove istorik mwen",
+    "declineMemory": "Kontinye san memwa",
     "faq": {
       "services": {
         "label": "Sèvis",
@@ -331,7 +364,205 @@
         "label": "Kontak",
         "question": "Kijan pou kontakte ekip la ?",
         "answer": "Ou ka kòmanse yon pwojè atravè fòmilè nou an oswa ekri nou dirèkteman nan hello@bekasen.com. Nou reponn jeneralman nan 24 è."
+      },
+      "portfolio": {
+        "label": "Pòtfolyo",
+        "question": "Èske ou ka montre m kèk pwojè resan ?",
+        "answer": "Wi. Ou ka gade pòtfolyo nou an pou dekouvri platfòm web, aplikasyon biznis ak eksperyans dijital Bekasen devlope. Chak pwojè fèt ak anfaz sou pèfòmans, kalite design ak enpak biznis."
+      },
+      "process": {
+        "label": "Pwosesis",
+        "question": "Kijan yon pwojè mache ak Bekasen ?",
+        "answer": "An jeneral nou travay an 4 etap : dekouvèt ak estrateji, design ak prototip, devlopman ak tès, epi lansman ak optimize. Ou rete enfòme nan chak faz."
+      },
+      "location": {
+        "label": "Kote",
+        "question": "Ki kote ekip Bekasen an baze ?",
+        "answer": "Bekasen travay ak kliyan ann Ayiti, nan Karayib la ak nan dyaspora a. Fason nou travay la fleksib e li fèt pou kolaborasyon efikas a distans tankou an prezans."
       }
+    }
+  },
+  "contactPage": {
+    "badge": "Antre nan Enpak la",
+    "title": "Pare pou Transfòme",
+    "titleAccent": "Biznis Ou?",
+    "subtitle": "Rezève yon apèl dyagnostik gratis ak ekip teknik nou an oswa kite yon mesaj. Nou reponn nan 24 èdtan.",
+    "form": {
+      "nameLabel": "Non",
+      "namePlaceholder": "Jan Batis",
+      "emailLabel": "Imèl",
+      "emailPlaceholder": "jan@egzanp.com",
+      "messageLabel": "Mesaj",
+      "messagePlaceholder": "Pale nou de pwojè w la...",
+      "submitButton": "Voye Mesaj",
+      "submittingButton": "Ap Voye..."
+    },
+    "cards": {
+      "whatsappTitle": "WhatsApp",
+      "whatsappDesc": "Pou yon ti pale rapid",
+      "telegramTitle": "Telegram",
+      "telegramDesc": "Mesaj an sekirite",
+      "emailTitle": "Imèl",
+      "emailDesc": "Pou detay ak kesyon"
+    }
+  },
+  "legal": {
+    "privacy": {
+      "title": "Polisik Konfidansyalite",
+      "lastUpdated": "Dèny miz a jou:",
+      "intro": {
+        "title": "Entwodiksyon",
+        "content": "Nan Bekasen, nou seryeuz kòm glas avèk pwoteksyon done pèsonèl ou. Polisik konfidansyalite sa a eksplike kijan nou kolekte, itilize, pataje, ak pwoteje enf̀ masyon ou lè ou sèvi ak sèvis nou yo ak vizite sit wèb nou an."
+      },
+      "collection": {
+        "title": "Done nou kolekte",
+        "intro": "Nou kolekte enf̀ masyon sa yo:",
+        "contact": "Enf̀ masyon kontakt (non, emel, telefòn) lè ou kontakte nou oswa enskripsyon nan sèvis nou",
+        "service": "Enf̀ masyon ki gen rapò ak sèvis ou mande oswa resevwa",
+        "usage": "Done itilizasyon (paj vizite, tan pase, entrakyon) atravè cookie yo ak zouti swiv",
+        "technical": "Enf̀ masyon teknik (adrès IP, tip aparèy, navigatè, sistèm operasyon)",
+        "communication": "Korespondans ak kominikasyon ou voye nou yo"
+      },
+      "usage": {
+        "title": "Kijan nou itilize done ou",
+        "intro": "Nou itilize done ou pou:",
+        "service": "Bay ak amelyore sèvis nou yo",
+        "communication": "Kominike miz a jou ak enf̀ masyon sèvis pou ou",
+        "improvement": "Analize ak amelyore eksperyans itilizatè",
+        "marketing": "Voye ou kominikasyon maketing (avèk pèmisyon ou)",
+        "compliance": "Respekte obligasyon legal ak règlmante"
+      },
+      "sharing": {
+        "title": "Pataj done",
+        "content": "Nou pa janm vann done pèsonèl ou. Nou pataje enf̀ masyon ou sèlman si li obligatwa pa lwa oswa avèk pwovide sèvis tèsye ki fiyab ki ede nou bay sèvis nou, yo tout sujè a obligasyon konfidansyalite estrik."
+      },
+      "retention": {
+        "title": "Retenisyon done",
+        "content": "Nou kenbe done pèsonèl ou osi lontan ke nesèse pou bay sèvis nou ak satisfè obligasyon legal. Ou ka mande efasma done ou a nenpòt moman."
+      },
+      "rights": {
+        "title": "Dwa ou yo",
+        "intro": "Anba lwa ki aplikab (enkli GDPR), ou gen dwa sa yo:",
+        "access": "Aksè a done pèsonèl ou",
+        "correction": "Koreksyon done ki pa egzak oswa enkonplè",
+        "deletion": "Efasma done ou",
+        "portability": "Portabilite done ou",
+        "objection": "Objeksyon sou pwosès done ou"
+      },
+      "security": {
+        "title": "Sekirite",
+        "content": "Nou aplike mezi sekirite teknik ak òganizasyonèl pou pwoteje done pèsonèl ou kont aksè san dwa, modifikasyon, oswa destriksyon."
+      },
+      "cookies": {
+        "title": "Cookies",
+        "content": "Sit nou an itilize cookies pou amelyore eksperyans ou. Ou ka kontwole paramèt cookies nan navigatè ou. Kèk cookies esansyèl pou fonksyonman sit la, pandan ke lot yo ede nou analize ak amelyore pèf̀ mans nou."
+      },
+      "aiChat": {
+        "title": "Chat IA ak istorik",
+        "content": "Si ou aksepte memwa chat IA a, nou kreye yon sesyon anonim epi nou sove mesaj ou yo lokalman ak nan yon baz Postgres pou nou ka retabli istorik la. Si ou refize oswa retire konsantman an, istorik lokal la efase epi sesyon sèvè a efase lè li egziste."
+      },
+      "contact": {
+        "title": "Kontakte nou",
+        "content": "Si ou gen kesyon sou polisik konfidansyalite sa a oswa vle egzèse dwa ou, kontakte nou a:"
+      },
+      "disclaimer": "Polisik konfidansyalite sa a bay pou enf̀ masyon. Konsalte avèk yon avoka kalifikate pou konsèy legal spesifik pou sitiyasyon ou."
+    },
+    "terms": {
+      "title": "Kondisyon itilizasyon",
+      "lastUpdated": "Dèny miz a jou:",
+      "acceptance": {
+        "title": "Akseptasyon kondisyon",
+        "content": "Pa itilize sit wèb ak sèvis nou yo, ou aksepte kondisyon itilizasyon sa yo. Si ou pa aksepte kondisyon sa yo, tanpri pa itilize platf̀ m nou an."
+      },
+      "services": {
+        "title": "Deskripsyon sèvis",
+        "content": "Bekasen bay sèvis dezen ak devlopman wèb, kreyasyon aplikasyon biznis, entegrasyon IA, ak lòt sèvis dijital. Eskomp spesifik sèvis yo va defini nan kontwa oswa devis ou."
+      },
+      "ip": {
+        "title": "Pwopriyete entèlektyèl",
+        "intro": "Konsènan pwopriyete entèlektyèl:",
+        "bekasenContent": "Tout dten kreye pa Bekasen (kòd, dizen, framework) rete pwopriyete entèlektyèl nou",
+        "clientContent": "Ou okipe pwopriyete dten kliyante ou ak done ou bay",
+        "license": "Ou resevwa lisans pou itilize travay livere pou objektif konvenin"
+      },
+      "responsibilities": {
+        "title": "Responsabilite itilizatè",
+        "intro": "Ou dakò pou:",
+        "accuracy": "Bay enf̀ masyon egzak ak konplè",
+        "compliance": "Respekte tout lwa ak règlmante aplikab",
+        "rights": "Asire ou gen dwa nesèse sou dten ou bay",
+        "prohibited": "Pa itilize sèvis nou pou aktivite ilegal oswa damajab"
+      },
+      "payment": {
+        "title": "Kondisyon peman",
+        "content": "Pri, kondisyon peman, ak orè yo pral espesifye nan devis oswa kontwa ou. Peman retad ka rezilte ann entèriksyon sèvis. Taks aplikab ajoute nan pri indikey."
+      },
+      "liability": {
+        "title": "Limitasyon responsabilite",
+        "content": "Gade limit lwa a, Bekasen pa responsab pou domaj endirek, konsekutif, oswa punitif. Responsabilite total nou bay ou pa pase danje ou peye nou pou sèvis yo."
+      },
+      "indemnity": {
+        "title": "Dèdomajman",
+        "content": "Ou pral dèdomaje nou kont tout reklama, domaj, ak frè ki soti nan itilizasyon sèvis ou oswa vyolasyon kondisyon sa yo."
+      },
+      "termination": {
+        "title": "Teminezon",
+        "content": "Swa ou, swa Bekasen ka rezilye sèvis nou yo selon kondisyon spesifye nan kontwa ou. Apre teminezon, dispozisyon aplikab yo ap rete an f̀ s."
+      },
+      "law": {
+        "title": "Lwa aplikab",
+        "content": "Kondisyon sa yo gouvèn pa lwa Florida, Etazini (oswa jiriksyon aplikab ou). Pati yo konsanti a jiriksyon eksklusif tribinal konpetan."
+      },
+      "contact": {
+        "title": "Kontakte nou",
+        "content": "Pou nenpòt kesyon sou kondisyon itilizasyon sa yo, kontakte nou a:"
+      },
+      "disclaimer": "Kondisyon itilizasyon sa yo bay pou enf̀ masyon. Konsalte avèk yon avoka kalifikate pou konsèy legal spesifik pou sitiyasyon ou."
+    },
+    "disclaimer": {
+      "title": "Avètisman legal",
+      "lastUpdated": "Dèny miz a jou:",
+      "general": {
+        "title": "Avètisman jeneral",
+        "content": "Sit wèb sa a ak tout sèvis bay pa Bekasen bay 'jan ye'. Bekasen pa fè okenn deklarasyon oswa garanti eksplis oswa enplisit konsènan presizyon, konplètè, oswa itilite enf̀ masyon bay."
+      },
+      "asis": {
+        "title": "Baz 'jan ye'",
+        "content": "Itilizasyon ou nan sit wèb ak sèvis yo a risk ou. Bekasen pa responsab pou okenn domaj, pèt, oswa genn nan rezilta itilizasyon ou."
+      },
+      "warranties": {
+        "title": "Okenn garanti",
+        "intro": "Nou eksplisitman ekskli:",
+        "availability": "Nenpòt garanti sit la pral disponib san entèriksyon oswa erè",
+        "uninterrupted": "Nenpòt garanti sit la pral travay san entèriksyon oswa an sekirite",
+        "accuracy": "Nenpòt garanti konsènan presizyon oswa konplètè dten",
+        "third_party": "Nenpòt responsabilite pou sèvis oswa dten tèsye"
+      },
+      "thirdparty": {
+        "title": "Sèvis tèsye",
+        "content": "Sit nou an ka gen lyen oswa entegrasyon ak sèvis tèsye. Nou pa responsab pou kalite, fyabilite, disponibilite, oswa dten yo. Revize polisik yo separe."
+      },
+      "damages": {
+        "title": "Limitasyon domaj",
+        "content": "Nan okenn ka Bekasen responsab pou domaj endirek, aksidantal, espesyal, oswa konsekutif, enkli pèt reven oswa pwofi, soti nan itilizasyon ou oswa enkapasite itilize sit wèb oswa sèvis yo."
+      },
+      "links": {
+        "title": "Lyen ekstèn",
+        "content": "Sit nou an ka gen lyen a sit ekstèn. Nou pa kontwole sit sa yo ak pa responsab pou dten yo. Aksè a sit sa yo a risk ou."
+      },
+      "advice": {
+        "title": "Okenn konsèy pwofesyonèl",
+        "content": "Enf̀ masyon bay pa konstitye konsèy pwofesyonèl (legal, finansye, etk). Konsalte avèk yon pwofesyonèl kalifikate pou bezwen spesifik ou."
+      },
+      "changes": {
+        "title": "Chanjman",
+        "content": "Nou rez̀ ve dwa pou modifye oswa sispann sèvis nou a nenpòt moman san avètisman. Nou kapab tou modifye avètisman legal sa a nenpòt moman."
+      },
+      "contact": {
+        "title": "Kontakte nou",
+        "content": "Si ou gen kesyon sou avètisman legal sa a, kontakte nou a:"
+      },
+      "notice": "Avètisman legal sa a bay pou enf̀ masyon. Konsalte avèk yon avoka kalifikate pou konsèy legal spesifik pou sitiyasyon ou."
     }
   }
 }

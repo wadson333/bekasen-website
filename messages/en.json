@@ -7,6 +7,7 @@
     "pricing": "Pricing",
     "blog": "Blog",
     "contact": "Contact",
+    "portal": "Client Portal",
     "startProject": "Start a Project",
     "process": "Process",
     "faq": "FAQ"
@@ -30,7 +31,28 @@
   },
   "about": {
     "title": "About Bekasen",
-    "description": "A premium digital agency dedicated to the Haitian community."
+    "description": "A premium digital agency dedicated to the Haitian community.",
+    "hero": {
+      "title": "Building the Future of the Haitian Digital Ecosystem",
+      "subtitle": "Bekasen is more than an agency; we are your technical partners in growth and innovation."
+    },
+    "story": {
+      "title": "Our Story",
+      "content": "Founded with a vision to bridge the gap between technical excellence and local needs, Bekasen started as a small team of passionate developers. Today, we serve clients globally, bringing the same dedication to every project."
+    },
+    "founder": {
+      "badge": "THE VISIONARY",
+      "name": "Jean Bekasen",
+      "role": "Founder & Lead Architect",
+      "bio": "With over 10 years of experience in software engineering and a deep commitment to the Haitian community, Jean founded Bekasen to empower local businesses with world-class technology.",
+      "vision": "My goal is to make high-end digital solutions accessible to every ambitious Haitian entrepreneur."
+    },
+    "values": {
+      "title": "Our Values",
+      "integrity": "Integrity first in every line of code.",
+      "innovation": "Innovation driven by purpose.",
+      "community": "Community-focused growth."
+    }
   },
   "services": {
     "title": "Our Services",
@@ -48,7 +70,7 @@
     "whoBehindBadge": "WHO'S BEHIND BEKASEN?",
     "whoBehindTitle": "We build your platforms as if they were",
     "whoBehindTitleAccent": "our own.",
-    "whoBehindDescription": "Bekasen is a premium digital agency born from the Haitian diaspora. We're not just service providers — we're your technical partners. Every project receives the same passion and rigor as if we were building it for ourselves.",
+    "whoBehindDescription": "We build your platforms as if they were our own.\n\nBekasen is a premium digital agency with a global mindset, rooted in the resilience and perspective of the Haitian diaspora. We're not just service providers — we're your technical partners.\n\nWith 6+ years of experience across public and private sectors, we deliver scalable, reliable, and thoughtfully engineered solutions.\n\nWe partner with teams worldwide, building technology that serves both business and community.",
     "title": "Technical excellence that drives your vision.",
     "kineticText1": "Design.",
     "kineticText2": "Code.",
@@ -59,6 +81,9 @@
     "viewProject": "View project",
     "showDetails": "Show details",
     "hideDetails": "Hide details",
+    "inDev": "In dev",
+    "scrollPrevious": "Scroll portfolio left",
+    "scrollNext": "Scroll portfolio right",
     "ctaAll": "Explore all projects",
     "project1Title": "Clinix Pro",
     "project1Description": "Complete medical ERP with patient management, appointments and billing.",
@@ -76,24 +101,24 @@
     "subtitle": "Tailored digital solutions to propel your business toward success.",
     "cta": "Get Started",
     "priceLabel": "Starting at",
-    "service1Title": "Premium Showcase Website",
-    "service1Description": "An elegant, high-performance website that reflects your brand's excellence. Custom design, smooth animations and SEO optimization.",
-    "service1Price": "$500",
-    "service1Timeline": "1 to 2 weeks",
+    "service1Title": "Simple Static Website",
+    "service1Description": "A fast and elegant static website to showcase your brand online with a custom design.",
+    "service1Price": "$200",
+    "service1Timeline": "Max 1 week",
     "service1Feature1": "Premium responsive design",
     "service1Feature2": "Framer Motion animations",
     "service1Feature3": "Advanced SEO optimization",
-    "service2Title": "E-commerce / Manager Site",
-    "service2Description": "Your complete online store with product management, secure payments and admin dashboard.",
-    "service2Price": "$1,200",
-    "service2Timeline": "3 to 4 weeks",
-    "service2Feature1": "Integrated Stripe payments",
-    "service2Feature2": "Admin dashboard",
-    "service2Feature3": "Inventory management",
-    "service3Title": "Business App & AI",
-    "service3Description": "Intelligent business applications with AI automation, custom workflows and advanced integrations.",
-    "service3Price": "Custom quote",
-    "service3Timeline": "AI maintenance included",
+    "service2Title": "Dynamic Website with CMS",
+    "service2Description": "A website with a simple manager allowing you to manage your content dynamically and easily.",
+    "service2Price": "$500",
+    "service2Timeline": "2 weeks",
+    "service2Feature1": "Content management system",
+    "service2Feature2": "Back-office dashboard",
+    "service2Feature3": "Dynamic updates",
+    "service3Title": "Complex Web Application",
+    "service3Description": "For more complex applications, custom workflows and advanced integrations, please contact us.",
+    "service3Price": "Contact us",
+    "service3Timeline": "Custom timeline",
     "service3Feature1": "Custom AI automation",
     "service3Feature2": "Advanced API integrations",
     "service3Feature3": "Ongoing support and maintenance"
@@ -108,35 +133,48 @@
   },
   "contact": {
     "badge": "CONTACT",
-    "title": "Contact Us",
-    "subtitle": "Let's talk about your next project.",
-    "formTitle": "Send us a message",
-    "formSubtitle": "Fill out the form below and we'll get back to you shortly.",
-    "labelName": "Full name",
-    "placeholderName": "John Doe",
+    "listeningTitle": "We are listening.",
+    "listeningSubtitle": "Questions, ideas, or just saying bonjour.",
+    "availabilityBadge": "3 spots available",
+    "responseTime": "Response time",
+    "responseTimeValue": "Under 24 hours",
+    "basedIn": "Based in",
+    "basedInValue": "Port-au-Prince, GMT -5",
+    "formTitle": "Start a project with us.",
+    "formSubtitle": "Tell us about your brand, campaign, or research needs. We work with businesses in Haiti, the Caribbean, and the diaspora. No commitment required.",
+    "labelFirstName": "First Name",
+    "placeholderFirstName": "First name",
+    "labelLastName": "Last Name",
+    "placeholderLastName": "Last name",
     "labelEmail": "Email address",
-    "placeholderEmail": "john@example.com",
-    "labelSubject": "Subject",
-    "subjectDefault": "Select a subject",
-    "subjectWebsite": "Website",
-    "subjectBranding": "Branding & visual identity",
-    "subjectApp": "Mobile application",
-    "subjectOther": "Other",
+    "placeholderEmail": "your@company.com",
+    "labelPhone": "Phone Number",
+    "placeholderPhone": "+1(555) 000-0000",
     "labelMessage": "Message",
-    "placeholderMessage": "Describe your project or question...",
+    "placeholderMessage": "Tell us about your project",
+    "labelServices": "Services",
+    "serviceBrandDevelopment": "Brand Development",
+    "serviceWebsiteDesign": "Website Design",
+    "serviceDigitalMarketing": "Digital Marketing",
+    "serviceMarketResearch": "Market Research",
+    "serviceDataAnalytics": "Data Analytics",
+    "serviceAIPoweredSEO": "AI-Powered SEO",
     "submitButton": "Send message",
     "successTitle": "Message sent!",
     "successMessage": "Thank you for your message. Our team will get back to you within 24 hours.",
     "backHome": "Back to home",
-    "infoTitle": "Contact information",
-    "infoSubtitle": "You can also reach us directly.",
-    "infoEmail": "Email",
-    "infoPhone": "Phone",
-    "infoLocation": "Location",
-    "infoWhatsapp": "Message us on WhatsApp",
-    "ctaTitle": "Have a specific project?",
-    "ctaDescription": "Use our project assistant to get a free estimate in just a few minutes.",
-    "ctaLink": "Start project"
+    "bookCallTitle": "Book a call.",
+    "bookCallSubtitle": "15-min intro.",
+    "availableNow": "Available now",
+    "selectTime": "Select a time",
+    "contactEmails": {
+      "generalLabel": "General",
+      "generalEmail": "hello@bekasen.com",
+      "careersLabel": "Careers",
+      "careersEmail": "jobs@bekasen.com",
+      "partnershipLabel": "Partnership",
+      "partnershipEmail": "partner@bekasen.com"
+    }
   },
   "startProject": {
     "title": "Start a Project",
@@ -288,7 +326,11 @@
     "serviceApp": "Business Applications",
     "contactTitle": "Contact",
     "location": "Miami, FL — Port-au-Prince, HT",
-    "madeWith": "Made with passion for the Haitian community 🇭🇹"
+    "madeWith": "Made with passion for the Haitian community 🇭🇹",
+    "legalTitle": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "disclaimer": "Disclaimer"
   },
   "common": {
     "learnMore": "Learn more",
@@ -296,8 +338,29 @@
     "viewAll": "View all",
     "backToHome": "Back to home"
   },
+  "consent": {
+    "title": "Privacy preferences",
+    "description": "We only use the storage you approve: site preferences, language, theme, and AI chat history. Chat history is saved locally and, if you agree, in our Postgres database through an anonymous session.",
+    "preferencesTitle": "Site preferences",
+    "preferencesDescription": "Save your theme, selected language, and interface preferences.",
+    "aiChatTitle": "AI chat memory",
+    "aiChatDescription": "Save your chat history locally and in Postgres so you can resume the conversation later.",
+    "acceptAll": "Accept all",
+    "rejectAll": "Reject all",
+    "customize": "Customize",
+    "hideCustomize": "Hide options",
+    "saveChoices": "Save choices",
+    "manage": "Manage preferences",
+    "close": "Close preferences"
+  },
   "chatbot": {
     "title": "Bekasen Assistant",
+    "userLabel": "You",
+    "botLabel": "Assistant",
+    "thinking": "Thinking...",
+    "statusOnline": "Online",
+    "statusLimited": "Limited",
+    "emptyState": "Ask about services, pricing, timeline, projects, or anything else.",
     "openLabel": "Open chat",
     "closeLabel": "Close chat",
     "bubbleLabel": "Talk to assistant",
@@ -306,6 +369,10 @@
     "autoReply": "Thanks for your message! Our AI assistant is coming soon. In the meantime, feel free to use the quick questions below or contact us directly.",
     "greeting": "Hi! 👋 I'm the Bekasen assistant. How can I help you?",
     "quickRepliesLabel": "Quick questions:",
+    "memoryNoticeTitle": "Chat memory",
+    "memoryNoticeDescription": "To save chat history and continue later, accept chat memory. Without consent, this conversation stays only in the current session.",
+    "acceptMemory": "Save my history",
+    "declineMemory": "Continue without memory",
     "faq": {
       "services": {
         "label": "Services",
@@ -331,7 +398,244 @@
         "label": "Contact",
         "question": "How can I reach the team?",
         "answer": "You can start a project through our form, or email us directly at hello@bekasen.com. We typically respond within 24 hours."
+      },
+      "portfolio": {
+        "label": "Portfolio",
+        "question": "Can you show me some recent projects?",
+        "answer": "Yes. You can browse our portfolio to explore web platforms, business apps, and digital experiences built by Bekasen. Each project is designed around performance, design quality, and business impact."
+      },
+      "process": {
+        "label": "Process",
+        "question": "How does a project with Bekasen work?",
+        "answer": "We usually work in 4 stages: discovery and strategy, design and prototyping, development and testing, then launch and optimization. You stay informed throughout every phase."
+      },
+      "location": {
+        "label": "Location",
+        "question": "Where is the Bekasen team based?",
+        "answer": "Bekasen works with clients in Haiti, across the Caribbean, and throughout the diaspora. Our workflow is flexible and built for efficient remote as well as local collaboration."
       }
+    }
+  },
+  "contactPage": {
+    "badge": "Join the Impact",
+    "title": "Ready to Transform",
+    "titleAccent": "Your Business?",
+    "subtitle": "Book a free diagnostic call with our technical team or leave us a message. We respond within 24 hours.",
+    "form": {
+      "nameLabel": "Name",
+      "namePlaceholder": "John Doe",
+      "emailLabel": "Email",
+      "emailPlaceholder": "john@example.com",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Tell us about your project...",
+      "submitButton": "Send Message",
+      "submittingButton": "Sending..."
+    },
+    "cards": {
+      "whatsappTitle": "WhatsApp",
+      "whatsappDesc": "For a quick chat",
+      "telegramTitle": "Telegram",
+      "telegramDesc": "Secure messaging",
+      "emailTitle": "Email",
+      "emailDesc": "For detailed inquiries"
+    }
+  },
+  "portal": {
+    "nav": {
+      "dashboard": "Dashboard",
+      "projects": "My Projects",
+      "codeReviews": "Code Reviews",
+      "settings": "Settings",
+      "logout": "Log Out"
+    },
+    "dashboard": {
+      "greeting": "Welcome back,",
+      "overview": "Here is what's happening with your projects.",
+      "activeProjects": "Active Projects",
+      "recentReviews": "Recent Code Reviews",
+      "noProjects": "No active projects yet.",
+      "viewProject": "View Details"
+    },
+    "projectStatus": {
+      "discovery": "Discovery",
+      "design": "Design",
+      "development": "Development",
+      "testing": "Testing",
+      "completed": "Completed"
+    },
+    "projects": {
+      "title": "My Projects",
+      "subtitle": "Overview of your current and past collaborations with Bekasen.",
+      "searchPlaceholder": "Search projects...",
+      "viewPortal": "View Project Portal"
+    },
+    "codeReviews": {
+      "title": "Code Reviews",
+      "subtitle": "Track technical feedback and approvals for your project milestones.",
+      "status": {
+        "approved": "Approved",
+        "changes_requested": "Changes Requested",
+        "pending": "Pending Review"
+      }
+    }
+  },
+  "legal": {
+    "privacy": {
+      "title": "Privacy Policy",
+      "lastUpdated": "Last Updated:",
+      "intro": {
+        "title": "Introduction",
+        "content": "At Bekasen, we take the protection of your personal data seriously. This privacy policy explains how we collect, use, share, and protect your information when you use our services and visit our website."
+      },
+      "collection": {
+        "title": "Data We Collect",
+        "intro": "We collect the following information:",
+        "contact": "Contact information (name, email, phone) when you contact us or register for our services",
+        "service": "Information related to services you request or receive",
+        "usage": "Usage data (pages visited, time spent, interactions) via cookies and tracking tools",
+        "technical": "Technical information (IP address, device type, browser, operating system)",
+        "communication": "Correspondence and communications you send us"
+      },
+      "usage": {
+        "title": "How We Use Your Data",
+        "intro": "We use your data to:",
+        "service": "Provide and improve our services",
+        "communication": "Communicate relevant updates and service information to you",
+        "improvement": "Analyze and improve user experience",
+        "marketing": "Send you marketing communications (with your consent)",
+        "compliance": "Comply with legal and regulatory obligations"
+      },
+      "sharing": {
+        "title": "Data Sharing",
+        "content": "We never sell your personal data. We only share your information if legally required or with trusted third-party service providers who help us deliver our services, all subject to strict confidentiality obligations."
+      },
+      "retention": {
+        "title": "Data Retention",
+        "content": "We retain your personal data as long as necessary to provide our services and fulfill legal obligations. You may request deletion of your data at any time."
+      },
+      "rights": {
+        "title": "Your Rights",
+        "intro": "Under applicable law (including GDPR), you have the following rights:",
+        "access": "Access to your personal data",
+        "correction": "Correction of inaccurate or incomplete data",
+        "deletion": "Deletion of your data",
+        "portability": "Portability of your data",
+        "objection": "Objection to processing of your data"
+      },
+      "security": {
+        "title": "Security",
+        "content": "We implement technical and organizational security measures to protect your personal data against unauthorized access, alteration, or destruction."
+      },
+      "cookies": {
+        "title": "Cookies",
+        "content": "Our website uses cookies to improve your experience. You can control cookie settings in your browser. Some cookies are essential to the website's functioning, while others help us analyze and improve our performance."
+      },
+      "aiChat": {
+        "title": "AI chat and history",
+        "content": "If you accept AI chat memory, we create an anonymous session and save your messages locally and in a Postgres database so your history can be restored. If you decline or withdraw consent, local history is removed and the server session is deleted when it exists."
+      },
+      "contact": {
+        "title": "Contact Us",
+        "content": "If you have questions about this privacy policy or wish to exercise your rights, please contact us at:"
+      },
+      "disclaimer": "This privacy policy is provided for informational purposes. Consult with a qualified attorney for legal advice specific to your situation."
+    },
+    "terms": {
+      "title": "Terms of Use",
+      "lastUpdated": "Last Updated:",
+      "acceptance": {
+        "title": "Acceptance of Terms",
+        "content": "By using our website and services, you accept these terms of use. If you do not accept these terms, please do not use our platform."
+      },
+      "services": {
+        "title": "Description of Services",
+        "content": "Bekasen provides web design and development services, business application creation, AI integration, and other digital services. The specific scope of services will be defined in your contract or quote."
+      },
+      "ip": {
+        "title": "Intellectual Property",
+        "intro": "Regarding intellectual property:",
+        "bekasenContent": "All content created by Bekasen (code, designs, frameworks) remains our intellectual property",
+        "clientContent": "You retain ownership of your client content and data you provide",
+        "license": "You receive a license to use the delivered work for agreed purposes"
+      },
+      "responsibilities": {
+        "title": "User Responsibilities",
+        "intro": "You agree to:",
+        "accuracy": "Provide accurate and complete information",
+        "compliance": "Comply with all applicable laws and regulations",
+        "rights": "Ensure you have necessary rights to content you provide",
+        "prohibited": "Not use our services for illegal or harmful activities"
+      },
+      "payment": {
+        "title": "Payment Terms",
+        "content": "Pricing, payment terms, and schedules will be specified in your quote or contract. Late payments may result in service interruption. Applicable taxes are added to stated rates."
+      },
+      "liability": {
+        "title": "Limitation of Liability",
+        "content": "To the extent permitted by law, Bekasen shall not be liable for indirect, consequential, or punitive damages. Our total liability to you shall not exceed the amount you paid us for the services."
+      },
+      "indemnity": {
+        "title": "Indemnification",
+        "content": "You will indemnify us against all claims, damages, and costs arising from your use of the services or violation of these terms."
+      },
+      "termination": {
+        "title": "Termination",
+        "content": "Either you or Bekasen may terminate our services according to terms specified in your contract. Following termination, applicable provisions shall remain in force."
+      },
+      "law": {
+        "title": "Governing Law",
+        "content": "These terms are governed by the laws of Florida, United States (or your applicable jurisdiction). Parties consent to exclusive jurisdiction of competent courts."
+      },
+      "contact": {
+        "title": "Contact Us",
+        "content": "For any questions regarding these terms of use, please contact us at:"
+      },
+      "disclaimer": "These terms of use are provided for informational purposes. Consult with a qualified attorney for legal advice specific to your situation."
+    },
+    "disclaimer": {
+      "title": "Disclaimer",
+      "lastUpdated": "Last Updated:",
+      "general": {
+        "title": "General Disclaimer",
+        "content": "This website and all services provided by Bekasen are provided 'as is'. Bekasen makes no express or implied representations or warranties regarding the accuracy, completeness, or usefulness of information provided."
+      },
+      "asis": {
+        "title": "As-Is Basis",
+        "content": "Your use of the website and services is at your own risk. Bekasen is not liable for any damage, loss, or inconvenience resulting from your use."
+      },
+      "warranties": {
+        "title": "No Warranties",
+        "intro": "We explicitly exclude:",
+        "availability": "Any warranty that the website will be available without interruption or error",
+        "uninterrupted": "Any warranty that the website will operate uninterrupted or secure",
+        "accuracy": "Any warranty regarding content accuracy or completeness",
+        "third_party": "Any liability for third-party services or content"
+      },
+      "thirdparty": {
+        "title": "Third-Party Services",
+        "content": "Our website may contain links or integrations with third-party services. We are not responsible for their quality, reliability, availability, or content. Review their policies separately."
+      },
+      "damages": {
+        "title": "Limitation of Damages",
+        "content": "In no case shall Bekasen be liable for indirect, incidental, special, or consequential damages, including loss of revenue or profits, arising from your use or inability to use the website or services."
+      },
+      "links": {
+        "title": "External Links",
+        "content": "Our website may contain links to external websites. We do not control these sites and are not responsible for their content. Access to these sites is at your own risk."
+      },
+      "advice": {
+        "title": "No Professional Advice",
+        "content": "Information provided does not constitute professional advice (legal, financial, etc.). Consult with a qualified professional for your specific needs."
+      },
+      "changes": {
+        "title": "Changes",
+        "content": "We reserve the right to modify or discontinue our services at any time without notice. We may also modify this disclaimer at any time."
+      },
+      "contact": {
+        "title": "Contact Us",
+        "content": "If you have questions about this disclaimer, please contact us at:"
+      },
+      "notice": "This disclaimer is provided for informational purposes. Consult with a qualified attorney for legal advice specific to your situation."
     }
   }
 }

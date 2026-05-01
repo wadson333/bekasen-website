@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @source not "../.github";
 @source not "../_docs";
+@source not "../.claude";
 
 @custom-variant dark (&:where(.dark, .dark *));
 

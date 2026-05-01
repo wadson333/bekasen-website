@@ -3,41 +3,38 @@
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import {
-  Globe, Brain, ArrowRight,
-  Clock, Palette, Sparkles, Search,
-  Cpu, Plug, Headphones, Tag, Check,
+  ArrowRight,
+  Clock,
+  Palette,
+  Sparkles,
+  Search,
+  Cpu,
+  Plug,
+  Headphones,
+  Tag,
+  Check,
+  Zap,
+  type LucideIcon,
 } from "lucide-react";
 import { Link } from "@/i18n/navigation";
-import Image from "next/image";
 
 interface ServicePill {
   key: string;
-  icon: typeof Clock;
+  icon: LucideIcon;
 }
 
 interface ServiceCard {
   titleKey: string;
   descriptionKey: string;
-  icon: typeof Globe;
-  accentGradient: string;
-  accentBg: string;
   accentText: string;
-  accentBorder: string;
-  image: string;
   pills: ServicePill[];
-  reversed?: boolean;
 }
 
 const services: ServiceCard[] = [
   {
     titleKey: "service1Title",
     descriptionKey: "service1Description",
-    icon: Globe,
-    accentGradient: "from-purple-500 to-violet-500",
-    accentBg: "bg-purple-500/10",
-    accentText: "text-purple-400",
-    accentBorder: "border-purple-500/20",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+    accentText: "text-purple-500 dark:text-purple-300",
     pills: [
       { key: "service1Timeline", icon: Clock },
       { key: "service1Price", icon: Tag },
@@ -46,17 +43,22 @@ const services: ServiceCard[] = [
       { key: "service1Feature3", icon: Search },
     ],
   },
-
+  {
+    titleKey: "service2Title",
+    descriptionKey: "service2Description",
+    accentText: "text-indigo-400",
+    pills: [
+      { key: "service2Timeline", icon: Clock },
+      { key: "service2Price", icon: Tag },
+      { key: "service2Feature1", icon: Palette },
+      { key: "service2Feature2", icon: Sparkles },
+      { key: "service2Feature3", icon: Cpu },
+    ],
+  },
   {
     titleKey: "service3Title",
     descriptionKey: "service3Description",
-    icon: Brain,
-    accentGradient: "from-indigo-500 to-violet-500",
-    accentBg: "bg-indigo-500/10",
     accentText: "text-indigo-400",
-    accentBorder: "border-indigo-500/20",
-    reversed: true,
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
     pills: [
       { key: "service3Timeline", icon: Clock },
       { key: "service3Price", icon: Tag },
@@ -67,62 +69,38 @@ const services: ServiceCard[] = [
   },
 ];
 
+function PriceLine({ value, dark }: { value: string; dark: boolean }) {
+  return (
+    <p
+      className={`text-4xl md:text-5xl font-[family-name:var(--font-syne)] font-extrabold leading-none ${
+        dark
+          ? "bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent"
+          : "bg-gradient-to-r from-purple-500 to-orange-500 bg-clip-text text-transparent"
+      }`}
+    >
+      {value}
+      <span className="ml-2 text-base font-medium text-text-secondary">/ monthly</span>
+    </p>
+  );
+}
+
 export default function ServicesBento() {
   const t = useTranslations("servicesBento");
+  const topServices = services.slice(0, 2);
+  const featuredService = services[2]!;
 
   return (
-    <section
-      className="relative pt-28 pb-28 bg-bg-secondary overflow-hidden"
-      id="services"
-      style={{ clipPath: "polygon(0 4%, 100% 0%, 100% 96%, 0% 100%)" }}
-    >
-      {/* Decorative geometric shapes */}
-      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        {/* Dot grid — top left */}
-        <svg className="absolute top-16 left-8 w-24 h-24 opacity-[0.08]" viewBox="0 0 80 80">
-          {Array.from({ length: 25 }).map((_, i) => (
-            <circle key={i} cx={8 + (i % 5) * 16} cy={8 + Math.floor(i / 5) * 16} r="2" className="fill-purple-400" />
-          ))}
-        </svg>
-
-        {/* Dashed ring — top right */}
-        <svg className="absolute top-24 right-12 w-28 h-28 opacity-[0.07]" viewBox="0 0 100 100">
-          <circle cx="50" cy="50" r="40" fill="none" className="stroke-violet-400" strokeWidth="1.5" strokeDasharray="8 6" />
-        </svg>
-
-        {/* Small cross — mid left */}
-        <svg className="absolute top-1/2 left-6 w-8 h-8 opacity-[0.12] -translate-y-1/2" viewBox="0 0 24 24">
-          <path d="M12 4v16M4 12h16" className="stroke-purple-400" strokeWidth="2" strokeLinecap="round" />
-        </svg>
-
-        {/* Circle — bottom right */}
-        <svg className="absolute bottom-28 right-16 w-10 h-10 opacity-[0.10]" viewBox="0 0 40 40">
-          <circle cx="20" cy="20" r="14" fill="none" className="stroke-indigo-400" strokeWidth="1.5" />
-        </svg>
-
-        {/* Triangle — bottom left */}
-        <svg className="absolute bottom-20 left-20 w-12 h-12 opacity-[0.08]" viewBox="0 0 40 40">
-          <path d="M20 6 L36 34 L4 34 Z" fill="none" className="stroke-purple-400" strokeWidth="1.5" strokeLinejoin="round" />
-        </svg>
-
-        {/* Dot grid — bottom right */}
-        <svg className="absolute bottom-32 right-1/4 w-20 h-20 opacity-[0.06]" viewBox="0 0 60 60">
-          {Array.from({ length: 16 }).map((_, i) => (
-            <circle key={i} cx={7 + (i % 4) * 16} cy={7 + Math.floor(i / 4) * 16} r="1.5" className="fill-indigo-400" />
-          ))}
-        </svg>
-      </div>
-
+    <section className="relative py-24 bg-bg-secondary" id="services">
       <div className="relative max-w-6xl mx-auto px-6">
-        {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-14">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-1.5 rounded-full border border-purple-500/20 bg-purple-500/10 px-4 py-1.5 text-xs font-semibold tracking-wider text-purple-400 uppercase"
+            className="inline-flex items-center gap-2 rounded-full border border-purple-500/20 bg-purple-500/10 px-4 py-1.5 text-xs font-semibold tracking-wider text-purple-400 uppercase"
           >
+            <Zap className="w-3.5 h-3.5" />
             {t("badge")}
           </motion.span>
           <motion.h2
@@ -148,114 +126,110 @@ export default function ServicesBento() {
           </motion.p>
         </div>
 
-        {/* Services */}
-        <div className="space-y-16">
-          {services.map((service, idx) => {
-            const isReversed = service.reversed;
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+          {topServices.map((service, idx) => {
+            const priceKey = service.pills.find((pill) => pill.key.includes("Price"))?.key;
+            const timelineKey = service.pills.find((pill) => pill.key.includes("Timeline"))?.key;
+            const featurePills = service.pills.filter(
+              (pill) => !pill.key.includes("Price") && !pill.key.includes("Timeline")
+            );
 
             return (
-              <motion.div
+              <motion.article
                 key={service.titleKey}
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.7, delay: idx * 0.1 }}
-                className="group"
+                transition={{ duration: 0.5, delay: idx * 0.08 }}
+                className="rounded-[30px] border border-border bg-bg-primary text-text-primary p-7 md:p-9"
               >
-                {idx > 0 && (
-                  <div className="mb-16 border-t border-border" />
-                )}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-                  {/* Text Content */}
-                  <div className={`py-6 lg:py-8 flex flex-col justify-center ${isReversed ? "lg:order-2" : ""}`}>
-                    <h3 className="text-2xl md:text-3xl font-[family-name:var(--font-syne)] font-bold text-text-primary">
-                      {t(service.titleKey)}
-                    </h3>
+                <h3 className="text-2xl font-[family-name:var(--font-syne)] font-bold">{t(service.titleKey)}</h3>
+                <p className="mt-1 text-sm text-text-secondary">
+                  {timelineKey ? t(timelineKey) : t(service.descriptionKey)}
+                </p>
+                <p className="mt-5 text-sm leading-relaxed text-text-secondary">
+                  {t(service.descriptionKey)}
+                </p>
 
-                    <p className="mt-3 text-text-secondary leading-relaxed max-w-md">
-                      {t(service.descriptionKey)}
-                    </p>
+                <div className="mt-8">{priceKey ? <PriceLine value={t(priceKey)} dark={false} /> : null}</div>
 
-                    {/* Price Display */}
-                    {(() => {
-                      const pricePill = service.pills.find((p) => p.key.includes("Price"));
-                      const timelinePill = service.pills.find((p) => p.key.includes("Timeline"));
-                      const featurePills = service.pills.filter(
-                        (p) => !p.key.includes("Price") && !p.key.includes("Timeline")
-                      );
+                <p className="mt-4 text-sm font-medium text-text-primary">{t("priceLabel")}</p>
 
-                      return (
-                        <>
-                          <div className="mt-6 flex items-end gap-4">
-                            {pricePill && (
-                              <div>
-                                <span className="text-xs font-medium text-text-secondary uppercase tracking-wider">
-                                  {t("priceLabel")}
-                                </span>
-                                <p className="text-3xl md:text-4xl font-[family-name:var(--font-syne)] font-extrabold text-text-primary leading-none mt-1">
-                                  {t(pricePill.key)}
-                                </p>
-                              </div>
-                            )}
-                            {timelinePill && (
-                              <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-transparent px-3 py-1.5 text-xs font-medium text-text-secondary mb-1">
-                                <Clock size={12} />
-                                {t(timelinePill.key)}
-                              </span>
-                            )}
-                          </div>
+                <Link
+                  href="/start-project"
+                  className="mt-6 inline-flex w-full items-center justify-center rounded-full px-5 py-3 text-sm font-semibold transition-colors bg-bg-secondary text-text-primary border border-border hover:border-purple-400/40"
+                >
+                  {t("cta")}
+                </Link>
 
-                          {/* Feature Pills */}
-                          <div className="mt-5 flex flex-wrap gap-2">
-                            {featurePills.map((pill) => (
-                              <span
-                                key={pill.key}
-                                className="inline-flex items-center gap-1.5 rounded-full border border-border bg-transparent px-3.5 py-1.5 text-xs font-medium text-text-secondary"
-                              >
-                                <Check size={12} className={service.accentText} />
-                                {t(pill.key)}
-                              </span>
-                            ))}
-                          </div>
-                        </>
-                      );
-                    })()}
-
-
-                    <div className="mt-8">
-                      <Link
-                        href="/start-project"
-                        className={`inline-flex items-center gap-2 rounded-full bg-gradient-to-r ${service.accentGradient} px-6 py-3 text-sm font-semibold text-white hover:opacity-90 transition-opacity shadow-lg shadow-purple-500/20 group/btn`}
-                      >
-                        {t("cta")}
-                        <ArrowRight size={14} className="group-hover/btn:translate-x-0.5 transition-transform" />
-                      </Link>
-                    </div>
-                  </div>
-
-                  {/* Image Side */}
-                  <div className={`relative py-6 lg:py-8 flex items-center justify-center min-h-[280px] ${isReversed ? "lg:order-1" : ""}`}>
-
-                    <motion.div
-                      whileHover={{ rotate: 0, scale: 1.02 }}
-                      transition={{ duration: 0.4 }}
-                      className={`relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-white/[0.06] shadow-2xl shadow-black/20 ${isReversed ? "rotate-[-2deg]" : "rotate-[2deg]"} group-hover:shadow-purple-500/10 transition-shadow duration-500`}
-                    >
-                      <Image
-                        src={service.image}
-                        alt={t(service.titleKey)}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-700"
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                    </motion.div>
-                  </div>
+                <div className="mt-8">
+                  <p className="text-sm font-semibold text-text-primary">{t("badge")}</p>
+                  <ul className="mt-3 space-y-2.5">
+                    {featurePills.map((pill) => (
+                      <li key={pill.key} className="flex items-start gap-2.5">
+                        <Check className={`mt-0.5 w-4 h-4 ${service.accentText}`} />
+                        <span className="text-sm text-text-secondary">{t(pill.key)}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              </motion.div>
+              </motion.article>
             );
           })}
         </div>
+
+        <motion.article
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.55, delay: 0.1 }}
+          className="mt-8 rounded-[30px] border border-border bg-bg-primary p-7 md:p-10"
+        >
+          <div className="flex flex-wrap items-start justify-between gap-4">
+            <div>
+              <h3 className="text-2xl md:text-3xl font-[family-name:var(--font-syne)] font-bold text-text-primary">
+                {t(featuredService.titleKey)}
+              </h3>
+              <p className="mt-1 text-sm text-text-secondary">{t(featuredService.descriptionKey)}</p>
+            </div>
+            <span className="inline-flex items-center gap-2 rounded-full bg-green-500/10 px-3 py-1 text-xs font-semibold text-green-500">
+              <span className="h-2 w-2 rounded-full bg-green-500" />
+              {t("priceLabel")}
+            </span>
+          </div>
+
+          <div className="mt-7">
+            {(() => {
+              const priceKey = featuredService.pills.find((pill) => pill.key.includes("Price"))?.key;
+              return priceKey ? <PriceLine value={t(priceKey)} dark={false} /> : null;
+            })()}
+          </div>
+
+          <div className="mt-7 grid grid-cols-1 md:grid-cols-2 gap-3.5">
+            {featuredService.pills
+              .filter((pill) => !pill.key.includes("Timeline"))
+              .map((pill) => {
+                const Icon = pill.icon;
+                return (
+                  <div
+                    key={pill.key}
+                    className="flex items-center gap-2.5 rounded-full border border-border bg-bg-secondary px-4 py-2.5"
+                  >
+                    <Icon className="w-4 h-4 text-indigo-400" />
+                    <span className="text-sm text-text-secondary">{t(pill.key)}</span>
+                  </div>
+                );
+              })}
+          </div>
+
+          <Link
+            href="/start-project"
+            className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full border border-border bg-bg-secondary px-5 py-3 text-sm font-semibold text-text-primary hover:border-purple-400/40 transition-colors"
+          >
+            {t("cta")}
+            <ArrowRight size={14} />
+          </Link>
+        </motion.article>
       </div>
     </section>
   );

@@ -1,4 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
+import {
+  ensureChatSession,
+  getRequestChatSessionId,
+  persistChatMessage,
+  requestAllowsChatPersistence,
+} from '@/lib/server/chat-history';
 
 // Ollama API configuration
 const OLLAMA_BASE_URL = process.env.OLLAMA_BASE_URL || 'http://localhost:11434';
@@ -102,12 +108,7 @@ function findBestFAQMatch(userMessage: string) {
         score += 3;
       }
     }
-    
-    // Check for longer phrase matches
-    if (message.includes(faq.answer.toLowerCase().substring(0, 50))) {
-      score += 5;
-    }
-    
+
     if (score > bestScore) {
       bestScore = score;
       bestMatch = faq;
@@ -147,7 +148,6 @@ CRITICAL CONTEXT:
 - Bekasen specializes in: Hotels/Guesthouses, Churches, Clinics, Pèpè Boutiques
 - Tech Stack: Next.js, Tailwind CSS, JHipster (Spring Boot), Python FastAPI, Flutter/Dart
 - Brand: Dark premium aesthetic (violet/indigo), Syne + Inter fonts
-- Market: Haiti & Haitian diaspora (USA/Canada), also Caribbean and African regions
 - Services: Websites, Custom Applications, AI Chatbot Integration, E-commerce
 - Company: Bekasen Digital Innovators (bekasen.com), also co-funder of Ciatech
 
@@ -203,6 +203,8 @@ async function checkOllamaConnection(): Promise<boolean> {
 export async function POST(request: NextRequest) {
   try {
     const { message, locale = 'en' } = await request.json();
+    const sessionId = getRequestChatSessionId(request);
+    const canPersistChat = sessionId ? requestAllowsChatPersistence(request) : false;
     
     if (!message || typeof message !== 'string') {
       return NextResponse.json(
@@ -210,6 +212,16 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
+
+    const persistExchange = async (assistantMessage: string, source: string, model: string | null = null) => {
+      if (!canPersistChat || !sessionId) {
+        return;
+      }
+
+      await ensureChatSession(sessionId, locale);
+      await persistChatMessage({ sessionId, role: 'user', content: message, source: 'user' });
+      await persistChatMessage({ sessionId, role: 'assistant', content: assistantMessage, source, model });
+    };
     
     // Check for greetings
     if (isGreeting(message)) {
@@ -220,6 +232,8 @@ export async function POST(request: NextRequest) {
         : locale === 'es'
         ? "¡Hola! 👋 Soy el asistente de Bekasen. ¿Cómo puedo ayudarte hoy? Puedo responder preguntas sobre servicios, precios, plazos, tecnología y más."
         : "Hello! 👋 I'm the Bekasen assistant. How can I help you today? I can answer questions about our services, pricing, timeline, technology, and more.";
+
+      await persistExchange(greetingResponse, 'greeting');
       
       return NextResponse.json({
         response: greetingResponse,
@@ -231,6 +245,8 @@ export async function POST(request: NextRequest) {
     // Check FAQ database
     const faqMatch = findBestFAQMatch(message);
     if (faqMatch) {
+      await persistExchange(faqMatch.answer, 'faq');
+
       return NextResponse.json({
         response: faqMatch.answer,
         question: faqMatch.question,
@@ -245,6 +261,8 @@ export async function POST(request: NextRequest) {
     if (ollamaAvailable) {
       try {
         const ollamaResponse = await queryOllama(message, locale);
+        await persistExchange(ollamaResponse, 'ollama', OLLAMA_MODEL);
+
         return NextResponse.json({
           response: ollamaResponse,
           source: 'ollama',
@@ -259,6 +277,8 @@ export async function POST(request: NextRequest) {
     
     // Final fallback response
     const randomFallback = FALLBACK_RESPONSES[Math.floor(Math.random() * FALLBACK_RESPONSES.length)];
+    await persistExchange(randomFallback, 'fallback');
+
     return NextResponse.json({
       response: randomFallback,
       source: 'fallback',

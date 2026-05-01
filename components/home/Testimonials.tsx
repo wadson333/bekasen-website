@@ -4,6 +4,7 @@ import { useState, useCallback, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
 import { Star, ChevronLeft, ChevronRight, TrendingUp } from "lucide-react";
+import Image from "next/image";
 
 /* ── Avatar SVG components ────────────────────────────────────── */
 function AvatarMariClaire() {
@@ -97,7 +98,23 @@ export default function Testimonials() {
     (active + offset + testimonialKeys.length) % testimonialKeys.length;
 
   return (
-    <section className="py-24 overflow-hidden">
+    <section className="relative z-10 py-24 overflow-hidden bg-bg-primary">
+      {/* Background images */}
+      <Image
+        src="/images/home/testimonials_light.png"
+        alt="Testimonials background"
+        fill
+        className="object-cover object-center absolute inset-0 z-[-2] dark:hidden"
+      />
+      <Image
+        src="/images/home/testimonials_dark.png"
+        alt="Testimonials background"
+        fill
+        className="object-cover object-center absolute inset-0 z-[-2] hidden dark:block"
+      />
+      {/* Overlay for legibility */}
+      <div className="absolute inset-0 z-[-1] bg-white/70 dark:bg-black/60 backdrop-blur-[2px]" />
+
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
         <motion.div
@@ -105,7 +122,7 @@ export default function Testimonials() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
+          transition={{ type: "spring", stiffness: 100, damping: 20 }}
         >
           <span className="inline-block px-4 py-1.5 text-xs font-semibold tracking-widest text-purple-400 bg-purple-400/10 rounded-full mb-4">
             {t("badge")}
@@ -140,7 +157,7 @@ export default function Testimonials() {
                     scale: isCenter ? 1 : 0.92,
                     filter: isCenter ? "blur(0px)" : "blur(1px)",
                   }}
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  transition={{ type: "spring", stiffness: 100, damping: 20 }}
                   onClick={() => !isCenter && goTo(idx)}
                 >
                   {/* Stars */}
@@ -188,7 +205,7 @@ export default function Testimonials() {
                 initial={{ opacity: 0, x: direction > 0 ? 100 : -100 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: direction > 0 ? -100 : 100 }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
+                transition={{ type: "spring", stiffness: 100, damping: 20 }}
                 className="bg-bg-card border border-border p-6 flex flex-col shadow-xl shadow-purple-500/10"
                 style={{ clipPath: "polygon(2% 0%, 98% 0%, 100% 3%, 100% 97%, 98% 100%, 2% 100%, 0% 97%, 0% 3%)" }}
               >

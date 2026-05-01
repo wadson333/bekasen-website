@@ -4,8 +4,10 @@ import { notFound } from "next/navigation";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { routing } from "@/i18n/routing";
+import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ChatBot from "@/components/ChatBot";
+import ConsentBanner from "@/components/ConsentBanner";
 import ThemeProviderClient from "@/components/ui/ThemeProviderClient";
 import "@/app/globals.css";
 
@@ -63,9 +65,11 @@ export default async function LocaleLayout({
       <body className="min-h-full flex flex-col bg-bg-primary text-text-primary font-(family-name:--font-inter)">
         <ThemeProviderClient>
           <NextIntlClientProvider messages={messages}>
+            <Navbar />
             {children}
             <Footer />
             <ChatBot />
+            <ConsentBanner />
           </NextIntlClientProvider>
         </ThemeProviderClient>
       </body>
