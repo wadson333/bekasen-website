@@ -3,7 +3,9 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, ShieldCheck } from "lucide-react";
+import LinkedinIcon from "@/components/icons/LinkedinIcon";
+import { CONTACT } from "@/lib/contact";
 
 export default function Footer() {
   const t = useTranslations("footer");
@@ -116,19 +118,30 @@ export default function Footer() {
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4 shrink-0 text-purple-400" />
                 <a
-                  href="mailto:hello@bekasen.com"
+                  href={CONTACT.emailHref}
                   className="text-sm text-text-secondary hover:text-purple-400 transition-colors"
                 >
-                  hello@bekasen.com
+                  {CONTACT.email}
                 </a>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="h-4 w-4 shrink-0 text-purple-400" />
                 <a
-                  href="tel:+17865550123"
+                  href={`tel:+${CONTACT.whatsapp}`}
                   className="text-sm text-text-secondary hover:text-purple-400 transition-colors"
                 >
-                  +1 (786) 555-0123
+                  {CONTACT.whatsappDisplay}
+                </a>
+              </li>
+              <li className="flex items-center gap-2">
+                <LinkedinIcon className="h-4 w-4 shrink-0 text-purple-400" />
+                <a
+                  href={CONTACT.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-text-secondary hover:text-purple-400 transition-colors"
+                >
+                  {t("linkedin")}
                 </a>
               </li>
               <li className="flex items-start gap-2">
@@ -174,13 +187,22 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Trust badges */}
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 border-t border-border pt-6">
+          <span className="inline-flex items-center gap-2 text-xs text-text-secondary">
+            <span className="inline-flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+            {t("replyBadge")}
+          </span>
+          <span className="inline-flex items-center gap-2 text-xs text-text-secondary">
+            <ShieldCheck className="h-3.5 w-3.5 text-emerald-500" />
+            {t("secureBadge")}
+          </span>
+        </div>
+
         {/* Bottom bar */}
-        <div className="mt-12 pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-6 pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-text-secondary">
             &copy; {currentYear} Bekasen. {t("rights")}
-          </p>
-          <p className="text-xs text-text-secondary">
-            {t("madeWith")}
           </p>
         </div>
       </div>

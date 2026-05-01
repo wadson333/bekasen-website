@@ -10,12 +10,13 @@
     "portal": "Client Portal",
     "startProject": "Start a Project",
     "process": "Process",
-    "faq": "FAQ"
+    "faq": "FAQ",
+    "bookCall": "Book a free 15-min call"
   },
   "hero": {
     "badge": "WEB • APPS • AI",
     "title": "Bekasen — Premium Digital Agency",
-    "headline": "Accelerate your vision with digital excellence.",
+    "headline": "I build custom websites and management apps for Haitian businesses and the diaspora.",
     "titleLine1": "Accelerate your vision",
     "titleLine2": "with digital excellence.",
     "subtitle": "High-performance websites, business applications and AI integration. Advanced technical expertise for ambitious companies, wherever they are.",
@@ -23,8 +24,9 @@
     "titleLine2Accent": "excellence",
     "titleLine2After": ".",
     "socialProof": "Trusted by growth-minded leaders.",
-    "cta": "Start a project",
-    "ctaSecondary": "View demos"
+    "cta": "Book a free 15-min call",
+    "ctaSecondary": "View demos",
+    "tagline": "100% remote · Response time <24h · Pay via Wise, Zelle, or Crypto"
   },
   "techMarquee": {
     "title": "Powered by a precision engineering stack"
@@ -38,20 +40,27 @@
     },
     "story": {
       "title": "Our Story",
-      "content": "Founded with a vision to bridge the gap between technical excellence and local needs, Bekasen started as a small team of passionate developers. Today, we serve clients globally, bringing the same dedication to every project."
+      "content": "Bekasen is a one-person digital agency serving Haitian businesses and the diaspora. We don't pretend to be a multinational team — we're a focused operation that ships custom websites, business management apps, and AI integrations. Our promise: 100% remote work, response time under 24 hours, and payment via Wise, Zelle, or Crypto.",
+      "passion": "Made with passion for the Haitian community 🇭🇹"
     },
     "founder": {
       "badge": "THE VISIONARY",
-      "name": "Jean Bekasen",
-      "role": "Founder & Lead Architect",
-      "bio": "With over 10 years of experience in software engineering and a deep commitment to the Haitian community, Jean founded Bekasen to empower local businesses with world-class technology.",
-      "vision": "My goal is to make high-end digital solutions accessible to every ambitious Haitian entrepreneur."
+      "name": "Wadson Joseph",
+      "role": "Solo Founder · Data Analyst · Full-stack Developer",
+      "bio": "I'm a Haitian solo founder building for businesses at home and in the diaspora. The combination of data analyst, full-stack developer, and database student means I see your project end-to-end — from the data model to the user interface. I speak Creole, French, and English. I understand the cultural and payment reality. I work 100% remote with a response time under 24 hours.",
+      "vision": "My goal is simple: build technology that actually works for Haitian businesses — fast, reliable, and built by someone who understands the context."
     },
     "values": {
       "title": "Our Values",
       "integrity": "Integrity first in every line of code.",
       "innovation": "Innovation driven by purpose.",
       "community": "Community-focused growth."
+    },
+    "diasporaPromise": {
+      "title": "The Diaspora Promise",
+      "remote": "100% remote work",
+      "response": "Response time under 24 hours",
+      "pay": "Pay via Wise, Zelle, or Crypto"
     }
   },
   "services": {
@@ -67,10 +76,10 @@
     "viewCaseStudy": "View case study"
   },
   "portfolioSection": {
-    "whoBehindBadge": "WHO'S BEHIND BEKASEN?",
-    "whoBehindTitle": "We build your platforms as if they were",
-    "whoBehindTitleAccent": "our own.",
-    "whoBehindDescription": "We build your platforms as if they were our own.\n\nBekasen is a premium digital agency with a global mindset, rooted in the resilience and perspective of the Haitian diaspora. We're not just service providers — we're your technical partners.\n\nWith 6+ years of experience across public and private sectors, we deliver scalable, reliable, and thoughtfully engineered solutions.\n\nWe partner with teams worldwide, building technology that serves both business and community.",
+    "whoBehindBadge": "OUR CAPABILITIES",
+    "whoBehindTitle": "What we can build —",
+    "whoBehindTitleAccent": "proof, not promises.",
+    "whoBehindDescription": "These are demo projects we built to showcase what's possible — not client work. Each one is a real, deployable product covering a specific use case (medical clinic, hotel, marketplace, NGO). Use them as proof of what can be built for you, not as case studies of what we've delivered to others.\n\nIf you want one of these adapted for your business, that's exactly what we do.",
     "title": "Technical excellence that drives your vision.",
     "kineticText1": "Design.",
     "kineticText2": "Code.",
@@ -92,7 +101,9 @@
     "project3Title": "Aura Market",
     "project3Description": "Mobile-first marketplace connecting local sellers and buyers.",
     "project4Title": "Impact Global",
-    "project4Description": "Institutional website with immersive animations and visual storytelling."
+    "project4Description": "Institutional website with immersive animations and visual storytelling.",
+    "demoBadge": "Demo Project",
+    "liveDemo": "Live Demo →"
   },
   "servicesBento": {
     "badge": "SERVICES",
@@ -176,76 +187,6 @@
       "partnershipEmail": "partner@bekasen.com"
     }
   },
-  "startProject": {
-    "title": "Start a Project",
-    "subtitle": "Describe your project and get a free estimate.",
-    "progress": "Step {current} of {total}",
-    "back": "Back",
-    "continue": "Continue",
-    "step1": {
-      "title": "What is your industry?",
-      "subtitle": "Select the field that matches your business.",
-      "industries": {
-        "hotel": "Hotel / Tourism",
-        "clinic": "Clinic / Healthcare",
-        "ecommerce": "E-commerce",
-        "church": "Church / NGO",
-        "other": "Other"
-      }
-    },
-    "step2": {
-      "title": "What do you need?",
-      "subtitle": "Select one or more services.",
-      "services": {
-        "showcase": "Showcase Website",
-        "custom": "Custom Application",
-        "chatbot": "AI Chatbot Integration",
-        "ecommerce": "E-commerce"
-      }
-    },
-    "step3": {
-      "title": "Which style matches your vision?",
-      "subtitle": "Choose the style that inspires you.",
-      "styles": {
-        "tech": {
-          "label": "Tech / Dark Mode",
-          "description": "Modern and bold, inspired by Scalar"
-        },
-        "minimal": {
-          "label": "Clean / Minimalist",
-          "description": "Clean and elegant, inspired by Apple"
-        },
-        "corporate": {
-          "label": "Classic / Corporate",
-          "description": "Professional and structured"
-        }
-      }
-    },
-    "step4": {
-      "title": "Final details",
-      "subtitle": "How can we reach you?",
-      "name": "Full name",
-      "namePlaceholder": "John Doe",
-      "email": "Email address",
-      "emailPlaceholder": "john@example.com",
-      "whatsapp": "WhatsApp number",
-      "whatsappPlaceholder": "+1 000 000 0000",
-      "budget": "Estimated budget",
-      "budgetPlaceholder": "Select a budget",
-      "budgets": {
-        "500_1000": "$500 – $1,000",
-        "1000_3000": "$1,000 – $3,000",
-        "3000_plus": "$3,000+"
-      },
-      "details": "Project details",
-      "detailsPlaceholder": "Tell us briefly about your project...",
-      "submit": "Send my request"
-    },
-    "success": {
-      "title": "Thank you!",
-      "message": "Our team will contact you within 24 hours."
-    }
-  },
   "processTimeline": {
     "badge": "PROCESS",
     "title": "How it works",
@@ -258,26 +199,6 @@
     "step3Description": "Clean, performant and tested code. Every feature is validated before going to production.",
     "step4Title": "Launch & Growth",
     "step4Description": "Deployment, SEO optimization and performance tracking for continuous growth."
-  },
-  "testimonials": {
-    "badge": "TESTIMONIALS",
-    "title": "What our clients say",
-    "subtitle": "Concrete results that speak for themselves.",
-    "testimonial1Text": "Bekasen transformed our online presence. The design is beautiful and our sales increased by 300% in 3 months.",
-    "testimonial1Name": "Marie-Claire Duval",
-    "testimonial1Role": "Founder, Lakay Market",
-    "testimonial2Text": "An exceptional team that truly understands the needs of the Haitian community. The result exceeds all our expectations.",
-    "testimonial2Name": "Jean-Baptiste Pierre",
-    "testimonial2Role": "CEO, Kreyòl Academy",
-    "testimonial3Text": "Professionalism, creativity and results. Bekasen is the ideal digital partner for the Haitian diaspora.",
-    "testimonial3Name": "Sophie Laurent",
-    "testimonial3Role": "Director, Diaspora Connect",
-    "stat1Label": "Sales increase",
-    "stat2Label": "Months to deliver",
-    "stat3Label": "Retention increase",
-    "stat4Label": "Client satisfaction",
-    "stat5Label": "Traffic growth",
-    "stat6Label": "Projects delivered"
   },
   "pricingFAQ": {
     "badge": "PAYMENT & FAQ",
@@ -305,8 +226,8 @@
     "faq4Answer": "Yes, we serve clients worldwide, with a specialization for the Haitian community and diaspora.",
     "faq5Question": "How does the payment process work?",
     "faq5Answer": "We require a 50% deposit to start the project, and the remaining 50% upon final delivery.",
-    "contactEmail": "hello@bekasen.com",
-    "contactWhatsapp": "+1 (786) 555-0123"
+    "contactEmail": "contact@bekasen.com",
+    "contactWhatsapp": "+509 3730 5068"
   },
   "finalCTA": {
     "badge": "READY TO START?",
@@ -326,17 +247,20 @@
     "serviceApp": "Business Applications",
     "contactTitle": "Contact",
     "location": "Miami, FL — Port-au-Prince, HT",
-    "madeWith": "Made with passion for the Haitian community 🇭🇹",
     "legalTitle": "Legal",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
-    "disclaimer": "Disclaimer"
+    "disclaimer": "Disclaimer",
+    "linkedin": "LinkedIn",
+    "replyBadge": "Typically replies in <2h",
+    "secureBadge": "Secure payments"
   },
   "common": {
     "learnMore": "Learn more",
     "getStarted": "Get started",
     "viewAll": "View all",
-    "backToHome": "Back to home"
+    "backToHome": "Back to home",
+    "whatsappAria": "Chat with us on WhatsApp"
   },
   "consent": {
     "title": "Privacy preferences",
@@ -637,5 +561,26 @@
       },
       "notice": "This disclaimer is provided for informational purposes. Consult with a qualified attorney for legal advice specific to your situation."
     }
+  },
+  "forWho": {
+    "eyebrow": "FOR WHO",
+    "title": "Built for the businesses that need this most",
+    "subtitle": "Not a generic agency. Sectors I understand and have built demos for:",
+    "sectors": {
+      "clinics": "Clinics",
+      "hotels": "Hotels",
+      "shops": "Shops",
+      "churches": "Churches"
+    }
+  },
+  "trustedBy": {
+    "label": "Trusted by {count} {count, plural, =1 {client} other {clients}}"
+  },
+  "notFound": {
+    "eyebrow": "404",
+    "title": "Page not found",
+    "subtitle": "This page does not exist or has moved. Head back to the homepage or talk to us directly.",
+    "backHome": "Back to home",
+    "contactCta": "Talk to us"
   }
 }

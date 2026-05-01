@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "@/components/ui/ThemeToggle";
 import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
+import { CONTACT } from "@/lib/contact";
 
 export default function Navbar() {
   const t = useTranslations("nav");
@@ -82,13 +83,15 @@ export default function Navbar() {
             {t("portal")}
           </Link>
 
-          {/* Contact CTA */}
-          <Link
-            href="/contact"
+          {/* Book a free 15-min call CTA */}
+          <a
+            href={CONTACT.cal15Href}
+            target="_blank"
+            rel="noopener noreferrer"
             className="hidden lg:inline-flex items-center gap-2 rounded-full bg-purple-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-purple-500 transition-colors cursor-pointer"
           >
-            {t("contact")}
-          </Link>
+            {t("bookCall")}
+          </a>
 
           {/* Mobile menu button */}
           <button
@@ -125,13 +128,15 @@ export default function Navbar() {
                 </li>
               ))}
               <li className="pt-2">
-                <Link
-                  href="/contact"
+                <a
+                  href={CONTACT.cal15Href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-full bg-purple-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-purple-500 transition-colors cursor-pointer"
                   onClick={() => setIsOpen(false)}
                 >
-                  {t("contact")}
-                </Link>
+                  {t("bookCall")}
+                </a>
               </li>
             </ul>
           </motion.div>

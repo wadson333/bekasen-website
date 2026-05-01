@@ -9,12 +9,13 @@
     "contact": "Kontakte nou",
     "startProject": "Kòmanse yon pwojè",
     "process": "Pwosesis",
-    "faq": "FAQ"
+    "faq": "FAQ",
+    "bookCall": "Rezève yon apèl gratis 15 min"
   },
   "hero": {
     "badge": "WEB • APPS • IA",
     "title": "Bekasen — Ajans Dijital Premyòm",
-    "headline": "Pouse vizyon ou pi lwen ak ekselans dijital.",
+    "headline": "M ap bati sit entènèt ak aplikasyon jesyon pèsonalize pou biznis ayisyen yo ak dyaspora a.",
     "titleLine1": "Pouse vizyon ou pi lwen",
     "titleLine2": "ak ekselans dijital.",
     "subtitle": "Solisyon web ki mache vit, aplikasyon biznis ak entegrasyon IA. Yon nivo ekspètiz teknik solid pou antrepriz ki gen anbisyon, kèlkeswa kote yo ye.",
@@ -22,15 +23,22 @@
     "titleLine2Accent": "ekselans",
     "titleLine2After": " dijital.",
     "socialProof": "Lidè kwasans yo fè nou konfyans.",
-    "cta": "Kòmanse yon pwojè",
-    "ctaSecondary": "Wè demo yo"
+    "cta": "Rezève yon apèl gratis 15 min",
+    "ctaSecondary": "Wè demo yo",
+    "tagline": "100% adistans · Repons mwens pase 24h · Peman atravè Wise, Zelle, oswa Crypto"
   },
   "techMarquee": {
     "title": "Alimante pa yon stack jeni presizyon"
   },
   "about": {
     "title": "Sou Bekasen",
-    "description": "Yon ajans dijital premyòm dedye a kominote ayisyen an."
+    "description": "Yon ajans dijital premyòm dedye a kominote ayisyen an.",
+    "diasporaPromise": {
+      "title": "Pwomès Dyaspora a",
+      "remote": "Travay 100% adistans",
+      "response": "Tan repons mwens pase 24h",
+      "pay": "Peman atravè Wise, Zelle, oswa Crypto"
+    }
   },
   "services": {
     "title": "Sèvis Nou yo",
@@ -45,10 +53,10 @@
     "viewCaseStudy": "Wè etid ka a"
   },
   "portfolioSection": {
-    "whoBehindBadge": "KIYÈS KI DÈYÈ BEKASEN ?",
-    "whoBehindTitle": "Nou kreye platfòm ou yo tankou se",
-    "whoBehindTitleAccent": "pa nou.",
-    "whoBehindDescription": "Nou bati platfòm ou yo tankou se pa nou.\n\nBekasen se yon ajans dijital premyòm ak yon mantal mondyal, rasin nan rezilians ak pèspektiv dyaspora ayisyen an. Nou pa jis founisè sèvis — nou se patnè teknik ou.\n\nAvèk plis pase 6 zan eksperyans nan sektè piblik ak prive, nou delivre solisyon ki ka grandi, ki serye, ak ki sonje konstwi.\n\nNou travay ak ekip patou nan mond lan, konstwi teknoloji ki sèvi ak biznis ak komunite a.",
+    "whoBehindBadge": "KAPASITE NOU YO",
+    "whoBehindTitle": "Sa nou ka bati —",
+    "whoBehindTitleAccent": "prèv, pa pwomès.",
+    "whoBehindDescription": "Sa yo se pwojè demo nou bati pou montre sa ki posib — se pa travay kliyan. Chak youn se yon pwodwi reyèl ak ka deplwaye ki kouvri yon ka itilize espesifik (klinik medikal, otèl, mache, ONG). Itilize yo kòm prèv sa ki ka konstwi pou ou, pa kòm etid ka sa nou livre lòt moun.\n\nSi ou vle yonn nan yo adapte pou biznis ou, se egzakteman sa nou fè.",
     "title": "Ekselans teknik ki pouse vizyon ou pi devan.",
     "kineticText1": "Konsepsyon.",
     "kineticText2": "Kòd.",
@@ -70,7 +78,9 @@
     "project3Title": "Aura Market",
     "project3Description": "Marketplace mobil-premye ki konekte vandè ak achetè lokal yo.",
     "project4Title": "Impact Global",
-    "project4Description": "Sit enstitisyonèl ak animasyon imèrsif ak istwa vizyèl."
+    "project4Description": "Sit enstitisyonèl ak animasyon imèrsif ak istwa vizyèl.",
+    "demoBadge": "Pwojè Demo",
+    "liveDemo": "Demo Live →"
   },
   "servicesBento": {
     "badge": "SÈVIS",
@@ -142,76 +152,6 @@
     "partnerWithUs": "Patenè avèk nou",
     "reachUsOut": "Kontakte nou"
   },
-  "startProject": {
-    "title": "Kòmanse yon Pwojè",
-    "subtitle": "Dekri pwojè w epi resevwa yon estimasyon gratis.",
-    "progress": "Etap {current} sou {total}",
-    "back": "Retounen",
-    "continue": "Kontinye",
-    "step1": {
-      "title": "Nan ki sektè ou ye ?",
-      "subtitle": "Chwazi domèn ki koresponn ak biznis ou.",
-      "industries": {
-        "hotel": "Otèl / Touris",
-        "clinic": "Klinik / Sante",
-        "ecommerce": "E-komès",
-        "church": "Legliz / ONG",
-        "other": "Lòt"
-      }
-    },
-    "step2": {
-      "title": "Kisa w bezwen ?",
-      "subtitle": "Chwazi youn oswa plizyè sèvis.",
-      "services": {
-        "showcase": "Sit Vitrin",
-        "custom": "Aplikasyon pèsonalize",
-        "chatbot": "Entegrasyon Chatbot IA",
-        "ecommerce": "E-komès"
-      }
-    },
-    "step3": {
-      "title": "Ki stil ki koresponn ak vizyon w ?",
-      "subtitle": "Chwazi stil ki enspire w.",
-      "styles": {
-        "tech": {
-          "label": "Tech / Mòd Nwa",
-          "description": "Modèn e odasye, enspire pa Scalar"
-        },
-        "minimal": {
-          "label": "Pwòp / Minimalis",
-          "description": "Pwòp e elegan, enspire pa Apple"
-        },
-        "corporate": {
-          "label": "Klasik / Kòporatif",
-          "description": "Pwofesyonèl e estrikti"
-        }
-      }
-    },
-    "step4": {
-      "title": "Dènye detay yo",
-      "subtitle": "Kijan nou ka kontakte w ?",
-      "name": "Non konplè",
-      "namePlaceholder": "Jan Batis",
-      "email": "Adrès imèl",
-      "emailPlaceholder": "jan@egzanp.com",
-      "whatsapp": "Nimewo WhatsApp",
-      "whatsappPlaceholder": "+509 0000 0000",
-      "budget": "Bidjè estime",
-      "budgetPlaceholder": "Chwazi yon bidjè",
-      "budgets": {
-        "500_1000": "$500 – $1 000",
-        "1000_3000": "$1 000 – $3 000",
-        "3000_plus": "$3 000+"
-      },
-      "details": "Detay pwojè a",
-      "detailsPlaceholder": "Pale nou yon ti kras sou pwojè w...",
-      "submit": "Voye demann mwen"
-    },
-    "success": {
-      "title": "Mèsi !",
-      "message": "Ekip nou ap kontakte w nan 24 èdtan."
-    }
-  },
   "processTimeline": {
     "badge": "PWOSESIS",
     "title": "Kijan sa mache",
@@ -224,26 +164,6 @@
     "step3Description": "Kòd pwòp, pèfòman ak teste. Chak fonksyonalite valide anvan pwodiksyon.",
     "step4Title": "Lansman & Kwasans",
     "step4Description": "Deployman, optimize SEO ak swivi pèfòmans pou yon kwasans kontinyèl."
-  },
-  "testimonials": {
-    "badge": "TEMWAYAJ",
-    "title": "Sa kliyan nou yo di",
-    "subtitle": "Rezilta konkrè ki pale pou tèt yo.",
-    "testimonial1Text": "Bekasen transfòme prezans nou sou entènèt la. Dizayn nan bèl anpil e lavant nou ogmante 300% nan 3 mwa.",
-    "testimonial1Name": "Marie-Claire Duval",
-    "testimonial1Role": "Fondatris, Lakay Market",
-    "testimonial2Text": "Yon ekip eksepsyonèl ki vrèman konprann bezwen kominote ayisyen an. Rezilta a depase tout atant nou.",
-    "testimonial2Name": "Jean-Baptiste Pierre",
-    "testimonial2Role": "CEO, Kreyòl Academy",
-    "testimonial3Text": "Pwofesyonalism, kreyativite ak rezilta. Bekasen se patnè dijital ideyal pou dyaspora ayisyen an.",
-    "testimonial3Name": "Sophie Laurent",
-    "testimonial3Role": "Direktris, Diaspora Connect",
-    "stat1Label": "Ogmantasyon lavant",
-    "stat2Label": "Mwa pou livre",
-    "stat3Label": "Retansyon ogmante",
-    "stat4Label": "Satisfaksyon kliyan",
-    "stat5Label": "Kwasans trafik",
-    "stat6Label": "Pwojè livre"
   },
   "pricingFAQ": {
     "badge": "PEMAN & FAQ",
@@ -271,8 +191,8 @@
     "faq4Answer": "Wi, nou sèvi kliyan toupatou nan mond lan, ak yon espesyalizasyon pou kominote ayisyen an ak dyaspora a.",
     "faq5Question": "Kijan pwosesis peman an mache?",
     "faq5Answer": "Nou mande yon akont 50% pou kòmanse pwojè a, ak balans 50% nan livrezon final la.",
-    "contactEmail": "hello@bekasen.com",
-    "contactWhatsapp": "+1 (786) 555-0123"
+    "contactEmail": "contact@bekasen.com",
+    "contactWhatsapp": "+509 3730 5068"
   },
   "finalCTA": {
     "badge": "PARE POU KÒMANSE?",
@@ -292,17 +212,20 @@
     "serviceApp": "Aplikasyon Biznis",
     "contactTitle": "Kontak",
     "location": "Miami, FL — Pòtoprens, HT",
-    "madeWith": "Fèt ak pasyon pou kominote ayisyen an 🇭🇹",
     "legalTitle": "Legal",
     "privacy": "Polisik Konfidansyalite",
     "terms": "Kondisyon itilizasyon",
-    "disclaimer": "Avètisman legal"
+    "disclaimer": "Avètisman legal",
+    "linkedin": "LinkedIn",
+    "replyBadge": "Anjeneral repons nan mwens pase 2h",
+    "secureBadge": "Peman an sekirite"
   },
   "common": {
     "learnMore": "Aprann plis",
     "getStarted": "Kòmanse",
     "viewAll": "Wè tout",
-    "backToHome": "Retounen akèy"
+    "backToHome": "Retounen akèy",
+    "whatsappAria": "Pale ak nou sou WhatsApp"
   },
   "consent": {
     "title": "Preferans konfidansyalite",
@@ -564,5 +487,26 @@
       },
       "notice": "Avètisman legal sa a bay pou enf̀ masyon. Konsalte avèk yon avoka kalifikate pou konsèy legal spesifik pou sitiyasyon ou."
     }
+  },
+  "forWho": {
+    "eyebrow": "POU KIYÈS",
+    "title": "Bati pou biznis ki bezwen sa plis",
+    "subtitle": "Se pa yon ajans jeneral. Sektè mwen konnen ak mwen bati demo pou yo:",
+    "sectors": {
+      "clinics": "Klinik",
+      "hotels": "Otèl",
+      "shops": "Boutik",
+      "churches": "Legliz"
+    }
+  },
+  "trustedBy": {
+    "label": "{count} {count, plural, =1 {kliyan} other {kliyan}} fè nou konfyans"
+  },
+  "notFound": {
+    "eyebrow": "404",
+    "title": "Paj la pa jwenn",
+    "subtitle": "Paj sa a pa egziste oswa li deplase. Retounen sou paj akèy la oswa pale ak nou dirèkteman.",
+    "backHome": "Retounen sou paj akèy",
+    "contactCta": "Pale ak nou"
   }
 }

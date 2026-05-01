@@ -9,12 +9,13 @@
     "contact": "Contacto",
     "startProject": "Iniciar un proyecto",
     "process": "Proceso",
-    "faq": "FAQ"
+    "faq": "FAQ",
+    "bookCall": "Reservar una llamada gratis de 15 min"
   },
   "hero": {
     "badge": "WEB • APPS • IA",
     "title": "Bekasen — Agencia Digital Premium",
-    "headline": "Impulsa tu visión con excelencia digital.",
+    "headline": "Creo sitios web y aplicaciones de gestión a medida para empresas haitianas y la diáspora.",
     "titleLine1": "Impulsa tu visión",
     "titleLine2": "con excelencia digital.",
     "subtitle": "Soluciones web de alto rendimiento, aplicaciones de negocio e integración de IA. Experiencia técnica de primer nivel para empresas ambiciosas, estén donde estén.",
@@ -22,15 +23,22 @@
     "titleLine2Accent": "excelencia",
     "titleLine2After": " digital.",
     "socialProof": "Líderes de crecimiento confían en nosotros.",
-    "cta": "Iniciar un proyecto",
-    "ctaSecondary": "Ver demos"
+    "cta": "Reservar una llamada gratis de 15 min",
+    "ctaSecondary": "Ver demos",
+    "tagline": "100% remoto · Respuesta en <24h · Pago vía Wise, Zelle o Crypto"
   },
   "techMarquee": {
     "title": "Impulsado por un stack de ingeniería de precisión"
   },
   "about": {
     "title": "Acerca de Bekasen",
-    "description": "Una agencia digital premium dedicada a la comunidad haitiana."
+    "description": "Una agencia digital premium dedicada a la comunidad haitiana.",
+    "diasporaPromise": {
+      "title": "La Promesa de la Diáspora",
+      "remote": "Trabajo 100% remoto",
+      "response": "Tiempo de respuesta < 24h",
+      "pay": "Pago vía Wise, Zelle o Crypto"
+    }
   },
   "services": {
     "title": "Nuestros Servicios",
@@ -45,10 +53,10 @@
     "viewCaseStudy": "Ver caso de estudio"
   },
   "portfolioSection": {
-    "whoBehindBadge": "¿QUIÉN ESTÁ DETRÁS DE BEKASEN?",
-    "whoBehindTitle": "Creamos tus plataformas como si fueran",
-    "whoBehindTitleAccent": "las nuestras.",
-    "whoBehindDescription": "Construimos tus plataformas como si fueran las nuestras.\n\nBekasen es una agencia digital premium con una mentalidad global, arraigada en la resiliencia y la perspectiva de la diáspora haitiana. No somos simples proveedores — somos tus socios técnicos.\n\nCon más de 6 años de experiencia en los sectores público y privado, entregamos soluciones escalables, confiables y cuidadosamente diseñadas.\n\nTrabajamos con equipos en todo el mundo, creando tecnología que sirve tanto al negocio como a la comunidad.",
+    "whoBehindBadge": "NUESTRAS CAPACIDADES",
+    "whoBehindTitle": "Lo que podemos construir —",
+    "whoBehindTitleAccent": "pruebas, no promesas.",
+    "whoBehindDescription": "Estos son proyectos demo que construimos para mostrar lo que es posible — no trabajo de cliente. Cada uno es un producto real y desplegable que cubre un caso de uso específico (clínica médica, hotel, marketplace, ONG). Úsalos como prueba de lo que se puede construir para ti, no como estudios de caso de lo que hemos entregado a otros.\n\nSi quieres uno de estos adaptado para tu negocio, eso es exactamente lo que hacemos.",
     "title": "Excelencia técnica que impulsa tu visión.",
     "kineticText1": "Diseño.",
     "kineticText2": "Código.",
@@ -70,7 +78,9 @@
     "project3Title": "Aura Market",
     "project3Description": "Marketplace mobile-first que conecta vendedores y compradores locales.",
     "project4Title": "Impact Global",
-    "project4Description": "Sitio institucional con animaciones inmersivas y narración visual."
+    "project4Description": "Sitio institucional con animaciones inmersivas y narración visual.",
+    "demoBadge": "Proyecto Demo",
+    "liveDemo": "Demo en vivo →"
   },
   "servicesBento": {
     "badge": "SERVICIOS",
@@ -142,76 +152,6 @@
     "partnerWithUs": "Convertirse en socio",
     "reachUsOut": "Contáctanos"
   },
-  "startProject": {
-    "title": "Iniciar un Proyecto",
-    "subtitle": "Describa su proyecto y reciba una estimación gratuita.",
-    "progress": "Paso {current} de {total}",
-    "back": "Volver",
-    "continue": "Continuar",
-    "step1": {
-      "title": "¿Cuál es su sector de actividad?",
-      "subtitle": "Seleccione el campo que corresponde a su empresa.",
-      "industries": {
-        "hotel": "Hotel / Turismo",
-        "clinic": "Clínica / Salud",
-        "ecommerce": "E-commerce",
-        "church": "Iglesia / ONG",
-        "other": "Otro"
-      }
-    },
-    "step2": {
-      "title": "¿Qué necesita?",
-      "subtitle": "Seleccione uno o más servicios.",
-      "services": {
-        "showcase": "Sitio Web Corporativo",
-        "custom": "Aplicación Personalizada",
-        "chatbot": "Integración Chatbot IA",
-        "ecommerce": "E-commerce"
-      }
-    },
-    "step3": {
-      "title": "¿Qué estilo corresponde a su visión?",
-      "subtitle": "Elija el estilo que le inspire.",
-      "styles": {
-        "tech": {
-          "label": "Tech / Modo Oscuro",
-          "description": "Moderno y audaz, inspirado en Scalar"
-        },
-        "minimal": {
-          "label": "Limpio / Minimalista",
-          "description": "Limpio y elegante, inspirado en Apple"
-        },
-        "corporate": {
-          "label": "Clásico / Corporativo",
-          "description": "Profesional y estructurado"
-        }
-      }
-    },
-    "step4": {
-      "title": "Últimos detalles",
-      "subtitle": "¿Cómo podemos contactarlo?",
-      "name": "Nombre completo",
-      "namePlaceholder": "Juan Pérez",
-      "email": "Correo electrónico",
-      "emailPlaceholder": "juan@ejemplo.com",
-      "whatsapp": "Número de WhatsApp",
-      "whatsappPlaceholder": "+1 000 000 0000",
-      "budget": "Presupuesto estimado",
-      "budgetPlaceholder": "Seleccione un presupuesto",
-      "budgets": {
-        "500_1000": "$500 – $1,000",
-        "1000_3000": "$1,000 – $3,000",
-        "3000_plus": "$3,000+"
-      },
-      "details": "Detalles del proyecto",
-      "detailsPlaceholder": "Cuéntenos brevemente sobre su proyecto...",
-      "submit": "Enviar mi solicitud"
-    },
-    "success": {
-      "title": "¡Gracias!",
-      "message": "Nuestro equipo lo contactará en 24 horas."
-    }
-  },
   "processTimeline": {
     "badge": "PROCESO",
     "title": "Cómo funciona",
@@ -224,26 +164,6 @@
     "step3Description": "Código limpio, eficiente y probado. Cada funcionalidad se valida antes de la producción.",
     "step4Title": "Lanzamiento & Crecimiento",
     "step4Description": "Despliegue, optimización SEO y seguimiento del rendimiento para un crecimiento continuo."
-  },
-  "testimonials": {
-    "badge": "TESTIMONIOS",
-    "title": "Lo que dicen nuestros clientes",
-    "subtitle": "Resultados concretos que hablan por sí mismos.",
-    "testimonial1Text": "Bekasen transformó nuestra presencia en línea. El diseño es hermoso y nuestras ventas aumentaron un 300% en 3 meses.",
-    "testimonial1Name": "Marie-Claire Duval",
-    "testimonial1Role": "Fundadora, Lakay Market",
-    "testimonial2Text": "Un equipo excepcional que realmente entiende las necesidades de la comunidad haitiana. El resultado supera todas nuestras expectativas.",
-    "testimonial2Name": "Jean-Baptiste Pierre",
-    "testimonial2Role": "CEO, Kreyòl Academy",
-    "testimonial3Text": "Profesionalismo, creatividad y resultados. Bekasen es el socio digital ideal para la diáspora haitiana.",
-    "testimonial3Name": "Sophie Laurent",
-    "testimonial3Role": "Directora, Diaspora Connect",
-    "stat1Label": "Aumento de ventas",
-    "stat2Label": "Meses de entrega",
-    "stat3Label": "Aumento de retención",
-    "stat4Label": "Satisfacción del cliente",
-    "stat5Label": "Crecimiento del tráfico",
-    "stat6Label": "Proyectos entregados"
   },
   "pricingFAQ": {
     "badge": "PAGO & FAQ",
@@ -271,8 +191,8 @@
     "faq4Answer": "Sí, atendemos clientes en todo el mundo, con una especialización en la comunidad haitiana y la diáspora.",
     "faq5Question": "¿Cómo funciona el proceso de pago?",
     "faq5Answer": "Solicitamos un anticipo del 50% para comenzar el proyecto, y el 50% restante en la entrega final.",
-    "contactEmail": "hello@bekasen.com",
-    "contactWhatsapp": "+1 (786) 555-0123"
+    "contactEmail": "contact@bekasen.com",
+    "contactWhatsapp": "+509 3730 5068"
   },
   "finalCTA": {
     "badge": "¿LISTO PARA COMENZAR?",
@@ -292,17 +212,20 @@
     "serviceApp": "Aplicaciones de Negocio",
     "contactTitle": "Contacto",
     "location": "Miami, FL — Puerto Príncipe, HT",
-    "madeWith": "Hecho con pasión para la comunidad haitiana 🇭🇹",
     "legalTitle": "Legal",
     "privacy": "Política de Privacidad",
     "terms": "Términos de Servicio",
-    "disclaimer": "Descargo de Responsabilidad"
+    "disclaimer": "Descargo de Responsabilidad",
+    "linkedin": "LinkedIn",
+    "replyBadge": "Respuesta en <2h habitualmente",
+    "secureBadge": "Pagos seguros"
   },
   "common": {
     "learnMore": "Más información",
     "getStarted": "Empezar",
     "viewAll": "Ver todo",
-    "backToHome": "Volver al inicio"
+    "backToHome": "Volver al inicio",
+    "whatsappAria": "Habla con nosotros por WhatsApp"
   },
   "consent": {
     "title": "Preferencias de privacidad",
@@ -564,5 +487,26 @@
       },
       "notice": "Este aviso legal se proporciona con fines informativos. Consulte a un abogado calificado para obtener asesoramiento legal específico para su situación."
     }
+  },
+  "forWho": {
+    "eyebrow": "PARA QUIÉN",
+    "title": "Construido para los negocios que más lo necesitan",
+    "subtitle": "No una agencia genérica. Sectores que entiendo y para los que he construido demos:",
+    "sectors": {
+      "clinics": "Clínicas",
+      "hotels": "Hoteles",
+      "shops": "Tiendas",
+      "churches": "Iglesias"
+    }
+  },
+  "trustedBy": {
+    "label": "{count} {count, plural, =1 {cliente confía} other {clientes confían}} en nosotros"
+  },
+  "notFound": {
+    "eyebrow": "404",
+    "title": "Página no encontrada",
+    "subtitle": "Esta página no existe o ha sido movida. Vuelve a la página de inicio o contáctanos directamente.",
+    "backHome": "Volver al inicio",
+    "contactCta": "Contáctanos"
   }
 }

@@ -9,12 +9,13 @@
     "contact": "Contact",
     "startProject": "Démarrer un projet",
     "process": "Processus",
-    "faq": "FAQ"
+    "faq": "FAQ",
+    "bookCall": "Réserver un appel gratuit de 15 min"
   },
   "hero": {
     "badge": "WEB • APPS • IA",
     "title": "Bekasen — Agence Digitale Premium",
-    "headline": "Propulsez votre vision avec l’excellence digitale.",
+    "headline": "Je construis des sites web et des applications de gestion sur mesure pour les entreprises haïtiennes et la diaspora.",
     "titleLine1": "Propulsez votre vision",
     "titleLine2": "avec l’excellence digitale.",
     "subtitle": "Solutions web haute performance, applications métier et intégration IA. Une expertise technique de pointe pour les entreprises ambitieuses, où qu'elles soient.",
@@ -22,15 +23,22 @@
     "titleLine2Accent": "excellence",
     "titleLine2After": " digitale.",
     "socialProof": "Fait confiance par des leaders de croissance.",
-    "cta": "Démarrer un projet",
-    "ctaSecondary": "Voir les démos"
+    "cta": "Réserver un appel gratuit de 15 min",
+    "ctaSecondary": "Voir les démos",
+    "tagline": "100% à distance · Réponse en <24h · Paiement via Wise, Zelle ou Crypto"
   },
   "techMarquee": {
     "title": "Propulsé par une stack d'ingénierie de précision"
   },
   "about": {
     "title": "À propos de Bekasen",
-    "description": "Une agence digitale premium dédiée à la communauté haïtienne."
+    "description": "Une agence digitale premium dédiée à la communauté haïtienne.",
+    "diasporaPromise": {
+      "title": "La Promesse Diaspora",
+      "remote": "Travail 100% à distance",
+      "response": "Temps de réponse < 24h",
+      "pay": "Paiement via Wise, Zelle ou Crypto"
+    }
   },
   "services": {
     "title": "Nos Services",
@@ -45,10 +53,10 @@
     "viewCaseStudy": "Voir l'étude de cas"
   },
   "portfolioSection": {
-    "whoBehindBadge": "QUI EST DERRIÈRE BEKASEN ?",
-    "whoBehindTitle": "Nous créons vos plateformes comme si c'étaient",
-    "whoBehindTitleAccent": "les nôtres.",
-    "whoBehindDescription": "Nous créons vos plateformes comme si c'étaient les nôtres.\n\nBekasen est une agence digitale premium avec une vision mondiale, ancrée dans la résilience et la perspective de la diaspora haïtienne. Nous ne sommes pas de simples prestataires — nous sommes vos partenaires techniques.\n\nAvec plus de 6 ans d'expérience dans les secteurs public et privé, nous livrons des solutions scalables, fiables et soigneusement conçues.\n\nNous partenons avec des équipes dans le monde entier, construisant une technologie qui sert à la fois le business et la communauté.",
+    "whoBehindBadge": "NOS CAPACITÉS",
+    "whoBehindTitle": "Ce que nous pouvons construire —",
+    "whoBehindTitleAccent": "preuves, pas promesses.",
+    "whoBehindDescription": "Ce sont des projets démo que nous avons construits pour montrer ce qui est possible — pas du travail client. Chacun est un produit réel et déployable couvrant un cas d'usage spécifique (clinique médicale, hôtel, marketplace, ONG). Utilisez-les comme preuve de ce qui peut être construit pour vous, pas comme études de cas de ce que nous avons livré à d'autres.\n\nSi vous voulez l'un d'eux adapté pour votre business, c'est exactement ce que nous faisons.",
     "title": "L'excellence technique qui propulse votre vision.",
     "kineticText1": "Conception.",
     "kineticText2": "Code.",
@@ -70,7 +78,9 @@
     "project3Title": "Aura Market",
     "project3Description": "Marketplace mobile-first connectant vendeurs et acheteurs locaux.",
     "project4Title": "Impact Global",
-    "project4Description": "Site institutionnel avec animations immersives et storytelling visuel."
+    "project4Description": "Site institutionnel avec animations immersives et storytelling visuel.",
+    "demoBadge": "Projet Démo",
+    "liveDemo": "Démo en ligne →"
   },
   "servicesBento": {
     "badge": "SERVICES",
@@ -142,76 +152,6 @@
     "partnerWithUs": "Devenir partenaire",
     "reachUsOut": "Nous contacter"
   },
-  "startProject": {
-    "title": "Démarrer un projet",
-    "subtitle": "Décrivez votre projet et recevez une estimation gratuite.",
-    "progress": "Étape {current} sur {total}",
-    "back": "Retour",
-    "continue": "Continuer",
-    "step1": {
-      "title": "Quel est votre secteur d'activité ?",
-      "subtitle": "Sélectionnez le domaine qui correspond à votre entreprise.",
-      "industries": {
-        "hotel": "Hôtel / Tourisme",
-        "clinic": "Clinique / Santé",
-        "ecommerce": "E-commerce",
-        "church": "Église / ONG",
-        "other": "Autre"
-      }
-    },
-    "step2": {
-      "title": "De quoi avez-vous besoin ?",
-      "subtitle": "Sélectionnez un ou plusieurs services.",
-      "services": {
-        "showcase": "Site Vitrine",
-        "custom": "Application sur-mesure",
-        "chatbot": "Intégration Chatbot IA",
-        "ecommerce": "E-commerce"
-      }
-    },
-    "step3": {
-      "title": "Quelle ambiance correspond à votre vision ?",
-      "subtitle": "Choisissez le style qui vous inspire.",
-      "styles": {
-        "tech": {
-          "label": "Tech / Dark Mode",
-          "description": "Moderne et audacieux, inspiré par Scalar"
-        },
-        "minimal": {
-          "label": "Épuré / Minimaliste",
-          "description": "Propre et élégant, inspiré par Apple"
-        },
-        "corporate": {
-          "label": "Classique / Corporatif",
-          "description": "Professionnel et structuré"
-        }
-      }
-    },
-    "step4": {
-      "title": "Derniers détails",
-      "subtitle": "Comment pouvons-nous vous contacter ?",
-      "name": "Nom complet",
-      "namePlaceholder": "Jean Dupont",
-      "email": "Adresse e-mail",
-      "emailPlaceholder": "jean@exemple.com",
-      "whatsapp": "Numéro WhatsApp",
-      "whatsappPlaceholder": "+509 0000 0000",
-      "budget": "Budget estimé",
-      "budgetPlaceholder": "Sélectionnez un budget",
-      "budgets": {
-        "500_1000": "$500 – $1 000",
-        "1000_3000": "$1 000 – $3 000",
-        "3000_plus": "$3 000+"
-      },
-      "details": "Détails du projet",
-      "detailsPlaceholder": "Parlez-nous brièvement de votre projet...",
-      "submit": "Envoyer ma demande"
-    },
-    "success": {
-      "title": "Merci !",
-      "message": "Notre équipe vous contacte sous 24h."
-    }
-  },
   "processTimeline": {
     "badge": "PROCESSUS",
     "title": "Comment ça marche",
@@ -224,26 +164,6 @@
     "step3Description": "Code propre, performant et testé. Chaque fonctionnalité est validée avant la mise en production.",
     "step4Title": "Lancement & Croissance",
     "step4Description": "Déploiement, optimisation SEO et suivi des performances pour une croissance continue."
-  },
-  "testimonials": {
-    "badge": "TÉMOIGNAGES",
-    "title": "Ce que disent nos clients",
-    "subtitle": "Des résultats concrets qui parlent d'eux-mêmes.",
-    "testimonial1Text": "Bekasen a transformé notre présence en ligne. Le design est magnifique et nos ventes ont augmenté de 300% en 3 mois.",
-    "testimonial1Name": "Marie-Claire Duval",
-    "testimonial1Role": "Fondatrice, Lakay Market",
-    "testimonial2Text": "Une équipe exceptionnelle qui comprend vraiment les besoins de la communauté haïtienne. Le résultat dépasse toutes nos attentes.",
-    "testimonial2Name": "Jean-Baptiste Pierre",
-    "testimonial2Role": "CEO, Kreyòl Academy",
-    "testimonial3Text": "Professionnalisme, créativité et résultats. Bekasen est le partenaire digital idéal pour la diaspora haïtienne.",
-    "testimonial3Name": "Sophie Laurent",
-    "testimonial3Role": "Directrice, Diaspora Connect",
-    "stat1Label": "Hausse des ventes",
-    "stat2Label": "Mois de livraison",
-    "stat3Label": "Rétention augmentée",
-    "stat4Label": "Satisfaction client",
-    "stat5Label": "Croissance du trafic",
-    "stat6Label": "Projets livrés"
   },
   "pricingFAQ": {
     "badge": "PAIEMENT & FAQ",
@@ -271,8 +191,8 @@
     "faq4Answer": "Oui, nous servons des clients dans le monde entier, avec une spécialisation pour la communauté haïtienne et la diaspora.",
     "faq5Question": "Comment fonctionne le processus de paiement ?",
     "faq5Answer": "Nous demandons un acompte de 50% pour commencer le projet, et le solde de 50% à la livraison finale.",
-    "contactEmail": "hello@bekasen.com",
-    "contactWhatsapp": "+1 (786) 555-0123"
+    "contactEmail": "contact@bekasen.com",
+    "contactWhatsapp": "+509 3730 5068"
   },
   "finalCTA": {
     "badge": "PRÊT À COMMENCER ?",
@@ -292,17 +212,20 @@
     "serviceApp": "Applications Métier",
     "contactTitle": "Contact",
     "location": "Miami, FL — Port-au-Prince, HT",
-    "madeWith": "Fait avec passion pour la communauté haïtienne 🇭🇹",
     "legalTitle": "Légal",
     "privacy": "Politique de Confidentialité",
     "terms": "Conditions d'Utilisation",
-    "disclaimer": "Avertissement Legal"
+    "disclaimer": "Avertissement Legal",
+    "linkedin": "LinkedIn",
+    "replyBadge": "Réponse en <2h en général",
+    "secureBadge": "Paiements sécurisés"
   },
   "common": {
     "learnMore": "En savoir plus",
     "getStarted": "Commencer",
     "viewAll": "Tout voir",
-    "backToHome": "Retour à l'accueil"
+    "backToHome": "Retour à l'accueil",
+    "whatsappAria": "Discutez avec nous sur WhatsApp"
   },
   "consent": {
     "title": "Préférences de confidentialité",
@@ -564,5 +487,26 @@
       },
       "notice": "Cette clause d'exonération est fournie à titre informatif. Consultez un avocat qualifié pour des conseils juridiques spécifiques à votre situation."
     }
+  },
+  "forWho": {
+    "eyebrow": "POUR QUI",
+    "title": "Construit pour les entreprises qui en ont le plus besoin",
+    "subtitle": "Pas une agence générique. Des secteurs que je connais et pour lesquels j'ai construit des démos :",
+    "sectors": {
+      "clinics": "Cliniques",
+      "hotels": "Hôtels",
+      "shops": "Boutiques",
+      "churches": "Églises"
+    }
+  },
+  "trustedBy": {
+    "label": "{count} {count, plural, =1 {client} other {clients}} nous font confiance"
+  },
+  "notFound": {
+    "eyebrow": "404",
+    "title": "Page introuvable",
+    "subtitle": "Cette page n'existe pas ou a été déplacée. Retournez à l'accueil ou parlez-nous directement.",
+    "backHome": "Retour à l'accueil",
+    "contactCta": "Parlez-nous"
   }
 }
