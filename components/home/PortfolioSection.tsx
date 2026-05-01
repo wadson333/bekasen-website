@@ -490,15 +490,9 @@ export default function PortfolioSection() {
                   <div className="px-4 pb-3 pt-4 md:px-5 md:pt-5">
                     <div className="flex items-start justify-between gap-4">
                       <div className="min-w-0">
-                        {project.isInDev ? (
-                          <span className="inline-flex py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-purple-200">
-                            {t("inDev")}
-                          </span>
-                        ) : (
-                          <span className="inline-flex rounded-full border border-purple-400/25 bg-purple-500/12 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-purple-200">
-                            {project.tags[0]}
-                          </span>
-                        )}
+                        <span className="inline-flex rounded-full border border-amber-400/30 bg-amber-500/15 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-amber-200">
+                          {t("demoBadge")}
+                        </span>
                         <h3 className="mt-3 text-xl font-(family-name:--font-syne) font-bold leading-tight text-white md:text-2xl">
                           {t(project.titleKey)}
                         </h3>
@@ -510,10 +504,10 @@ export default function PortfolioSection() {
                           <a
                             href={`https://${project.url}`}
                             target="_blank"
-                            rel="noreferrer"
-                            className="mt-2 block truncate text-xs font-medium text-purple-100/80 underline-offset-4 transition hover:text-purple-200 hover:underline md:text-sm"
+                            rel="noopener noreferrer"
+                            className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-purple-200 underline-offset-4 transition hover:text-purple-100 hover:underline md:text-sm"
                           >
-                            {project.url}
+                            {t("liveDemo")}
                           </a>
                         )}
                       </div>

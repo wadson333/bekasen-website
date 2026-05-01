@@ -226,7 +226,7 @@ export default function FinalCTA() {
             whileTap={{ scale: 0.98 }}
           >
             <Link
-              href="/start-project"
+              href="/contact"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold text-lg shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 transition-shadow"
             >
               {t("cta")}

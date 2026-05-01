@@ -39,7 +39,7 @@ const FAQ_DATABASE = [
   {
     keywords: ['contact', 'get in touch', 'email', 'phone', 'reach', 'call', 'hello'],
     question: 'How can I contact Bekasen?',
-    answer: 'You can contact us via: Email - hello@bekasen.com, Phone - +509 48xx xxxx, Website contact form, or schedule a discovery call through our Start Project page.',
+    answer: 'You can contact us via: Email - contact@bekasen.com, WhatsApp - +509 3730 5068, the contact form, or book a free 15-min call at https://cal.com/bekasen-ytjx1n/15min.',
     category: 'contact'
   },
   {
@@ -156,7 +156,7 @@ RULES:
 2. Focus on digital transformation for niche markets
 3. Mention relevant tech stack when discussing solutions
 4. Be concise and action-oriented
-5. If unsure, suggest contacting the team via hello@bekasen.com
+5. If unsure, suggest contacting the team via contact@bekasen.com
 6. Never make up pricing - direct to pricing page or offer a discovery call
 7. Highlight our expertise in Haitian market with international standards
 8. Keep responses under 3-4 sentences
@@ -295,7 +295,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       { 
         error: 'Internal server error', 
-        response: 'Sorry, I encountered an error. Please try again or contact us directly at hello@bekasen.com.' 
+        response: 'Sorry, I encountered an error. Please try again or contact us directly at contact@bekasen.com.' 
       },
       { status: 500 }
     );

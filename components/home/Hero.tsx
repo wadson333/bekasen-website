@@ -1,14 +1,10 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
-import avatarEntreprenor from "../../_docs/images/hero_avatar_1.png";
-import avatarDoctor from "../../_docs/images/hero_avatar_2.png";
-import avatarPastor from "../../_docs/images/hero_avatar_3.png";
-import avatarCanditates from "../../_docs/images/hero_avatar_4.png";
+import { CONTACT } from "@/lib/contact";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 18 },
@@ -18,13 +14,6 @@ const fadeUp = {
     transition: { duration: 0.7, delay, ease: [0.25, 0.4, 0.25, 1] as const },
   }),
 };
-
-const avatars = [
-  { src: avatarEntreprenor, alt: "Entrepreneur client", position: "object-center" },
-  { src: avatarDoctor, alt: "Doctor client", position: "object-center" },
-  { src: avatarPastor, alt: "Pastor client", position: "object-center" },
-  { src: avatarCanditates, alt: "Candidate client", position: "object-center" },
-] as const;
 
 export default function Hero() {
   const t = useTranslations("hero");
@@ -81,57 +70,36 @@ export default function Hero() {
           {t("subtitle")}
         </motion.p>
 
+        <motion.p
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          custom={0.4}
+          className="mt-4 max-w-2xl text-pretty text-sm font-medium text-purple-400 sm:text-base"
+        >
+          {t("tagline")}
+        </motion.p>
+
         <motion.div
           variants={fadeUp}
           initial="hidden"
           animate="visible"
-          custom={0.45}
+          custom={0.5}
           className="mt-8"
         >
-          <Link
-            href="/start-project"
+          <a
+            href={CONTACT.cal15Href}
+            target="_blank"
+            rel="noopener noreferrer"
             className="group flex h-14 items-center gap-3 rounded-full bg-purple-600 pl-6 pr-2 text-base font-medium text-white shadow-[0_8px_30px_rgba(139,92,246,0.3)] transition-all duration-300 hover:-translate-y-1 hover:bg-purple-500 hover:shadow-[0_12px_40px_rgba(139,92,246,0.4)]"
           >
             <span>{t("cta")}</span>
             <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-white transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
               <ArrowUpRight size={18} strokeWidth={2.5} />
             </span>
-          </Link>
+          </a>
         </motion.div>
 
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          custom={0.6}
-          className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-5"
-        >
-          <div className="flex -space-x-3 mb-4 sm:mb-0">
-            {avatars.map((avatar) => (
-              <motion.div
-                key={avatar.alt}
-                whileHover={{ scale: 1.25, zIndex: 10 }}
-                transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                className="relative h-12 w-12 cursor-pointer overflow-hidden rounded-full border-2 border-bg-primary shadow-sm"
-              >
-                <div className="absolute inset-0">
-                  <Image
-                    src={avatar.src}
-                    alt={avatar.alt}
-                    fill
-                    sizes="96px"
-                    quality={100}
-                    unoptimized
-                    className={`${avatar.position} object-cover`}
-                  />
-                </div>
-              </motion.div>
-            ))}
-          </div>
-          <div className="text-sm font-medium text-text-secondary">
-            {t("socialProof")}
-          </div>
-        </motion.div>
       </div>
     </section>
   );

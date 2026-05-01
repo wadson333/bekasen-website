@@ -156,7 +156,7 @@ export default function ServicesBento() {
                 <p className="mt-4 text-sm font-medium text-text-primary">{t("priceLabel")}</p>
 
                 <Link
-                  href="/start-project"
+                  href="/contact"
                   className="mt-6 inline-flex w-full items-center justify-center rounded-full px-5 py-3 text-sm font-semibold transition-colors bg-bg-secondary text-text-primary border border-border hover:border-purple-400/40"
                 >
                   {t("cta")}
@@ -223,7 +223,7 @@ export default function ServicesBento() {
           </div>
 
           <Link
-            href="/start-project"
+            href="/contact"
             className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full border border-border bg-bg-secondary px-5 py-3 text-sm font-semibold text-text-primary hover:border-purple-400/40 transition-colors"
           >
             {t("cta")}

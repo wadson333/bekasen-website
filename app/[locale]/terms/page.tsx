@@ -123,7 +123,7 @@ export default function TermsPage() {
             <p>
               {t("terms.contact.content")}
             </p>
-            <p className="mt-3">Email: hello@bekasen.com</p>
+            <p className="mt-3">Email: contact@bekasen.com</p>
           </section>
 
           {/* Disclaimer */}

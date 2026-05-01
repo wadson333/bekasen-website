@@ -131,7 +131,7 @@ export default function PrivacyPage() {
             <p>
               {t("privacy.contact.content")}
             </p>
-            <p className="mt-3">Email: hello@bekasen.com</p>
+            <p className="mt-3">Email: contact@bekasen.com</p>
           </section>
 
           {/* Disclaimer */}

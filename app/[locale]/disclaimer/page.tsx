@@ -110,7 +110,7 @@ export default function DisclaimerPage() {
             <p>
               {t("disclaimer.contact.content")}
             </p>
-            <p className="mt-3">Email: hello@bekasen.com</p>
+            <p className="mt-3">Email: contact@bekasen.com</p>
           </section>
 
           {/* Legal Notice */}
