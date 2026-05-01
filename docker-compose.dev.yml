@@ -1,0 +1,25 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: bekasen-dev-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: bekasen
+      POSTGRES_PASSWORD: dev
+      POSTGRES_DB: bekasen
+    ports:
+      - "5432:5432"
+    volumes:
+      - bekasen_dev_pgdata:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer:latest
+    container_name: bekasen-dev-adminer
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+
+volumes:
+  bekasen_dev_pgdata:

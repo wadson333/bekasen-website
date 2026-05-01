@@ -31,7 +31,16 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # env files (can opt-in for committing if needed)
-.env*
+.env
+.env.local
+.env.production
+.env.development.local
+.env.test.local
+# Note: .env.example IS committed (template)
+
+# user-uploaded files (managed by CMS, not source)
+/public/uploads/*
+!/public/uploads/.gitkeep
 
 # vercel
 .vercel
