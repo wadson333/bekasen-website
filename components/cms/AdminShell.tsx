@@ -44,7 +44,7 @@ export default function AdminShell({
     { label: "Clients", href: `${base}/clients`, Icon: FolderKanban, status: "ready" },
     { label: "Leads", href: `${base}/leads`, Icon: Inbox, status: "ready" },
     { label: "Portfolio", href: `${base}/portfolio`, Icon: Briefcase, status: "ready" },
-    { label: "Pricing", href: `${base}/pricing`, Icon: Tag, status: "soon" },
+    { label: "Pricing", href: `${base}/pricing`, Icon: Tag, status: "ready" },
     { label: "Blog", href: `${base}/blog`, Icon: FileText, status: "soon" },
     { label: "Content", href: `${base}/content`, Icon: Settings, status: "soon" },
   ];
