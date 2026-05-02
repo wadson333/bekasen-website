@@ -1,0 +1,86 @@
+# Production stack — runs on the Hostinger VPS.
+#
+# Boot:
+#   1. Fill .env with production values (DATABASE_URL, JWT_SECRET, OPENROUTER_API_KEY, …).
+#   2. docker compose pull && docker compose build
+#   3. docker compose up -d
+#   4. docker compose run --rm migrate npm run db:migrate
+#
+# Nginx terminates TLS in front of this stack and proxies to the `web`
+# service on the internal docker network. See nginx/bekasen.conf.
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: bekasen-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-bekasen}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?postgres_password_required}
+      POSTGRES_DB: ${POSTGRES_DB:-bekasen}
+    volumes:
+      - bekasen_pgdata:/var/lib/postgresql/data
+      - ./backups:/backups
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-bekasen} -d ${POSTGRES_DB:-bekasen}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    # No published ports — only the web/migrate services on this docker
+    # network can reach the database.
+    networks:
+      - bekasen-net
+
+  # One-shot migrate service. Run on demand:
+  #   docker compose run --rm migrate npm run db:migrate
+  # (or db:seed for the initial admin + plans).
+  migrate:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+    container_name: bekasen-migrate
+    profiles: ["migrate"]
+    env_file: .env
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - bekasen-net
+    command: ["npm", "run", "db:migrate"]
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-https://bekasen.com}
+    image: bekasen-web:latest
+    container_name: bekasen-web
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      HOSTNAME: 0.0.0.0
+    depends_on:
+      db:
+        condition: service_healthy
+    expose:
+      - "3000"
+    # Nginx (running on the host or another container) proxies to this.
+    # Uncomment the ports stanza only if you want to skip Nginx and expose
+    # the app directly on port 80 / a public port.
+    # ports:
+    #   - "127.0.0.1:3000:3000"
+    networks:
+      - bekasen-net
+
+networks:
+  bekasen-net:
+    name: bekasen-net
+    driver: bridge
+
+volumes:
+  bekasen_pgdata:
+    name: bekasen_pgdata

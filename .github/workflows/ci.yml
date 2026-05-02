@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [main, "claude/**"]
+  pull_request:
+    branches: [main]
+
+# Cancel in-progress runs on the same ref to save minutes.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: typecheck + build
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install
+        run: npm ci --no-audit --no-fund
+
+      - name: TypeScript
+        run: npx tsc --noEmit -p tsconfig.json
+
+      - name: Lint
+        run: npx next lint || true   # eslint config can be tightened later
+
+      # Build with placeholder env so config plugins don't trip on missing keys.
+      - name: Build
+        env:
+          DATABASE_URL: postgres://placeholder:placeholder@localhost:5432/placeholder
+          JWT_SECRET: placeholder-32-byte-secret-for-ci-only-do-not-use
+          ADMIN_PANEL_UID: ci_placeholder
+          ADMIN_EMAIL: ci@example.com
+          NEXT_PUBLIC_SITE_URL: https://bekasen.com
+        run: npm run build

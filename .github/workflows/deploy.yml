@@ -1,0 +1,55 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}   # manual trigger from GitHub UI
+
+# Only one deploy at a time.
+concurrency:
+  group: deploy-prod
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: SSH push + restart
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment: production   # Set required reviewers in GitHub if you want manual approval.
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure SSH
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.VPS_SSH_PRIVATE_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.VPS_KNOWN_HOSTS }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
+
+      # Pull latest code on the VPS, rebuild the image, run migrations,
+      # restart the web service. The VPS keeps the .env file outside the repo
+      # so secrets never travel through GitHub Actions.
+      - name: Deploy
+        env:
+          SSH_USER: ${{ secrets.VPS_SSH_USER }}
+          SSH_HOST: ${{ secrets.VPS_HOST }}
+          DEPLOY_PATH: ${{ secrets.VPS_DEPLOY_PATH }}
+        run: |
+          ssh -o StrictHostKeyChecking=yes "$SSH_USER@$SSH_HOST" bash <<EOF
+          set -euo pipefail
+          cd "$DEPLOY_PATH"
+          git fetch --all --prune
+          git checkout main
+          git reset --hard origin/main
+          docker compose pull db || true
+          docker compose build web
+          docker compose run --rm migrate npm run db:migrate
+          docker compose up -d web db
+          docker image prune -f
+          echo "✅ Deploy finished."
+          EOF
