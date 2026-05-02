@@ -3,6 +3,7 @@ import { db } from "@/lib/db";
 import { contactSubmissions } from "@/drizzle/schema";
 import { ContactSubmissionSchema } from "@/lib/validation/clients";
 import { sanitizePlainText } from "@/lib/sanitize";
+import { notifyNewLead } from "@/lib/email";
 
 export const runtime = "nodejs";
 
@@ -42,6 +43,16 @@ export async function POST(req: NextRequest) {
       source: "website",
     })
     .returning({ id: contactSubmissions.id });
+
+  // Best-effort notification to the founder (no-op if RESEND_API_KEY missing)
+  void notifyNewLead({
+    name: data.name,
+    email: data.email,
+    projectType: data.projectType ?? null,
+    message: cleanedMessage,
+    source: "website",
+    isQualified: false,
+  });
 
   return NextResponse.json({ ok: true, id: row?.id }, { status: 201 });
 }

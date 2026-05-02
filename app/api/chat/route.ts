@@ -1,14 +1,26 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { eq } from 'drizzle-orm';
 import {
   ensureChatSession,
   getRequestChatSessionId,
+  loadChatMessages,
   persistChatMessage,
   requestAllowsChatPersistence,
 } from '@/lib/server/chat-history';
+import { db } from '@/lib/db';
+import { contactSubmissions } from '@/drizzle/schema';
+import { openRouterChat, type OpenRouterMessage } from '@/lib/openrouter';
+import { notifyNewLead } from '@/lib/email';
+import { sanitizePlainText } from '@/lib/sanitize';
 
-// Ollama API configuration
+// Ollama API configuration (legacy local fallback, only when reachable)
 const OLLAMA_BASE_URL = process.env.OLLAMA_BASE_URL || 'http://localhost:11434';
 const OLLAMA_MODEL = process.env.OLLAMA_MODEL || 'gemma4:e2b';
+
+// Lead qualification: cap conversation length per spec section 9.3
+const MAX_CHATBOT_TURNS = 10;
+const QUALIFIED_MARKER_RE =
+  /<<QUALIFIED:name=([^|>]+)\|email=([^|>]+)\|project=([^|>]+)>>/i;
 
 // Enhanced FAQ database with better intent matching
 const FAQ_DATABASE = [
@@ -188,6 +200,129 @@ User question: ${userMessage}`;
   return data.response || 'I apologize, but I couldn\'t generate a response. Please try again or contact us directly.';
 }
 
+// ─── OpenRouter lead-qualification path (primary, per spec section 9) ──────
+// Returns null if disabled / fails — caller falls back to rule-based.
+
+const SYSTEM_PROMPT = `You are Bekasen's scheduling assistant. Bekasen is a solo digital agency serving Haitian businesses and the diaspora (websites, business apps, AI integrations).
+
+Your ONLY job is to understand what the visitor needs and collect three things:
+  1. Their name
+  2. Their email
+  3. Their project type (e.g. website, e-commerce, booking system, mobile app, AI assistant)
+
+CRITICAL RULES:
+- Do NOT answer technical questions in detail. Defer to the founder.
+- Do NOT quote prices. Always say a discovery call is needed.
+- Keep every response under 3 sentences.
+- Reply in the user's language (fr/en/ht/es) — match what they wrote.
+- Ask ONE question at a time. Maximum 3 short questions before sharing the call link.
+
+When you have collected ALL THREE pieces of information, your VERY NEXT message must:
+  1. Start with the single line: <<QUALIFIED:name=THE_NAME|email=THE_EMAIL|project=THE_PROJECT_TYPE>>
+  2. Then a friendly thank-you sentence.
+  3. Then the booking link: https://cal.com/bekasen-ytjx1n/15min
+
+If the visitor refuses to share info, politely point them to https://cal.com/bekasen-ytjx1n/15min and stop. Never invent values for the QUALIFIED marker.`;
+
+type QualifiedExtract = { name: string; email: string; projectType: string } | null;
+
+function parseQualifiedMarker(text: string): {
+  cleaned: string;
+  qualified: QualifiedExtract;
+} {
+  const match = text.match(QUALIFIED_MARKER_RE);
+  if (!match) return { cleaned: text, qualified: null };
+  const cleaned = text.replace(QUALIFIED_MARKER_RE, "").replace(/^\s*\n+/, "").trim();
+  return {
+    cleaned,
+    qualified: {
+      name: match[1].trim().slice(0, 255),
+      email: match[2].trim().slice(0, 255),
+      projectType: match[3].trim().slice(0, 100),
+    },
+  };
+}
+
+/**
+ * Tries OpenRouter; returns null when the key is missing or the call fails.
+ * On qualification, inserts a contact_submissions row + emails the founder.
+ */
+async function tryOpenRouterPath(opts: {
+  message: string;
+  locale: string;
+  sessionId: string | null;
+  canPersist: boolean;
+}): Promise<{ response: string; qualified: boolean; turnCount: number } | null> {
+  // Load history if we have a persisted session
+  let history: Array<{ role: string; content: string }> = [];
+  if (opts.sessionId) {
+    try {
+      history = await loadChatMessages(opts.sessionId);
+    } catch {
+      history = [];
+    }
+  }
+
+  // Cap conversation length (spec 9.3) — after MAX_CHATBOT_TURNS, surface CTA
+  const userTurns = history.filter((m) => m.role === "user").length + 1;
+  if (userTurns > MAX_CHATBOT_TURNS) {
+    return {
+      response:
+        "I want to give you the best answer — let's hop on a quick call instead: https://cal.com/bekasen-ytjx1n/15min",
+      qualified: false,
+      turnCount: userTurns,
+    };
+  }
+
+  const messages: OpenRouterMessage[] = [
+    { role: "system", content: SYSTEM_PROMPT },
+    ...history.slice(-10).map((m) => ({
+      role: (m.role === "user" ? "user" : "assistant") as "user" | "assistant",
+      content: String(m.content).slice(0, 4000),
+    })),
+    { role: "user", content: opts.message },
+  ];
+
+  const result = await openRouterChat({ messages });
+  if (!result.ok) {
+    console.warn("[chat] OpenRouter unavailable:", result.reason, result.detail ?? "");
+    return null;
+  }
+
+  const { cleaned, qualified } = parseQualifiedMarker(result.text);
+
+  // On qualification, persist the lead + notify founder (best-effort)
+  if (qualified) {
+    try {
+      const [row] = await db
+        .insert(contactSubmissions)
+        .values({
+          name: sanitizePlainText(qualified.name, 255),
+          email: qualified.email.toLowerCase().trim(),
+          projectType: sanitizePlainText(qualified.projectType, 100),
+          message: `Lead qualified by chatbot.\nLast user message: ${opts.message.slice(0, 800)}`,
+          source: "chatbot",
+          isQualified: true,
+        })
+        .returning({ id: contactSubmissions.id });
+      console.log("[chat] qualified lead persisted:", row?.id);
+
+      void notifyNewLead({
+        name: qualified.name,
+        email: qualified.email,
+        projectType: qualified.projectType,
+        message: opts.message,
+        source: "chatbot",
+        isQualified: true,
+      });
+    } catch (err) {
+      console.error("[chat] failed to persist qualified lead:", err);
+    }
+  }
+
+  return { response: cleaned, qualified: !!qualified, turnCount: userTurns };
+}
+
 // Check Ollama connection
 async function checkOllamaConnection(): Promise<boolean> {
   try {
@@ -223,9 +358,42 @@ export async function POST(request: NextRequest) {
       await persistChatMessage({ sessionId, role: 'assistant', content: assistantMessage, source, model });
     };
     
-    // Check for greetings
+    // ── PRIMARY PATH: OpenRouter lead qualification ─────────────────────────
+    // When OPENROUTER_API_KEY is configured, the AI drives the entire flow
+    // (including greeting, qualification questions, and Cal.com hand-off).
+    // The legacy greeting/FAQ/Ollama paths below act as graceful fallbacks
+    // when the key is missing or the API call fails.
+    const openRouterEnabled =
+      !!process.env.OPENROUTER_API_KEY?.trim() &&
+      process.env.OPENROUTER_API_KEY?.trim() !== "PLACEHOLDER";
+
+    if (openRouterEnabled) {
+      const ai = await tryOpenRouterPath({
+        message,
+        locale,
+        sessionId: sessionId ?? null,
+        canPersist: canPersistChat,
+      });
+      if (ai) {
+        await persistExchange(
+          ai.response,
+          ai.qualified ? "openrouter-qualified" : "openrouter",
+          process.env.OPENROUTER_MODEL ?? null,
+        );
+        return NextResponse.json({
+          response: ai.response,
+          source: ai.qualified ? "openrouter-qualified" : "openrouter",
+          model: process.env.OPENROUTER_MODEL ?? "openrouter",
+          qualified: ai.qualified,
+          turnCount: ai.turnCount,
+        });
+      }
+      // OpenRouter call failed — drop through to rule-based fallbacks
+    }
+
+    // Check for greetings (rule-based fallback)
     if (isGreeting(message)) {
-      const greetingResponse = locale === 'ht' 
+      const greetingResponse = locale === 'ht'
         ? "Bonjou! 👋 Mwen se asistans Bekasen a. Kouman mwen ka ede w jodi a? Mwen ka reponn kesyon sou sèvis, pri, delè, teknoloji, ak plis ankò."
         : locale === 'fr'
         ? "Bonjour! 👋 Je suis l'assistant Bekasen. Comment puis-je vous aider aujourd'hui ? Je peux répondre à des questions sur nos services, tarifs, délais, technologie, et plus."
@@ -234,14 +402,14 @@ export async function POST(request: NextRequest) {
         : "Hello! 👋 I'm the Bekasen assistant. How can I help you today? I can answer questions about our services, pricing, timeline, technology, and more.";
 
       await persistExchange(greetingResponse, 'greeting');
-      
+
       return NextResponse.json({
         response: greetingResponse,
         source: 'greeting',
         suggestedQuestions: ['services', 'pricing', 'timeline', 'tech', 'contact']
       });
     }
-    
+
     // Check FAQ database
     const faqMatch = findBestFAQMatch(message);
     if (faqMatch) {

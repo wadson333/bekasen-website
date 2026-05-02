@@ -10,6 +10,8 @@ import {
 import { UpdateClientProjectSchema } from "@/lib/validation/clients";
 import { apiError, handleApiError, requireAdmin } from "@/lib/api-helpers";
 import { checkOrigin } from "@/lib/auth-server";
+import { notifyClientUpdate } from "@/lib/email";
+import { SITE } from "@/lib/contact";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -95,6 +97,16 @@ export async function PUT(req: NextRequest, ctx: Ctx) {
       .where(eq(clientProjects.id, id))
       .returning();
     if (!updated) return apiError("not_found", 404);
+
+    // Best-effort email to client (no-op if RESEND_API_KEY missing or
+    // notify_on_update=false or no client_email)
+    void notifyClientUpdate({
+      clientEmail: updated.clientEmail,
+      clientName: updated.clientName,
+      projectTitle: updated.projectTitle,
+      dashboardUrl: `${SITE.url}/client/${updated.accessToken}`,
+      notifyOnUpdate: updated.notifyOnUpdate,
+    });
 
     return NextResponse.json({ project: updated });
   } catch (err) {
