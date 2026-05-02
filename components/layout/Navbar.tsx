@@ -75,14 +75,6 @@ export default function Navbar() {
 
           <LanguageSwitcher />
 
-          {/* Portal Link */}
-          <Link
-            href="/portal"
-            className="hidden lg:inline-flex text-sm font-medium text-text-secondary hover:text-text-primary transition-colors cursor-pointer mr-2"
-          >
-            {t("portal")}
-          </Link>
-
           {/* Book a free 15-min call CTA */}
           <a
             href={CONTACT.cal15Href}

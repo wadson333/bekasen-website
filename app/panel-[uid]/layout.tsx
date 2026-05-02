@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { safeStringEqual } from "@/lib/auth";
+import "@/app/globals.css";
 
 // Next.js typed routes generates `Promise<{}>` for compound segments like
 // `panel-[uid]`. The runtime still passes `uid`, so we read it via a cast.

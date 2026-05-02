@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/syne";
 @source not "../.github";
 @source not "../_docs";
 @source not "../.claude";
@@ -7,6 +9,13 @@
 
 /* ─── Light mode (default) ─── */
 :root {
+  /* Self-hosted fonts via Fontsource — no Google Fonts CDN dependency.
+     Both `--font-inter` and `--font-syne` are referenced by Tailwind classes
+     elsewhere (e.g. `font-(family-name:--font-syne)`) and by `@theme inline`
+     below. Keep names consistent with previous `next/font/google` setup. */
+  --font-inter: "Inter Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-syne: "Syne Variable", "Inter Variable", system-ui, sans-serif;
+
   --bg-primary: #fafafa;
   --bg-secondary: #f0f0f5;
   --bg-card: #ffffff;

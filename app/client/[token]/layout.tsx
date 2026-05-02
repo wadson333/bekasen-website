@@ -1,22 +1,9 @@
-import { Inter, Syne } from "next/font/google";
 import "@/app/globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const syne = Syne({
-  variable: "--font-syne",
-  subsets: ["latin"],
-  weight: ["700", "800"],
-  display: "swap",
-});
-
 /**
- * Client dashboard layout — public, locale-free, minimal.
- * The page itself reads `client_projects.locale` and renders accordingly.
+ * Client dashboard layout — public, locale-free, minimal. Fonts are
+ * self-hosted via Fontsource (imported in globals.css). The page itself
+ * reads `client_projects.locale` and renders accordingly.
  */
 export default function ClientDashboardLayout({
   children,
@@ -24,15 +11,7 @@ export default function ClientDashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} ${syne.variable} h-full antialiased`}
-      suppressHydrationWarning
-    >
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      </head>
+    <html lang="en" className="h-full antialiased" suppressHydrationWarning>
       <body className="min-h-screen bg-bg-primary text-text-primary font-(family-name:--font-inter)">
         {children}
       </body>
