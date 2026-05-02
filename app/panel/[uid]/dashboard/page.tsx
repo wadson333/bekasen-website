@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { count } from "drizzle-orm";
 import { db } from "@/lib/db";
@@ -12,6 +12,7 @@ import {
 import { COOKIE_NAMES, verifyAccessToken } from "@/lib/auth";
 import { getAdminById } from "@/lib/auth-server";
 import { Button } from "@/components/cms/ui/button";
+import { extractPanelUidFromPath } from "@/lib/panel-uid";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -25,14 +26,24 @@ async function requireAdmin() {
   return getAdminById(payload.sub);
 }
 
-type PanelParams = { uid: string };
+async function readPanelUid(): Promise<string> {
+  // Prefer the env-configured UID (always correct after middleware passes).
+  const fromEnv = process.env.ADMIN_PANEL_UID?.trim();
+  if (fromEnv) return fromEnv;
+  // Fallback: parse from request pathname.
+  const h = await headers();
+  const pathname =
+    h.get("x-invoke-path") ??
+    h.get("next-url") ??
+    h.get("x-pathname") ??
+    "";
+  return extractPanelUidFromPath(pathname) ?? "";
+}
 
-export default async function DashboardPage(
-  props: PageProps<"/panel-[uid]/dashboard">,
-) {
-  const { uid } = (await props.params) as PanelParams;
+export default async function DashboardPage() {
+  const uid = await readPanelUid();
   const admin = await requireAdmin();
-  if (!admin) redirect(`/panel-${uid}/login`);
+  if (!admin) redirect(`/panel/${uid}/login`);
 
   // Stats per spec section 7.1 dashboard overview
   const [[clientsRow], [leadsRow], [portfolioRow], [blogRow]] = await Promise.all([
@@ -43,10 +54,10 @@ export default async function DashboardPage(
   ]);
 
   const stats = [
-    { label: "Active client projects", value: clientsRow?.c ?? 0, href: `/panel-${uid}/clients` },
-    { label: "Pending leads", value: leadsRow?.c ?? 0, href: `/panel-${uid}/leads` },
-    { label: "Portfolio entries", value: portfolioRow?.c ?? 0, href: `/panel-${uid}/portfolio` },
-    { label: "Blog posts", value: blogRow?.c ?? 0, href: `/panel-${uid}/blog` },
+    { label: "Active client projects", value: clientsRow?.c ?? 0, href: `/panel/${uid}/clients` },
+    { label: "Pending leads", value: leadsRow?.c ?? 0, href: `/panel/${uid}/leads` },
+    { label: "Portfolio entries", value: portfolioRow?.c ?? 0, href: `/panel/${uid}/portfolio` },
+    { label: "Blog posts", value: blogRow?.c ?? 0, href: `/panel/${uid}/blog` },
   ];
 
   return (
@@ -93,12 +104,12 @@ export default async function DashboardPage(
             manager, Pricing editor, Blog manager, Clients, Leads.
           </p>
           <ul className="mt-4 grid grid-cols-1 gap-2 text-sm text-text-secondary lg:grid-cols-2">
-            <li>• /panel-{uid}/content — edit page copy (Tiptap)</li>
-            <li>• /panel-{uid}/portfolio — manage demo projects</li>
-            <li>• /panel-{uid}/pricing — edit Starter / Business / Premium</li>
-            <li>• /panel-{uid}/blog — markdown post editor</li>
-            <li>• /panel-{uid}/clients — token-gated client dashboards</li>
-            <li>• /panel-{uid}/leads — contact form + chatbot leads inbox</li>
+            <li>• /panel/{uid}/content — edit page copy (Tiptap)</li>
+            <li>• /panel/{uid}/portfolio — manage demo projects</li>
+            <li>• /panel/{uid}/pricing — edit Starter / Business / Premium</li>
+            <li>• /panel/{uid}/blog — markdown post editor</li>
+            <li>• /panel/{uid}/clients — token-gated client dashboards</li>
+            <li>• /panel/{uid}/leads — contact form + chatbot leads inbox</li>
           </ul>
         </section>
       </div>

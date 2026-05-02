@@ -1,17 +1,18 @@
 "use client";
 
 import { useState, useTransition, type FormEvent } from "react";
-import { useParams, useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/cms/ui/button";
 import { Input } from "@/components/cms/ui/input";
 import { Label } from "@/components/cms/ui/label";
+import { extractPanelUidFromPath } from "@/lib/panel-uid";
 
 type Step = "credentials" | "2fa";
 type LoginNext = "change_password" | "2fa" | "setup_2fa" | "dashboard";
 
 export default function LoginPage() {
   const router = useRouter();
-  const params = useParams<{ uid: string }>();
+  const pathname = usePathname();
   const search = useSearchParams();
   const expired = search.get("expired") === "1";
   const fromPath = search.get("from") ?? null;
@@ -23,7 +24,8 @@ export default function LoginPage() {
   const [error, setError] = useState<string | null>(null);
   const [pending, startTransition] = useTransition();
 
-  const panelBase = `/panel-${params.uid}`;
+  const uid = extractPanelUidFromPath(pathname);
+  const panelBase = uid ? `/panel/${uid}` : "";
 
   function nextRoute(next: LoginNext): string {
     if (next === "change_password") return `${panelBase}/change-password`;

@@ -332,7 +332,7 @@ async function main() {
   console.log("\n──────────────────────────────────────────────────");
   console.log("ADMIN ACCESS — read carefully, save somewhere safe");
   console.log("──────────────────────────────────────────────────");
-  console.log(`  Login URL  : http://localhost:3000/panel-${panelUid}/login`);
+  console.log(`  Login URL  : http://localhost:3000/panel/${panelUid}/login`);
   console.log(`  Email      : ${email}`);
   if (tempPassword) {
     console.log(`  Password   : ${tempPassword}   ← TEMP, change at first login`);

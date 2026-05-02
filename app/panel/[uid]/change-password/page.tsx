@@ -1,15 +1,17 @@
 "use client";
 
 import { useState, useTransition, type FormEvent } from "react";
-import { useParams, useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Button } from "@/components/cms/ui/button";
 import { Input } from "@/components/cms/ui/input";
 import { Label } from "@/components/cms/ui/label";
+import { extractPanelUidFromPath } from "@/lib/panel-uid";
 
 export default function ChangePasswordPage() {
   const router = useRouter();
-  const params = useParams<{ uid: string }>();
-  const panelBase = `/panel-${params.uid}`;
+  const pathname = usePathname();
+  const uid = extractPanelUidFromPath(pathname);
+  const panelBase = uid ? `/panel/${uid}` : "";
 
   const [newPassword, setNewPassword] = useState("");
   const [confirm, setConfirm] = useState("");
