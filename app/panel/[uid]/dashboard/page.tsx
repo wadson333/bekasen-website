@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { cookies, headers } from "next/headers";
 import { redirect } from "next/navigation";
-import { count } from "drizzle-orm";
+import { count, desc, eq } from "drizzle-orm";
 import { db } from "@/lib/db";
 import {
   clientProjects,
@@ -11,8 +11,8 @@ import {
 } from "@/drizzle/schema";
 import { COOKIE_NAMES, verifyAccessToken } from "@/lib/auth";
 import { getAdminById } from "@/lib/auth-server";
-import { Button } from "@/components/cms/ui/button";
 import { extractPanelUidFromPath } from "@/lib/panel-uid";
+import AdminShell from "@/components/cms/AdminShell";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -27,10 +27,8 @@ async function requireAdmin() {
 }
 
 async function readPanelUid(): Promise<string> {
-  // Prefer the env-configured UID (always correct after middleware passes).
   const fromEnv = process.env.ADMIN_PANEL_UID?.trim();
   if (fromEnv) return fromEnv;
-  // Fallback: parse from request pathname.
   const h = await headers();
   const pathname =
     h.get("x-invoke-path") ??
@@ -45,39 +43,80 @@ export default async function DashboardPage() {
   const admin = await requireAdmin();
   if (!admin) redirect(`/panel/${uid}/login`);
 
-  // Stats per spec section 7.1 dashboard overview
-  const [[clientsRow], [leadsRow], [portfolioRow], [blogRow]] = await Promise.all([
-    db.select({ c: count() }).from(clientProjects),
-    db.select({ c: count() }).from(contactSubmissions),
+  // Stats per spec section 7.1
+  const [[clientsRow], [activeClientsRow], [leadsRow], [unreadLeadsRow], recentClients] =
+    await Promise.all([
+      db.select({ c: count() }).from(clientProjects),
+      db
+        .select({ c: count() })
+        .from(clientProjects)
+        .where(eq(clientProjects.isActive, true)),
+      db.select({ c: count() }).from(contactSubmissions),
+      db
+        .select({ c: count() })
+        .from(contactSubmissions)
+        .where(eq(contactSubmissions.isArchived, false)),
+      db
+        .select()
+        .from(clientProjects)
+        .where(eq(clientProjects.isActive, true))
+        .orderBy(desc(clientProjects.updatedAt))
+        .limit(5),
+    ]);
+
+  const [[portfolioRow], [blogRow]] = await Promise.all([
     db.select({ c: count() }).from(portfolioProjects),
     db.select({ c: count() }).from(blogPosts),
   ]);
 
   const stats = [
-    { label: "Active client projects", value: clientsRow?.c ?? 0, href: `/panel/${uid}/clients` },
-    { label: "Pending leads", value: leadsRow?.c ?? 0, href: `/panel/${uid}/leads` },
-    { label: "Portfolio entries", value: portfolioRow?.c ?? 0, href: `/panel/${uid}/portfolio` },
-    { label: "Blog posts", value: blogRow?.c ?? 0, href: `/panel/${uid}/blog` },
+    {
+      label: "Active client projects",
+      value: activeClientsRow?.c ?? 0,
+      sub: `${clientsRow?.c ?? 0} total (incl. archived)`,
+      href: `/panel/${uid}/clients`,
+      tone: "purple" as const,
+    },
+    {
+      label: "Pending leads",
+      value: unreadLeadsRow?.c ?? 0,
+      sub: `${leadsRow?.c ?? 0} total submissions`,
+      href: `/panel/${uid}/leads`,
+      tone: "amber" as const,
+    },
+    {
+      label: "Portfolio projects",
+      value: portfolioRow?.c ?? 0,
+      sub: "Showcase + business + webapp",
+      href: `/panel/${uid}/portfolio`,
+      tone: "sky" as const,
+    },
+    {
+      label: "Blog posts",
+      value: blogRow?.c ?? 0,
+      sub: "Published + drafts",
+      href: `/panel/${uid}/blog`,
+      tone: "emerald" as const,
+    },
   ];
 
+  const TONE_BORDER: Record<string, string> = {
+    purple: "border-purple-500/30 hover:border-purple-500/60",
+    amber: "border-amber-500/30 hover:border-amber-500/60",
+    sky: "border-sky-500/30 hover:border-sky-500/60",
+    emerald: "border-emerald-500/30 hover:border-emerald-500/60",
+  };
+
   return (
-    <main className="min-h-screen px-6 py-12">
-      <div className="mx-auto max-w-6xl">
-        <header className="mb-10 flex items-center justify-between">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-purple-400">
-              Bekasen Panel
-            </p>
-            <h1 className="mt-1 font-(family-name:--font-syne) text-3xl font-bold text-text-primary">
-              Welcome back
-            </h1>
-            <p className="mt-1 text-sm text-text-secondary">{admin.email}</p>
-          </div>
-          <form action="/api/auth/logout" method="post">
-            <Button type="submit" variant="secondary" size="sm">
-              Log out
-            </Button>
-          </form>
+    <AdminShell email={admin.email}>
+      <div className="mx-auto max-w-6xl px-6 py-10">
+        <header className="mb-8">
+          <h1 className="font-(family-name:--font-syne) text-3xl font-bold text-text-primary">
+            Welcome back
+          </h1>
+          <p className="mt-1 text-sm text-text-secondary">
+            Quick overview of your business activity.
+          </p>
         </header>
 
         <section className="grid grid-cols-2 gap-4 lg:grid-cols-4">
@@ -85,34 +124,65 @@ export default async function DashboardPage() {
             <Link
               key={s.label}
               href={s.href}
-              className="rounded-xl border border-border bg-bg-secondary p-5 transition-colors hover:border-purple-500/40"
+              className={`rounded-xl border bg-bg-secondary p-5 transition-colors ${TONE_BORDER[s.tone]}`}
             >
               <p className="text-xs uppercase tracking-wider text-text-secondary">
                 {s.label}
               </p>
               <p className="mt-2 text-3xl font-bold text-text-primary">{s.value}</p>
+              <p className="mt-1 text-xs text-text-secondary">{s.sub}</p>
             </Link>
           ))}
         </section>
 
         <section className="mt-10 rounded-xl border border-border bg-bg-secondary p-6">
-          <h2 className="font-(family-name:--font-syne) text-xl font-bold text-text-primary">
-            Quick actions
-          </h2>
-          <p className="mt-1 text-sm text-text-secondary">
-            More CMS pages coming online next: Content editor, Portfolio
-            manager, Pricing editor, Blog manager, Clients, Leads.
-          </p>
-          <ul className="mt-4 grid grid-cols-1 gap-2 text-sm text-text-secondary lg:grid-cols-2">
-            <li>• /panel/{uid}/content — edit page copy (Tiptap)</li>
-            <li>• /panel/{uid}/portfolio — manage demo projects</li>
-            <li>• /panel/{uid}/pricing — edit Starter / Business / Premium</li>
-            <li>• /panel/{uid}/blog — markdown post editor</li>
-            <li>• /panel/{uid}/clients — token-gated client dashboards</li>
-            <li>• /panel/{uid}/leads — contact form + chatbot leads inbox</li>
-          </ul>
+          <div className="flex items-center justify-between">
+            <h2 className="font-(family-name:--font-syne) text-xl font-bold text-text-primary">
+              Recent client projects
+            </h2>
+            <Link
+              href={`/panel/${uid}/clients`}
+              className="text-sm text-purple-400 hover:text-purple-300"
+            >
+              View all →
+            </Link>
+          </div>
+
+          {recentClients.length === 0 ? (
+            <p className="mt-4 text-sm text-text-secondary">
+              No client projects yet. Create one from the{" "}
+              <Link
+                href={`/panel/${uid}/clients`}
+                className="text-purple-400 hover:underline"
+              >
+                Clients page
+              </Link>
+              .
+            </p>
+          ) : (
+            <ul className="mt-4 divide-y divide-border">
+              {recentClients.map((p) => (
+                <li key={p.id} className="flex items-center justify-between py-3">
+                  <div className="min-w-0">
+                    <Link
+                      href={`/panel/${uid}/clients/${p.id}`}
+                      className="text-sm font-medium text-text-primary hover:text-purple-400 truncate block"
+                    >
+                      {p.projectTitle}
+                    </Link>
+                    <p className="text-xs text-text-secondary">
+                      {p.clientName} · {p.status} · {p.progressPct}%
+                    </p>
+                  </div>
+                  <span className="text-xs text-text-secondary whitespace-nowrap ml-4">
+                    {new Date(p.updatedAt).toLocaleDateString()}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          )}
         </section>
       </div>
-    </main>
+    </AdminShell>
   );
 }
