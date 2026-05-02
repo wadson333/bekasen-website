@@ -7,19 +7,29 @@ services:
       POSTGRES_USER: bekasen
       POSTGRES_PASSWORD: dev
       POSTGRES_DB: bekasen
+    # Host port 5433 -> container 5432.
+    # 5433 picked to avoid conflict with a native Postgres install that may
+    # already own 5432 (e.g. EnterpriseDB / pginstaller default).
+    # Override via DB_HOST_PORT env if 5433 is also taken.
     ports:
-      - "5432:5432"
+      - "${DB_HOST_PORT:-5433}:5432"
     volumes:
       - bekasen_dev_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U bekasen -d bekasen"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
 
   adminer:
     image: adminer:latest
     container_name: bekasen-dev-adminer
     restart: unless-stopped
     ports:
-      - "8080:8080"
+      - "${ADMINER_HOST_PORT:-8080}:8080"
     depends_on:
-      - db
+      db:
+        condition: service_healthy
 
 volumes:
   bekasen_dev_pgdata:

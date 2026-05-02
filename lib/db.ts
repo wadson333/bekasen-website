@@ -11,7 +11,7 @@ const pool =
   global.__bekasen_pg_pool ??
   new Pool({
     connectionString:
-      process.env.DATABASE_URL ?? "postgres://bekasen:dev@localhost:5432/bekasen",
+      process.env.DATABASE_URL ?? "postgres://bekasen:dev@localhost:5433/bekasen",
     max: 10,
   });
 
