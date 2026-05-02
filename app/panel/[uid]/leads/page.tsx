@@ -8,6 +8,7 @@ import { COOKIE_NAMES, verifyAccessToken } from "@/lib/auth";
 import { getAdminById } from "@/lib/auth-server";
 import { extractPanelUidFromPath } from "@/lib/panel-uid";
 import AdminShell from "@/components/cms/AdminShell";
+import LeadActions from "@/components/cms/LeadActions";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -61,7 +62,7 @@ export default async function LeadsPage() {
             Leads
           </h1>
           <p className="mt-1 text-sm text-text-secondary">
-            Contact form + chatbot submissions. Archive/qualify actions ship in the next round.
+            Contact form + chatbot submissions. Mark qualified, archive, or delete.
           </p>
         </header>
 
@@ -108,9 +109,16 @@ export default async function LeadsPage() {
                           </p>
                         </div>
                       </div>
-                      <span className="text-xs text-text-secondary shrink-0">
-                        {new Date(lead.createdAt).toLocaleString()}
-                      </span>
+                      <div className="flex items-center gap-2 shrink-0">
+                        <span className="text-xs text-text-secondary">
+                          {new Date(lead.createdAt).toLocaleString()}
+                        </span>
+                        <LeadActions
+                          leadId={lead.id}
+                          isArchived={lead.isArchived}
+                          isQualified={lead.isQualified}
+                        />
+                      </div>
                     </div>
                     <p className="mt-3 ml-12 whitespace-pre-wrap text-sm text-text-secondary">
                       {lead.message}
