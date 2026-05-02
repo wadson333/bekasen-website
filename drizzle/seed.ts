@@ -15,7 +15,10 @@
  *
  * Safe to re-run: existing rows are detected by unique slug/email and skipped.
  */
-import "dotenv/config";
+import { config as loadEnv } from "dotenv";
+// Match Next.js precedence: .env.local overrides .env
+loadEnv({ path: ".env.local" });
+loadEnv();
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import bcrypt from "bcryptjs";
