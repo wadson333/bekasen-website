@@ -78,6 +78,106 @@ html {
   border-image: linear-gradient(135deg, #8b5cf6, #4f46e5) 1;
 }
 
+/* ─── Article typography (.bk-prose) ─── */
+/* Lightweight prose styling for renderMarkdown() output. Used by the public
+   blog detail page and any future page-content sections. Avoids the
+   @tailwindcss/typography plugin to keep deps minimal. */
+.bk-prose {
+  color: var(--text-primary);
+  line-height: 1.7;
+  font-size: 1rem;
+}
+.bk-prose > * + * {
+  margin-top: 1.1em;
+}
+.bk-prose h1,
+.bk-prose h2,
+.bk-prose h3,
+.bk-prose h4 {
+  font-family: var(--font-syne), system-ui, sans-serif;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.25;
+  margin-top: 2em;
+  margin-bottom: 0.7em;
+}
+.bk-prose h1 { font-size: 1.875rem; }
+.bk-prose h2 { font-size: 1.5rem; }
+.bk-prose h3 { font-size: 1.25rem; }
+.bk-prose h4 { font-size: 1.05rem; }
+.bk-prose p {
+  color: var(--text-primary);
+}
+.bk-prose a {
+  color: #a855f7;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.bk-prose a:hover {
+  color: #c084fc;
+}
+.bk-prose strong { font-weight: 700; }
+.bk-prose em { font-style: italic; }
+.bk-prose ul,
+.bk-prose ol {
+  padding-left: 1.5rem;
+}
+.bk-prose ul { list-style: disc; }
+.bk-prose ol { list-style: decimal; }
+.bk-prose li + li { margin-top: 0.4em; }
+.bk-prose blockquote {
+  border-left: 3px solid #8b5cf6;
+  padding-left: 1rem;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+.bk-prose code {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.1rem 0.35rem;
+  font-size: 0.875em;
+  color: #c084fc;
+}
+.bk-prose pre {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  overflow-x: auto;
+  font-size: 0.875rem;
+}
+.bk-prose pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: var(--text-primary);
+}
+.bk-prose img {
+  border-radius: 0.75rem;
+  max-width: 100%;
+  height: auto;
+}
+.bk-prose hr {
+  border-color: var(--border);
+  margin: 2em 0;
+}
+.bk-prose table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.9rem;
+}
+.bk-prose th,
+.bk-prose td {
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+.bk-prose th {
+  background: var(--bg-card);
+  font-weight: 600;
+}
+
 /* ─── Marquee animation ─── */
 @keyframes marquee {
   0% {
