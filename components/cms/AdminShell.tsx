@@ -46,7 +46,7 @@ export default function AdminShell({
     { label: "Portfolio", href: `${base}/portfolio`, Icon: Briefcase, status: "ready" },
     { label: "Pricing", href: `${base}/pricing`, Icon: Tag, status: "ready" },
     { label: "Blog", href: `${base}/blog`, Icon: FileText, status: "ready" },
-    { label: "Content", href: `${base}/content`, Icon: Settings, status: "soon" },
+    { label: "Content", href: `${base}/content`, Icon: Settings, status: "ready" },
   ];
 
   function handleLogout() {
