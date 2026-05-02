@@ -43,7 +43,7 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Navigation */}
+          {/* Navigation — dedicated pages */}
           <div>
             <h4 className="text-sm font-semibold text-text-primary font-[family-name:var(--font-syne)] mb-4">
               {t("navTitle")}
@@ -51,15 +51,15 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/#services"
+                  href="/about"
                   className="text-sm text-text-secondary hover:text-purple-400 transition-colors"
                 >
-                  {tNav("services")}
+                  {tNav("about")}
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/#portfolio"
+                  href="/portfolio"
                   className="text-sm text-text-secondary hover:text-purple-400 transition-colors"
                 >
                   {tNav("portfolio")}
@@ -67,18 +67,26 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/#faq"
+                  href="/pricing"
                   className="text-sm text-text-secondary hover:text-purple-400 transition-colors"
                 >
-                  {tNav("faq")}
+                  {tNav("pricing")}
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/#process"
+                  href="/blog"
                   className="text-sm text-text-secondary hover:text-purple-400 transition-colors"
                 >
-                  {tNav("process")}
+                  {tNav("blog")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="text-sm text-text-secondary hover:text-purple-400 transition-colors"
+                >
+                  {tNav("contact")}
                 </Link>
               </li>
             </ul>

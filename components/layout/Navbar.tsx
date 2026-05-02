@@ -21,11 +21,14 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Dedicated pages — full navigation (anchor sections on the homepage are
+  // still reachable by scrolling). Pricing + Blog land on DB-driven views.
   const navLinks = [
-    { href: "/#portfolio", label: t("portfolio") },
-    { href: "/#services", label: t("services") },
-    { href: "/#faq", label: t("faq") },
-    { href: "/#process", label: t("process") },
+    { href: "/portfolio", label: t("portfolio") },
+    { href: "/pricing", label: t("pricing") },
+    { href: "/blog", label: t("blog") },
+    { href: "/about", label: t("about") },
+    { href: "/contact", label: t("contact") },
   ];
 
   return (
