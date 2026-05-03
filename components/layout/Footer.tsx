@@ -51,6 +51,14 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
+                  href="/"
+                  className="text-sm text-text-secondary hover:text-purple-400 transition-colors"
+                >
+                  {tNav("home")}
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/about"
                   className="text-sm text-text-secondary hover:text-purple-400 transition-colors"
                 >

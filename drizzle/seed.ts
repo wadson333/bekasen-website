@@ -199,6 +199,36 @@ const PLANS = [
       { en: "Source code ownership", fr: "Code source vous appartient", ht: "Kòd sous a se pou ou", es: "Propiedad del código fuente" },
     ],
   },
+  // ─────────────────────────────────────────────────────────────────────────
+  // Maintenance — recurring monthly tier added so clients can keep hosting,
+  // updates, security patches and a small content-change budget post-launch.
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    slug: "care-monthly",
+    name: { en: "Care", fr: "Care", ht: "Care", es: "Care" },
+    description: {
+      en: "Monthly maintenance plan — hosting, security patches, backups, uptime monitoring and small content tweaks.",
+      fr: "Plan de maintenance mensuel — hébergement, correctifs de sécurité, sauvegardes, monitoring uptime et petites mises à jour de contenu.",
+      ht: "Plan antretyen chak mwa — ebèjman, koreksyon sekirite, sovgad, monitè uptime ak ti chanjman kontni.",
+      es: "Plan de mantenimiento mensual — hosting, parches de seguridad, backups, monitoreo de uptime y pequeñas actualizaciones de contenido.",
+    },
+    priceUsd: 9900, // $99 / month
+    priceHtg: 1300000,
+    priceEur: 9100,
+    priceCad: 13500,
+    billingType: "monthly" as const,
+    isPopular: false,
+    displayOrder: 4,
+    features: [
+      { en: "Hosting + SSL + CDN included", fr: "Hébergement + SSL + CDN inclus", ht: "Ebèjman + SSL + CDN ladan", es: "Hosting + SSL + CDN incluido" },
+      { en: "Daily encrypted backups (14-day retention)", fr: "Sauvegardes quotidiennes (14 jours)", ht: "Sovgad chak jou (14 jou)", es: "Backups diarios (14 días)" },
+      { en: "Security patches within 48h", fr: "Patchs de sécurité sous 48h", ht: "Patch sekirite anba 48èdtan", es: "Parches de seguridad en 48h" },
+      { en: "Uptime monitoring + incident alerts", fr: "Monitoring uptime + alertes", ht: "Monitè uptime + alèt", es: "Monitoreo uptime + alertas" },
+      { en: "2h of content updates per month", fr: "2h de mises à jour contenu / mois", ht: "2h chanjman kontni / mwa", es: "2h de actualizaciones de contenido / mes" },
+      { en: "Priority WhatsApp support", fr: "Support WhatsApp prioritaire", ht: "Sipò WhatsApp prioritè", es: "Soporte WhatsApp prioritario" },
+      { en: "Pause or cancel anytime", fr: "Pause ou annulation à tout moment", ht: "Pose oswa anile nenpòt lè", es: "Pausa o cancela cuando quieras" },
+    ],
+  },
 ];
 
 async function seedPricing() {

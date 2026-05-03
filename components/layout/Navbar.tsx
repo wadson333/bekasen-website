@@ -22,8 +22,10 @@ export default function Navbar() {
   }, []);
 
   // Dedicated pages — full navigation (anchor sections on the homepage are
-  // still reachable by scrolling). Pricing + Blog land on DB-driven views.
+  // still reachable by scrolling). Home links back to /, useful when the user
+  // is on /portfolio or /blog and wants to return.
   const navLinks = [
+    { href: "/", label: t("home") },
     { href: "/portfolio", label: t("portfolio") },
     { href: "/pricing", label: t("pricing") },
     { href: "/blog", label: t("blog") },
