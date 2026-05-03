@@ -1,6 +1,7 @@
 import Script from "next/script";
 import Hero from "@/components/home/Hero";
 import MockupMarquee from "@/components/home/MockupMarquee";
+import StatsStrip from "@/components/home/StatsStrip";
 import TechMarquee from "@/components/home/TechMarquee";
 import BentoBenefits from "@/components/home/BentoBenefits";
 import DarkShowcase from "@/components/home/DarkShowcase";
@@ -66,6 +67,7 @@ export default async function HomePage({
       />
       <Hero locale={locale} />
       <MockupMarquee locale={locale} />
+      <StatsStrip locale={locale} />
       <TechMarquee />
       <BentoBenefits />
       <DarkShowcase locale={locale} />
