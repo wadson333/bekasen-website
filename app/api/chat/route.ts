@@ -353,9 +353,17 @@ export async function POST(request: NextRequest) {
         return;
       }
 
-      await ensureChatSession(sessionId, locale);
-      await persistChatMessage({ sessionId, role: 'user', content: message, source: 'user' });
-      await persistChatMessage({ sessionId, role: 'assistant', content: assistantMessage, source, model });
+      // Best-effort persistence — the legacy chat_sessions / chat_messages
+      // tables may not exist in fresh Drizzle-managed databases. Logging the
+      // error and continuing prevents one DB hiccup from killing the whole
+      // chat reply (was the cause of the 500 error reported by the user).
+      try {
+        await ensureChatSession(sessionId, locale);
+        await persistChatMessage({ sessionId, role: 'user', content: message, source: 'user' });
+        await persistChatMessage({ sessionId, role: 'assistant', content: assistantMessage, source, model });
+      } catch (err) {
+        console.warn('[chat] persistExchange skipped (DB unavailable):', err instanceof Error ? err.message : err);
+      }
     };
     
     // ── PRIMARY PATH: OpenRouter lead qualification ─────────────────────────
