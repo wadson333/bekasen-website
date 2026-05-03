@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "@/components/ui/ThemeToggle";
 import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
-import { CONTACT } from "@/lib/contact";
+import CalBookingButton from "@/components/CalBookingButton";
 
 export default function Navbar() {
   const t = useTranslations("nav");
@@ -78,15 +78,12 @@ export default function Navbar() {
 
           <LanguageSwitcher />
 
-          {/* Book a free 15-min call CTA */}
-          <a
-            href={CONTACT.cal15Href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden lg:inline-flex items-center gap-2 rounded-full bg-purple-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-purple-500 transition-colors cursor-pointer"
-          >
-            {t("bookCall")}
-          </a>
+          {/* Book a free 15-min call — opens Cal.com popup overlay (no nav away) */}
+          <div className="hidden lg:inline-flex">
+            <CalBookingButton type="discovery15" variant="primary">
+              {t("bookCall")}
+            </CalBookingButton>
+          </div>
 
           {/* Mobile menu button */}
           <button
@@ -122,16 +119,10 @@ export default function Navbar() {
                   </Link>
                 </li>
               ))}
-              <li className="pt-2">
-                <a
-                  href={CONTACT.cal15Href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-purple-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-purple-500 transition-colors cursor-pointer"
-                  onClick={() => setIsOpen(false)}
-                >
+              <li className="pt-2" onClick={() => setIsOpen(false)}>
+                <CalBookingButton type="discovery15" variant="primary">
                   {t("bookCall")}
-                </a>
+                </CalBookingButton>
               </li>
             </ul>
           </motion.div>

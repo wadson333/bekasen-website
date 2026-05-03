@@ -1,5 +1,4 @@
 import Script from "next/script";
-import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/home/Hero";
 import ForWho from "@/components/home/ForWho";
 import TechMarquee from "@/components/home/TechMarquee";
@@ -32,7 +31,6 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
       />
-      <Navbar />
       <Hero />
       <ForWho />
       <TechMarquee />

@@ -5,7 +5,7 @@ import { asc, eq } from "drizzle-orm";
 import { getTranslations } from "next-intl/server";
 import { db } from "@/lib/db";
 import { pricingPlans, pricingFeatures } from "@/drizzle/schema";
-import { CONTACT } from "@/lib/contact";
+import CalBookingButton from "@/components/CalBookingButton";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -170,18 +170,29 @@ export default async function PricingPage({
                     ))}
                   </ul>
 
-                  <Link
-                    href={isCustom ? `/${locale}/contact` : CONTACT.cal30Href}
-                    target={isCustom ? undefined : "_blank"}
-                    rel={isCustom ? undefined : "noopener noreferrer"}
-                    className={`block w-full rounded-md px-4 py-2.5 text-center text-sm font-medium transition-colors ${
-                      plan.isPopular
-                        ? "bg-purple-600 text-white hover:bg-purple-500"
-                        : "border border-border bg-bg-card text-text-primary hover:border-purple-400 hover:text-purple-400"
-                    }`}
-                  >
-                    {isCustom ? CUSTOM_CTA_LABEL[locale] : CTA_LABEL[locale]}
-                  </Link>
+                  {isCustom ? (
+                    <Link
+                      href={`/${locale}/contact`}
+                      className={`block w-full rounded-md px-4 py-2.5 text-center text-sm font-medium transition-colors cursor-pointer ${
+                        plan.isPopular
+                          ? "bg-purple-600 text-white hover:bg-purple-500"
+                          : "border border-border bg-bg-card text-text-primary hover:border-purple-400 hover:text-purple-400"
+                      }`}
+                    >
+                      {CUSTOM_CTA_LABEL[locale]}
+                    </Link>
+                  ) : (
+                    <CalBookingButton
+                      type="consult30"
+                      className={`block w-full rounded-md px-4 py-2.5 text-center text-sm font-medium transition-colors cursor-pointer ${
+                        plan.isPopular
+                          ? "bg-purple-600 text-white hover:bg-purple-500"
+                          : "border border-border bg-bg-card text-text-primary hover:border-purple-400 hover:text-purple-400"
+                      }`}
+                    >
+                      {CTA_LABEL[locale]}
+                    </CalBookingButton>
+                  )}
                 </article>
               );
             })}

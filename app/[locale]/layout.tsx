@@ -9,6 +9,7 @@ import WhatsAppFloat from "@/components/layout/WhatsAppFloat";
 import ChatBot from "@/components/ChatBot";
 import ConsentBanner from "@/components/ConsentBanner";
 import ThemeProviderClient from "@/components/ui/ThemeProviderClient";
+import CalEmbedInit from "@/components/CalEmbedInit";
 import { SITE } from "@/lib/contact";
 import "@/app/globals.css";
 
@@ -89,6 +90,7 @@ export default async function LocaleLayout({
       <body className="min-h-full flex flex-col bg-bg-primary text-text-primary font-(family-name:--font-inter)">
         <ThemeProviderClient>
           <NextIntlClientProvider messages={messages}>
+            <CalEmbedInit />
             <Navbar />
             {children}
             <Footer />

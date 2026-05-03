@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
-import { CONTACT } from "@/lib/contact";
+import CalBookingButton from "@/components/CalBookingButton";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 18 },
@@ -87,17 +87,15 @@ export default function Hero() {
           custom={0.5}
           className="mt-8"
         >
-          <a
-            href={CONTACT.cal15Href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex h-14 items-center gap-3 rounded-full bg-purple-600 pl-6 pr-2 text-base font-medium text-white shadow-[0_8px_30px_rgba(139,92,246,0.3)] transition-all duration-300 hover:-translate-y-1 hover:bg-purple-500 hover:shadow-[0_12px_40px_rgba(139,92,246,0.4)]"
+          <CalBookingButton
+            type="discovery15"
+            className="group flex h-14 items-center gap-3 rounded-full bg-purple-600 pl-6 pr-2 text-base font-medium text-white shadow-[0_8px_30px_rgba(139,92,246,0.3)] transition-all duration-300 hover:-translate-y-1 hover:bg-purple-500 hover:shadow-[0_12px_40px_rgba(139,92,246,0.4)] cursor-pointer"
           >
             <span>{t("cta")}</span>
             <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-white transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
               <ArrowUpRight size={18} strokeWidth={2.5} />
             </span>
-          </a>
+          </CalBookingButton>
         </motion.div>
 
       </div>
