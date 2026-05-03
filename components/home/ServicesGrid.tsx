@@ -5,6 +5,7 @@ import { getTranslations } from "next-intl/server";
 import { db } from "@/lib/db";
 import { pricingPlans, pricingFeatures } from "@/drizzle/schema";
 import CalBookingButton from "@/components/CalBookingButton";
+import Reveal from "@/components/ui/Reveal";
 
 type Locale = "fr" | "en" | "ht" | "es";
 
@@ -103,9 +104,9 @@ export default async function ServicesGrid({ locale }: { locale: Locale }) {
           <p className="mt-4 text-lg text-text-secondary">{t("subtitle")}</p>
         </header>
 
-        {/* 3 equal cards */}
+        {/* 3 equal cards with staggered scroll-reveal */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
-          {plans.slice(0, 3).map((plan) => {
+          {plans.slice(0, 3).map((plan, idx) => {
             const planFeatures = features
               .filter((f) => f.planId === plan.id && f.isIncluded)
               .slice(0, 5);
@@ -113,8 +114,8 @@ export default async function ServicesGrid({ locale }: { locale: Locale }) {
             const isCustom = plan.billingType === "custom";
 
             return (
+              <Reveal key={plan.id} delay={idx * 0.1} from="up">
               <article
-                key={plan.id}
                 className={`relative flex flex-col rounded-2xl border bg-bg-card p-7 transition-all duration-300 ${
                   plan.isPopular
                     ? "border-purple-500 shadow-[0_8px_30px_rgba(124,58,237,0.15)]"
@@ -186,6 +187,7 @@ export default async function ServicesGrid({ locale }: { locale: Locale }) {
                   ))}
                 </ul>
               </article>
+              </Reveal>
             );
           })}
         </div>

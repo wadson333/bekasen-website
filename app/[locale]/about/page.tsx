@@ -8,6 +8,7 @@ import { portfolioProjects } from "@/drizzle/schema";
 import InitialsAvatar from "@/components/about/InitialsAvatar";
 import LinkedinIcon from "@/components/icons/LinkedinIcon";
 import CalBookingButton from "@/components/CalBookingButton";
+import NumberCounter from "@/components/ui/NumberCounter";
 import { CONTACT, SITE } from "@/lib/contact";
 
 export const runtime = "nodejs";
@@ -144,18 +145,22 @@ export default async function AboutPage({
       <section className="px-6 pb-16">
         <div className="mx-auto max-w-4xl">
           <ul className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-            <li className="rounded-2xl border border-border bg-bg-card px-6 py-5 text-center">
+            <li className="rounded-2xl border border-border bg-bg-card px-6 py-5 text-center transition-colors hover:border-purple-500/40">
               <p className="font-(family-name:--font-syne) text-3xl font-bold text-purple-400">
-                {projectsCount > 0 ? projectsCount : "4+"}
+                <NumberCounter to={projectsCount > 0 ? projectsCount : 4} suffix={projectsCount > 0 ? "" : "+"} />
               </p>
               <p className="mt-1 text-xs uppercase tracking-wider text-text-secondary">{statLabels.projects}</p>
             </li>
-            <li className="rounded-2xl border border-border bg-bg-card px-6 py-5 text-center">
-              <p className="font-(family-name:--font-syne) text-3xl font-bold text-purple-400">4</p>
+            <li className="rounded-2xl border border-border bg-bg-card px-6 py-5 text-center transition-colors hover:border-purple-500/40">
+              <p className="font-(family-name:--font-syne) text-3xl font-bold text-purple-400">
+                <NumberCounter to={4} />
+              </p>
               <p className="mt-1 text-xs uppercase tracking-wider text-text-secondary">{statLabels.languages}</p>
             </li>
             <li className="rounded-2xl border border-purple-500/40 bg-purple-500/5 px-6 py-5 text-center">
-              <p className="font-(family-name:--font-syne) text-3xl font-bold text-purple-400">4</p>
+              <p className="font-(family-name:--font-syne) text-3xl font-bold text-purple-400">
+                <NumberCounter to={4} />
+              </p>
               <p className="mt-1 text-xs uppercase tracking-wider text-text-secondary">{statLabels.capacity}</p>
               <p className="mt-1 text-[10px] text-purple-400 opacity-80">{statLabels.capacityNote}</p>
             </li>

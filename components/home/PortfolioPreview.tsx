@@ -4,6 +4,7 @@ import { asc, eq } from "drizzle-orm";
 import { getTranslations } from "next-intl/server";
 import { db } from "@/lib/db";
 import { portfolioProjects } from "@/drizzle/schema";
+import Reveal from "@/components/ui/Reveal";
 
 type Locale = "fr" | "en" | "ht" | "es";
 
@@ -76,8 +77,8 @@ export default async function PortfolioPreview({ locale }: { locale: Locale }) {
         </header>
 
         <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((p) => (
-            <li key={p.id}>
+          {projects.map((p, idx) => (
+            <Reveal key={p.id} as="li" delay={(idx % 3) * 0.08} from="up">
               <Link
                 href={`/${locale}/portfolio/${p.slug}`}
                 className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-bg-secondary transition-all duration-300 hover:border-purple-500/40 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(124,58,237,0.12)] cursor-pointer"
@@ -118,7 +119,7 @@ export default async function PortfolioPreview({ locale }: { locale: Locale }) {
                   </div>
                 </div>
               </Link>
-            </li>
+            </Reveal>
           ))}
         </ul>
       </div>
