@@ -272,8 +272,8 @@ async function seedPricing() {
 
 const PORTFOLIO = [
   {
-    slug: "clinix-pro",
-    title: { en: "Clinix Pro", fr: "Clinix Pro", ht: "Clinix Pro", es: "Clinix Pro" },
+    slug: "clinix",
+    title: { en: "Clinix", fr: "Clinix", ht: "Clinix", es: "Clinix" },
     description: {
       en: "Complete medical ERP with patient management, appointments and billing.",
       fr: "ERP médical complet avec gestion de patients, rendez-vous et facturation.",
@@ -282,7 +282,7 @@ const PORTFOLIO = [
     },
     category: "saas" as const,
     thumbnailUrl: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80",
-    demoUrl: "https://clinix-pro.bekasen.com",
+    demoUrl: "https://clinix.bekasen.com",
     techStack: ["JHipster", "Angular", "PostgreSQL", "Spring Boot"],
     isFeatured: true,
     displayOrder: 1,
@@ -338,6 +338,26 @@ const PORTFOLIO = [
 ];
 
 async function seedPortfolio() {
+  // Legacy migration: rename slug "clinix-pro" → "clinix" if the legacy row
+  // is still present from an older seed. Only fires once.
+  const legacy = await db
+    .select()
+    .from(portfolioProjects)
+    .where(eq(portfolioProjects.slug, "clinix-pro"))
+    .limit(1);
+  if (legacy.length > 0) {
+    await db
+      .update(portfolioProjects)
+      .set({
+        slug: "clinix",
+        title: { en: "Clinix", fr: "Clinix", ht: "Clinix", es: "Clinix" },
+        demoUrl: "https://clinix.bekasen.com",
+        updatedAt: new Date(),
+      })
+      .where(eq(portfolioProjects.slug, "clinix-pro"));
+    console.log("✓ Migrated legacy slug clinix-pro → clinix");
+  }
+
   for (const project of PORTFOLIO) {
     const existing = await db
       .select()
