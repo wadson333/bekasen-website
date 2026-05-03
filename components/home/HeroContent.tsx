@@ -101,7 +101,7 @@ export default function HeroContent() {
           {headlineParts[0]}
           {headlineParts.length > 1 ? (
             <>
-              <span className="bg-gradient-to-br from-purple-500 via-violet-500 to-indigo-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-br from-purple-500 to-pink-500 bg-clip-text text-transparent">
                 {highlight}
               </span>
               {headlineParts[1]}
