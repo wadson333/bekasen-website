@@ -57,3 +57,7 @@ next-env.d.ts
 
 # local-only implementation status doc (cheat-sheet)
 IMPLEMENTATION_STATUS.md
+
+# local-only ops runbook (printed + put in the bus-factor envelope)
+MAINTENANCE.md
+INCIDENTS.md
