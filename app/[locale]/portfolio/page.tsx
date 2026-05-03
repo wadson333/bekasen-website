@@ -5,7 +5,6 @@ import { asc, eq } from "drizzle-orm";
 import { getTranslations } from "next-intl/server";
 import { db } from "@/lib/db";
 import { portfolioProjects } from "@/drizzle/schema";
-import DeviceShowcase from "@/components/home/DeviceShowcase";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -56,36 +55,26 @@ export default async function PortfolioPage({
     .orderBy(asc(portfolioProjects.displayOrder));
 
   return (
-    <main className="flex-1">
-      {/* Page header */}
-      <div className="px-6 pt-16 lg:pt-24">
-        <div className="mx-auto max-w-6xl">
-          <header className="mb-12 text-center">
-            <h1 className="font-(family-name:--font-syne) text-4xl font-bold lg:text-5xl">
-              <span className="bg-gradient-to-br from-purple-500 to-pink-500 bg-clip-text text-transparent">
-                {t("title")}
-              </span>
-            </h1>
-            <p className="mt-3 text-text-secondary max-w-2xl mx-auto">
-              {locale === "fr"
-                ? "Sélection de projets livrés et déployés en production. Chaque projet inclut le code source et la maintenance."
-                : locale === "ht"
-                  ? "Seleksyon pwojè ki delivre ak deplwaye nan pwodiksyon. Chak pwojè gen kòd sous li ak antretyen."
-                  : locale === "es"
-                    ? "Selección de proyectos entregados y desplegados en producción. Cada proyecto incluye código fuente y mantenimiento."
-                    : "Selected projects delivered and deployed in production. Each project includes source code and maintenance."}
-            </p>
-          </header>
-        </div>
-      </div>
+    <main className="flex-1 px-6 py-16 lg:py-24">
+      <div className="mx-auto max-w-6xl">
+        <header className="mb-12 text-center">
+          <h1 className="font-(family-name:--font-syne) text-4xl font-bold lg:text-5xl">
+            <span className="bg-gradient-to-br from-purple-500 to-pink-500 bg-clip-text text-transparent">
+              {t("title")}
+            </span>
+          </h1>
+          <p className="mt-3 text-text-secondary max-w-2xl mx-auto">
+            {locale === "fr"
+              ? "Sélection de projets livrés et déployés en production. Chaque projet inclut le code source et la maintenance."
+              : locale === "ht"
+                ? "Seleksyon pwojè ki delivre ak deplwaye nan pwodiksyon. Chak pwojè gen kòd sous li ak antretyen."
+                : locale === "es"
+                  ? "Selección de proyectos entregados y desplegados en producción. Cada proyecto incluye código fuente y mantenimiento."
+                  : "Selected projects delivered and deployed in production. Each project includes source code and maintenance."}
+          </p>
+        </header>
 
-      {/* Device showcase — featured project across desktop / tablet / mobile viewports */}
-      {projects.length > 0 ? <DeviceShowcase locale={locale} /> : null}
-
-      {/* Grid */}
-      <div className="px-6 pb-16 lg:pb-24">
-        <div className="mx-auto max-w-6xl">
-          {projects.length === 0 ? (
+        {projects.length === 0 ? (
           <div className="mx-auto max-w-md rounded-xl border border-dashed border-border bg-bg-secondary px-6 py-12 text-center">
             <p className="text-sm text-text-secondary">{EMPTY_LABEL[locale]}</p>
           </div>
@@ -148,7 +137,6 @@ export default async function PortfolioPage({
             ))}
           </ul>
         )}
-        </div>
       </div>
     </main>
   );

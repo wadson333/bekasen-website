@@ -120,8 +120,9 @@ export default function DeviceShowcaseClient({
           <p className="mt-4 text-lg text-text-secondary">{copy.subtitle}</p>
         </header>
 
-        {/* Tabs */}
-        <div className="mx-auto mb-10 inline-flex w-full max-w-md flex-wrap items-center justify-center gap-2 rounded-full border border-border bg-bg-card/50 p-1.5 backdrop-blur-sm sm:gap-1">
+        {/* Tabs (wrapped in a flex parent for bullet-proof centering) */}
+        <div className="mb-10 flex justify-center">
+          <div className="inline-flex w-full max-w-md flex-wrap items-center justify-center gap-2 rounded-full border border-border bg-bg-card/50 p-1.5 backdrop-blur-sm sm:gap-1">
           {TABS.map(({ key, Icon, label }) => {
             const isActive = key === tab;
             return (
@@ -152,6 +153,7 @@ export default function DeviceShowcaseClient({
               </button>
             );
           })}
+          </div>
         </div>
 
         {/* Stage */}
