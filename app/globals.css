@@ -1,6 +1,13 @@
 @import "tailwindcss";
-@import "@fontsource-variable/inter";
-@import "@fontsource-variable/syne";
+/* Fonts: Space Grotesk (heading) + DM Sans (body) — Tech Startup pairing
+   from ui-ux-pro-max. Tradeoff vs prior Syne+Inter: Space Grotesk has more
+   character (the unique 'a' and 'g'), DM Sans is highly legible at small
+   sizes. Inter+Syne kept as fallbacks during the transition.
+   Old fonts can be uninstalled with:
+     npm uninstall @fontsource-variable/inter @fontsource-variable/syne
+   …once we're sure nothing else references them. */
+@import "@fontsource-variable/dm-sans";
+@import "@fontsource-variable/space-grotesk";
 @source not "../.github";
 @source not "../_docs";
 @source not "../.claude";
@@ -10,11 +17,17 @@
 /* ─── Light mode (default) ─── */
 :root {
   /* Self-hosted fonts via Fontsource — no Google Fonts CDN dependency.
-     Both `--font-inter` and `--font-syne` are referenced by Tailwind classes
-     elsewhere (e.g. `font-(family-name:--font-syne)`) and by `@theme inline`
-     below. Keep names consistent with previous `next/font/google` setup. */
-  --font-inter: "Inter Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-syne: "Syne Variable", "Inter Variable", system-ui, sans-serif;
+     Tech Startup pairing (recommended by ui-ux-pro-max): Space Grotesk
+     for headings (geometric character, futuristic), DM Sans for body
+     (humanist, highly readable at small sizes).
+     The legacy --font-inter / --font-syne aliases are KEPT pointing at
+     the new fonts so all `font-(family-name:--font-syne)` Tailwind
+     references throughout the codebase keep working without rewrites. */
+  --font-inter: "DM Sans Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-syne: "Space Grotesk Variable", "DM Sans Variable", system-ui, sans-serif;
+  /* Canonical names (use these in new code) */
+  --font-body: "DM Sans Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-heading: "Space Grotesk Variable", "DM Sans Variable", system-ui, sans-serif;
 
   --bg-primary: #fafafa;
   --bg-secondary: #f0f0f5;
@@ -49,15 +62,15 @@
   --color-purple-800: #6b21a8;
   --color-indigo-600: #4f46e5;
   --color-indigo-700: #4338ca;
-  --font-sans: var(--font-inter);
-  --font-heading: var(--font-syne);
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-heading);
   --animate-marquee: marquee 30s linear infinite;
 }
 
 body {
   background: var(--bg-primary);
   color: var(--text-primary);
-  font-family: var(--font-inter), system-ui, sans-serif;
+  font-family: var(--font-body), system-ui, sans-serif;
   overflow-x: hidden;
 }
 
