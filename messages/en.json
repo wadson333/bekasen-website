@@ -26,7 +26,12 @@
     "socialProof": "Trusted by growth-minded leaders.",
     "cta": "Book a free 15-min call",
     "ctaSecondary": "View demos",
-    "tagline": "100% remote · Response time <24h · Pay via Wise, Zelle, or Crypto"
+    "tagline": "100% remote · Response time <24h · Pay via Wise, Zelle, or Crypto",
+    "trust": {
+      "uptime": "99.9% uptime hosting",
+      "gdpr": "GDPR compliant",
+      "ownership": "Source code is yours"
+    }
   },
   "techMarquee": {
     "title": "Powered by a precision engineering stack"

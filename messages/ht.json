@@ -25,7 +25,12 @@
     "socialProof": "Lidè kwasans yo fè nou konfyans.",
     "cta": "Rezève yon apèl gratis 15 min",
     "ctaSecondary": "Wè demo yo",
-    "tagline": "100% adistans · Repons mwens pase 24h · Peman atravè Wise, Zelle, oswa Crypto"
+    "tagline": "100% adistans · Repons mwens pase 24h · Peman atravè Wise, Zelle, oswa Crypto",
+    "trust": {
+      "uptime": "Ebèjman 99.9% uptime",
+      "gdpr": "Konfòm RGPD",
+      "ownership": "Kòd sous a se pou ou"
+    }
   },
   "techMarquee": {
     "title": "Alimante pa yon stack jeni presizyon"

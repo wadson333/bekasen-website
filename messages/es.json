@@ -25,7 +25,12 @@
     "socialProof": "Líderes de crecimiento confían en nosotros.",
     "cta": "Reservar una llamada gratis de 15 min",
     "ctaSecondary": "Ver demos",
-    "tagline": "100% remoto · Respuesta en <24h · Pago vía Wise, Zelle o Crypto"
+    "tagline": "100% remoto · Respuesta en <24h · Pago vía Wise, Zelle o Crypto",
+    "trust": {
+      "uptime": "Hosting con 99.9% de uptime",
+      "gdpr": "Conforme RGPD",
+      "ownership": "Código fuente es tuyo"
+    }
   },
   "techMarquee": {
     "title": "Impulsado por un stack de ingeniería de precisión"
