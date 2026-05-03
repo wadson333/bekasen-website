@@ -3,6 +3,14 @@
 import { useTranslations, useLocale } from "next-intl";
 import { motion, useReducedMotion } from "framer-motion";
 import { Stethoscope, Hotel, ShoppingBag, Church, GraduationCap, UtensilsCrossed, ArrowUpRight } from "lucide-react";
+import { highlightText } from "@/lib/highlight";
+
+const TITLE_ACCENT: Record<string, string> = {
+  fr: "le plus besoin",
+  en: "need this most",
+  ht: "bezwen sa plis",
+  es: "más lo necesitan",
+};
 
 const sectors = [
   { key: "clinics", Icon: Stethoscope, color: "text-rose-500", bgGlow: "from-rose-500/20" },
@@ -92,7 +100,7 @@ export default function ForWho() {
             transition={{ duration: 0.5, delay: 0.05 }}
             className="mt-3 font-(family-name:--font-syne) text-3xl font-bold leading-tight text-text-primary md:text-5xl"
           >
-            {t("title")}
+            {highlightText(t("title"), TITLE_ACCENT[locale])}
           </motion.h2>
           <motion.p
             initial={off ? false : { opacity: 0, y: 12 }}

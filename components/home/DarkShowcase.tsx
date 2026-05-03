@@ -3,6 +3,7 @@ import { CheckCircle2, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { db } from "@/lib/db";
 import { portfolioProjects } from "@/drizzle/schema";
+import { highlightText } from "@/lib/highlight";
 
 type Locale = "fr" | "en" | "ht" | "es";
 
@@ -14,7 +15,7 @@ const COPY: Record<Locale, {
   cta: string;
 }> = {
   fr: {
-    eyebrow: "Notre méthode",
+    eyebrow: "Notre promesse",
     title: "Vous voyez chaque écran avant qu'on le code.",
     body: "On commence par un prototype Figma cliquable. Vous validez le design en 1 ou 2 itérations, puis on passe au développement. Pas de mauvaise surprise à la livraison.",
     bullets: [
@@ -26,7 +27,7 @@ const COPY: Record<Locale, {
     cta: "Voir le projet en détail",
   },
   en: {
-    eyebrow: "How we work",
+    eyebrow: "Our promise",
     title: "You see every screen before we code it.",
     body: "We start with a clickable Figma prototype. You validate the design in 1 or 2 iterations, then we move to development. No nasty surprises at delivery.",
     bullets: [
@@ -38,7 +39,7 @@ const COPY: Record<Locale, {
     cta: "View project details",
   },
   ht: {
-    eyebrow: "Metòd nou",
+    eyebrow: "Pwomès nou",
     title: "Ou wè chak ekran anvan nou kode l.",
     body: "Nou kòmanse ak yon prototip Figma klikab. Ou valide design la nan 1 oswa 2 iterasyon, epi nou pase nan devlopman. Pa gen move sipriz nan livrezon.",
     bullets: [
@@ -50,7 +51,7 @@ const COPY: Record<Locale, {
     cta: "Wè detay pwojè a",
   },
   es: {
-    eyebrow: "Nuestro método",
+    eyebrow: "Nuestra promesa",
     title: "Ves cada pantalla antes de que la codifiquemos.",
     body: "Empezamos con un prototipo Figma clicable. Validas el diseño en 1 o 2 iteraciones, luego pasamos a desarrollo. Sin sorpresas en la entrega.",
     bullets: [
@@ -61,6 +62,14 @@ const COPY: Record<Locale, {
     ],
     cta: "Ver detalles del proyecto",
   },
+};
+
+// Punch word to highlight inside the title (purple→pink gradient).
+const TITLE_ACCENT: Record<Locale, string> = {
+  fr: "chaque écran",
+  en: "every screen",
+  ht: "chak ekran",
+  es: "cada pantalla",
 };
 
 function pickLocale(value: { fr?: string; en?: string; ht?: string; es?: string }, locale: Locale): string {
@@ -118,7 +127,7 @@ export default async function DarkShowcase({ locale }: { locale: Locale }) {
               {copy.eyebrow}
             </span>
             <h2 className="mt-6 font-(family-name:--font-syne) text-3xl font-bold leading-tight md:text-4xl lg:text-5xl">
-              {copy.title}
+              {highlightText(copy.title, TITLE_ACCENT[locale])}
             </h2>
             <p className="mt-5 text-base leading-relaxed text-slate-300 md:text-lg">{copy.body}</p>
 

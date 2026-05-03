@@ -4,6 +4,14 @@ import { useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
+import { highlightText } from "@/lib/highlight";
+
+const TITLE_ACCENT: Record<string, string> = {
+  fr: "les réponses",
+  en: "got you",
+  ht: "pou ou",
+  es: "Te tenemos",
+};
 
 type Category = "all" | "pricing" | "process" | "support";
 
@@ -108,7 +116,7 @@ export default function FAQ() {
             {t("faqBadge")}
           </span>
           <h2 className="mt-6 font-(family-name:--font-syne) text-3xl font-bold leading-tight text-text-primary md:text-4xl">
-            {t("faqHeading")}
+            {highlightText(t("faqHeading"), TITLE_ACCENT[locale])}
           </h2>
         </header>
 

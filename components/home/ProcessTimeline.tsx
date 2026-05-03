@@ -3,6 +3,7 @@
 import { useTranslations, useLocale } from "next-intl";
 import { motion, useReducedMotion } from "framer-motion";
 import { Search, Code, Rocket, TrendingUp, type LucideIcon } from "lucide-react";
+import { highlightText } from "@/lib/highlight";
 
 type Step = {
   key: "step1" | "step2" | "step3" | "step4";
@@ -22,6 +23,14 @@ const DURATIONS_BY_LOCALE: Record<string, string[]> = {
   en: ["1-2 days", "3-5 days", "5-15 days", "Ongoing"],
   ht: ["1-2 jou", "3-5 jou", "5-15 jou", "Kontini"],
   es: ["1-2 días", "3-5 días", "5-15 días", "Continuo"],
+};
+
+// Punch word per locale for the gradient accent.
+const TITLE_ACCENT: Record<string, string> = {
+  fr: "marche",
+  en: "works",
+  ht: "mache",
+  es: "funciona",
 };
 
 /**
@@ -61,7 +70,7 @@ export default function ProcessTimeline() {
             {t("badge")}
           </span>
           <h2 className="mt-6 font-(family-name:--font-syne) text-3xl font-bold text-text-primary md:text-5xl">
-            {t("title")}
+            {highlightText(t("title"), TITLE_ACCENT[locale])}
           </h2>
           <p className="mt-4 text-lg text-text-secondary">{t("subtitle")}</p>
         </header>

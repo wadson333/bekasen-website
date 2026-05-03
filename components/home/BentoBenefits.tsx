@@ -106,7 +106,9 @@ export default function BentoBenefits() {
           </span>
           <h2 className="mt-6 font-(family-name:--font-syne) text-3xl font-bold leading-tight text-white md:text-5xl">
             {copy.title}{" "}
-            <span className="italic text-white/90">{copy.titleAccent}</span>
+            <span className="bg-gradient-to-br from-pink-200 via-pink-300 to-amber-200 bg-clip-text text-transparent italic">
+              {copy.titleAccent}
+            </span>
           </h2>
           <p className="mt-4 text-lg text-white/85">{copy.subtitle}</p>
         </header>

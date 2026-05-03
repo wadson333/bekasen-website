@@ -5,6 +5,14 @@ import { useTranslations, useLocale } from "next-intl";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, Clock, Calendar, CheckCircle2 } from "lucide-react";
 import CalBookingButton from "@/components/CalBookingButton";
+import { highlightText } from "@/lib/highlight";
+
+const TITLE_ACCENT: Record<string, string> = {
+  fr: "réalité",
+  en: "reality",
+  ht: "reyalite",
+  es: "realidad",
+};
 
 const FAUX_SLOTS_BY_LOCALE: Record<string, string[]> = {
   fr: ["Demain · 10:00", "Demain · 14:30", "Mer 6 mai · 11:15", "Jeu 7 mai · 09:00"],
@@ -105,7 +113,7 @@ export default function FinalCTA() {
             </span>
 
             <h2 className="mt-6 font-(family-name:--font-syne) text-3xl font-bold leading-tight text-text-primary md:text-5xl">
-              {t("title")}
+              {highlightText(t("title"), TITLE_ACCENT[locale])}
             </h2>
 
             <p className="mt-4 max-w-xl text-lg text-text-secondary">{t("subtitle")}</p>

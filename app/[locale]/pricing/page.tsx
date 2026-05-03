@@ -132,7 +132,9 @@ export default async function PricingPage({
       <div className="mx-auto max-w-6xl">
         <header className="mb-12 text-center">
           <h1 className="font-(family-name:--font-syne) text-4xl font-bold lg:text-5xl">
-            {t("title")}
+            <span className="bg-gradient-to-br from-purple-500 to-pink-500 bg-clip-text text-transparent">
+              {t("title")}
+            </span>
           </h1>
           <p className="mt-3 text-text-secondary">{t("subtitle")}</p>
         </header>

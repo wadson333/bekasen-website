@@ -2,6 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Globe, LayoutDashboard, Cpu, Bot, Check } from "lucide-react";
 import CalBookingButton from "@/components/CalBookingButton";
+import { highlightText } from "@/lib/highlight";
+
+const TITLE_ACCENT: Record<string, string> = {
+  fr: "sur mesure",
+  en: "Tailored",
+  ht: "pèsonalize",
+  es: "a medida",
+};
 
 export const runtime = "nodejs";
 
@@ -308,7 +316,7 @@ export default async function ServicesPage({
             {copy.eyebrow}
           </span>
           <h1 className="mt-6 font-(family-name:--font-syne) text-4xl font-bold leading-tight text-text-primary md:text-5xl">
-            {copy.title}
+            {highlightText(copy.title, TITLE_ACCENT[locale])}
           </h1>
           <p className="mt-4 text-lg text-text-secondary">{copy.subtitle}</p>
         </header>

@@ -99,7 +99,9 @@ export default async function ServicesGrid({ locale }: { locale: Locale }) {
           </span>
           <h2 className="mt-6 font-(family-name:--font-syne) text-3xl font-bold text-text-primary md:text-5xl">
             {t("title")}{" "}
-            <span className="text-purple-500">{t("titleAccent")}</span>
+            <span className="bg-gradient-to-br from-purple-500 to-pink-500 bg-clip-text text-transparent">
+              {t("titleAccent")}
+            </span>
           </h2>
           <p className="mt-4 text-lg text-text-secondary">{t("subtitle")}</p>
         </header>

@@ -51,15 +51,15 @@ export default async function MockupMarquee({ locale }: { locale: Locale }) {
                 href={p.demoUrl ?? `/${locale}/portfolio/${p.slug}`}
                 target={p.demoUrl ? "_blank" : undefined}
                 rel={p.demoUrl ? "noopener noreferrer" : undefined}
-                className="group/card relative w-[420px] shrink-0 overflow-hidden rounded-2xl border border-border bg-bg-card shadow-[0_12px_40px_rgba(15,23,42,0.08)] transition-shadow hover:shadow-[0_18px_50px_rgba(124,58,237,0.18)] dark:shadow-[0_12px_40px_rgba(0,0,0,0.4)] cursor-pointer"
+                className="group/card relative w-[560px] shrink-0 overflow-hidden rounded-2xl border border-border bg-bg-card shadow-[0_16px_48px_rgba(15,23,42,0.10)] transition-shadow hover:shadow-[0_24px_60px_rgba(124,58,237,0.22)] dark:shadow-[0_16px_48px_rgba(0,0,0,0.45)] cursor-pointer sm:w-[640px] lg:w-[720px]"
               >
                 {/* Browser chrome */}
-                <div className="flex items-center gap-1.5 border-b border-border bg-bg-secondary px-4 py-2.5">
-                  <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-amber-400/70" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/70" />
-                  <div className="ml-3 inline-flex items-center gap-1.5 truncate rounded-md bg-bg-card px-2.5 py-0.5 text-[10px] text-text-secondary">
-                    <span className="h-1 w-1 rounded-full bg-emerald-500" />
+                <div className="flex items-center gap-2 border-b border-border bg-bg-secondary px-5 py-3">
+                  <span className="h-3 w-3 rounded-full bg-red-400/70" />
+                  <span className="h-3 w-3 rounded-full bg-amber-400/70" />
+                  <span className="h-3 w-3 rounded-full bg-emerald-400/70" />
+                  <div className="ml-3 inline-flex items-center gap-1.5 truncate rounded-md bg-bg-card px-3 py-1 text-[11px] text-text-secondary">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
                     {domain}
                   </div>
                 </div>
