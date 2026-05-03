@@ -53,7 +53,7 @@ export default async function BlogIndexPage({
 
   return (
     <main className="flex-1 px-6 py-16 lg:py-24">
-      <div className="mx-auto max-w-5xl">
+      <div className="mx-auto max-w-6xl">
         <header className="mb-12 text-center">
           <h1 className="font-(family-name:--font-syne) text-4xl font-bold lg:text-5xl">
             {t("title")}

@@ -29,8 +29,9 @@ import {
   pricingPlans,
   pricingFeatures,
   portfolioProjects,
+  blogPosts,
 } from "./schema";
-import { eq } from "drizzle-orm";
+import { and, eq } from "drizzle-orm";
 
 const PANEL_UID_ALPHABET = "abcdefghijklmnopqrstuvwxyz0123456789";
 const generatePanelUid = customAlphabet(PANEL_UID_ALPHABET, 12);
@@ -319,15 +320,216 @@ async function seedPortfolio() {
   }
 }
 
+// ─────────────────────────────────────────────────────────────────────────────
+// Blog — 2 fictional posts × 2 locales (FR + EN) so the public blog has
+// something live as soon as the DB is seeded. Markdown bodies stay short
+// but realistic. The CMS can edit/replace them at any time.
+// ─────────────────────────────────────────────────────────────────────────────
+const BLOG_POSTS = [
+  {
+    slug: "5-raisons-site-web-pme-haitienne",
+    locale: "fr",
+    title: "5 raisons pour lesquelles votre PME haïtienne a besoin d'un site web en 2026",
+    excerpt:
+      "WhatsApp ne suffit plus. Un site web professionnel multiplie votre crédibilité, vos leads et votre portée à l'international.",
+    body: `# 5 raisons pour lesquelles votre PME haïtienne a besoin d'un site web en 2026
+
+En 2026, ne pas avoir de site web pour son entreprise revient à fermer ses portes le soir sans laisser d'enseigne. Voici pourquoi c'est devenu non négociable.
+
+## 1. Crédibilité instantanée
+
+Un client qui hésite entre deux prestataires choisit presque toujours celui qui a un site web professionnel. Un domaine \`.com\` à votre nom rassure plus que 50 messages WhatsApp.
+
+## 2. Vos clients vous trouvent sur Google
+
+Sans site, vous êtes invisible quand quelqu'un tape "salon de beauté Pétion-Ville" ou "comptable Port-au-Prince". Avec un site bien optimisé, vous êtes la première réponse.
+
+## 3. La diaspora vous découvre
+
+70% des Haïtiens à l'étranger envoient régulièrement de l'argent ou cherchent à investir au pays. Un site multilingue (FR/EN/HT) vous ouvre ce marché.
+
+## 4. Vos prix et services parlent pour vous
+
+Plus besoin de répéter 10 fois par jour les mêmes informations. Pricing, services, témoignages — tout est consultable 24/7.
+
+## 5. Vos données sont à vous
+
+Sur Instagram ou Facebook, vous louez l'espace. Sur votre site, vous êtes propriétaire. Si demain le réseau ferme, vos contacts et votre référencement restent.
+
+---
+
+**Prêt à passer à l'action ?** Réservez un appel de 15 minutes — gratuit, sans engagement. On regarde ensemble si un site est rentable pour votre activité.`,
+    coverImageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80",
+    tags: ["pme", "haïti", "stratégie digitale"],
+    isPublished: true,
+  },
+  {
+    slug: "5-reasons-haitian-sme-needs-website",
+    locale: "en",
+    title: "5 reasons your Haitian SME needs a website in 2026",
+    excerpt:
+      "WhatsApp isn't enough anymore. A professional website multiplies your credibility, leads and international reach.",
+    body: `# 5 reasons your Haitian SME needs a website in 2026
+
+In 2026, running a business without a website is like locking your shop at night without a sign on the door. Here's why it's no longer optional.
+
+## 1. Instant credibility
+
+A client choosing between two providers almost always picks the one with a real website. A \`.com\` domain in your name reassures more than 50 WhatsApp messages.
+
+## 2. Customers find you on Google
+
+Without a site, you're invisible when someone searches "beauty salon Pétion-Ville" or "accountant Port-au-Prince". With proper SEO, you're the first answer.
+
+## 3. The diaspora discovers you
+
+70% of Haitians abroad regularly send money home or look for investment opportunities. A multilingual site (FR/EN/HT) opens that market.
+
+## 4. Your prices and services speak for themselves
+
+No more repeating the same info 10 times a day. Pricing, services, testimonials — everything is available 24/7.
+
+## 5. Your data belongs to you
+
+On Instagram or Facebook, you rent the space. On your own site, you own it. If a platform shuts down tomorrow, your contacts and SEO remain yours.
+
+---
+
+**Ready to act?** Book a free 15-minute call — no commitment. We'll see together whether a website pays off for your business.`,
+    coverImageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80",
+    tags: ["sme", "haiti", "digital strategy"],
+    isPublished: true,
+  },
+  {
+    slug: "cms-vs-wordpress-pourquoi-choisir-headless",
+    locale: "fr",
+    title: "CMS sur mesure vs WordPress : pourquoi nos clients choisissent le headless",
+    excerpt:
+      "WordPress est partout, mais aussi lent, vulnérable et difficile à personnaliser. Voici pourquoi un CMS headless est souvent un meilleur choix.",
+    body: `# CMS sur mesure vs WordPress : pourquoi nos clients choisissent le headless
+
+WordPress équipe 43% du web. Mais pour une entreprise haïtienne qui cherche **performance, sécurité et indépendance**, ce n'est presque jamais le bon choix. Voici notre comparaison honnête.
+
+## Le problème de WordPress
+
+- **Lent** : entre 30 et 50 plugins en moyenne, chacun ralentit le chargement
+- **Vulnérable** : 90% des sites WordPress hackés le sont via un plugin obsolète
+- **Verrouillé** : changer de thème ou de design demande des heures de travail
+- **Coûteux à long terme** : maintenance + thème premium + plugins payants = 200-500$ par an
+
+## Pourquoi un CMS headless ?
+
+Un CMS headless sépare le contenu (la base de données) de l'affichage (le site web). Concrètement :
+
+- Vous éditez vos textes/images dans un panneau d'admin propre
+- Le site est généré statiquement → ultra-rapide (< 1 seconde de chargement)
+- Code source à vous → pas de dépendance à un éditeur
+
+## Notre stack chez Bekasen
+
+| Composant | Technologie |
+|---|---|
+| Framework | Next.js 16 |
+| Base de données | PostgreSQL |
+| Authentification | JWT + 2FA |
+| Hébergement | VPS Hostinger (vous restez propriétaire) |
+
+## Concrètement, qu'est-ce que ça change ?
+
+- Un client moyen passe de **5 secondes** de chargement (WordPress) à **0,8 seconde** (Next.js + headless)
+- Le score Google PageSpeed passe de **45/100** à **95+/100**
+- Vous publiez vos articles en 30 secondes via le panneau admin, sans toucher au code
+
+---
+
+**Vous hésitez encore ?** Parlons-en. On vous explique sans jargon ce qui s'applique à votre cas.`,
+    coverImageUrl: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&q=80",
+    tags: ["cms", "performance", "next.js"],
+    isPublished: true,
+  },
+  {
+    slug: "custom-cms-vs-wordpress-why-headless-wins",
+    locale: "en",
+    title: "Custom CMS vs WordPress: why our clients choose headless",
+    excerpt:
+      "WordPress is everywhere, but also slow, vulnerable, and hard to customize. Here's why a headless CMS is often the better choice.",
+    body: `# Custom CMS vs WordPress: why our clients choose headless
+
+WordPress powers 43% of the web. But for a Haitian business that wants **performance, security and independence**, it's rarely the right pick. Here's our honest comparison.
+
+## The WordPress problem
+
+- **Slow**: 30 to 50 plugins on average, each one drags page load down
+- **Vulnerable**: 90% of hacked WordPress sites are compromised via outdated plugins
+- **Locked-in**: switching themes or designs takes hours of work
+- **Expensive long-term**: maintenance + premium theme + paid plugins = $200-500/year
+
+## Why headless?
+
+A headless CMS splits content (the database) from presentation (the website). In practice:
+
+- You edit text/images in a clean admin panel
+- The site is generated statically → blazingly fast (< 1s page load)
+- Source code is yours → no editor dependency
+
+## Our stack at Bekasen
+
+| Component | Technology |
+|---|---|
+| Framework | Next.js 16 |
+| Database | PostgreSQL |
+| Auth | JWT + 2FA |
+| Hosting | Hostinger VPS (you stay owner) |
+
+## What does it change in practice?
+
+- Average client goes from **5 seconds** load time (WordPress) to **0.8 seconds** (Next.js + headless)
+- Google PageSpeed score jumps from **45/100** to **95+/100**
+- You publish a post in 30 seconds via the admin panel, no code involved
+
+---
+
+**Still on the fence?** Let's talk. We explain — no jargon — what fits your case.`,
+    coverImageUrl: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&q=80",
+    tags: ["cms", "performance", "next.js"],
+    isPublished: true,
+  },
+];
+
+async function seedBlog() {
+  for (const post of BLOG_POSTS) {
+    const existing = await db
+      .select()
+      .from(blogPosts)
+      .where(and(eq(blogPosts.slug, post.slug), eq(blogPosts.locale, post.locale)))
+      .limit(1);
+    if (existing.length > 0) continue;
+
+    await db.insert(blogPosts).values({
+      slug: post.slug,
+      locale: post.locale,
+      title: post.title,
+      excerpt: post.excerpt,
+      body: post.body,
+      coverImageUrl: post.coverImageUrl,
+      tags: post.tags,
+      isPublished: post.isPublished,
+      publishedAt: new Date(),
+    });
+  }
+}
+
 async function main() {
   console.log("\n🌱 Bekasen seed starting…\n");
 
   const { email, panelUid, tempPassword } = await seedAdmin();
   await seedPricing();
   await seedPortfolio();
+  await seedBlog();
 
   console.log("✅ Pricing plans + features seeded (Starter, Business, Premium)");
   console.log("✅ Portfolio projects seeded (Clinix, Horizon, Aura, Impact)");
+  console.log("✅ Blog posts seeded (2 articles × FR + EN = 4 rows)");
 
   console.log("\n──────────────────────────────────────────────────");
   console.log("ADMIN ACCESS — read carefully, save somewhere safe");
