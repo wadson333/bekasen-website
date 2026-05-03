@@ -55,7 +55,7 @@ export default async function HomePage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
       />
-      <Hero />
+      <Hero locale={locale} />
       <TechMarquee />
       <PortfolioPreview locale={locale} />
       <ServicesGrid locale={locale} />
