@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
 
 const faqKeys = ["faq1", "faq2", "faq3", "faq4", "faq5"] as const;
@@ -12,11 +12,13 @@ function AccordionItem({
   answer,
   isOpen,
   onToggle,
+  reduced,
 }: {
   question: string;
   answer: string;
   isOpen: boolean;
   onToggle: () => void;
+  reduced: boolean;
 }) {
   return (
     <div className="border-b border-border/60">
@@ -40,10 +42,10 @@ function AccordionItem({
       <AnimatePresence initial={false}>
         {isOpen ? (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeOut" as const }}
+            initial={reduced ? false : { height: 0, opacity: 0 }}
+            animate={reduced ? { height: "auto", opacity: 1 } : { height: "auto", opacity: 1 }}
+            exit={reduced ? { height: 0, opacity: 0 } : { height: 0, opacity: 0 }}
+            transition={{ duration: reduced ? 0 : 0.3, ease: "easeOut" as const }}
             className="overflow-hidden"
           >
             <p className="pb-5 text-sm leading-relaxed text-text-secondary">{answer}</p>
@@ -62,6 +64,7 @@ function AccordionItem({
 export default function FAQ() {
   const t = useTranslations("pricingFAQ");
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const reduced = useReducedMotion() ?? false;
 
   return (
     <section id="faq" className="bg-bg-primary py-24">
@@ -83,6 +86,7 @@ export default function FAQ() {
               answer={t(`${key}Answer`)}
               isOpen={openIndex === index}
               onToggle={() => setOpenIndex(openIndex === index ? null : index)}
+              reduced={reduced}
             />
           ))}
         </div>

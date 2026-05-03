@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Stethoscope, Hotel, ShoppingBag, Church } from "lucide-react";
 
 const sectors = [
@@ -13,13 +13,18 @@ const sectors = [
 
 export default function ForWho() {
   const t = useTranslations("forWho");
+  const reduced = useReducedMotion();
+
+  // When user prefers reduced motion, skip every entrance variant by
+  // passing `false` to `initial` so Framer Motion renders the final state.
+  const off = reduced;
 
   return (
     <section className="relative py-20 px-6">
       <div className="mx-auto max-w-5xl text-center">
         <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={off ? false : { opacity: 0, y: 12 }}
+          whileInView={off ? undefined : { opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5 }}
           className="text-sm font-semibold uppercase tracking-[0.18em] text-purple-400"
@@ -28,8 +33,8 @@ export default function ForWho() {
         </motion.p>
 
         <motion.h2
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={off ? false : { opacity: 0, y: 16 }}
+          whileInView={off ? undefined : { opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5, delay: 0.05 }}
           className="mt-3 font-(family-name:--font-syne) text-3xl font-bold leading-tight text-text-primary sm:text-4xl lg:text-5xl"
@@ -38,8 +43,8 @@ export default function ForWho() {
         </motion.h2>
 
         <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={off ? false : { opacity: 0, y: 12 }}
+          whileInView={off ? undefined : { opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5, delay: 0.1 }}
           className="mt-4 max-w-2xl mx-auto text-base text-text-secondary leading-relaxed"
@@ -51,8 +56,8 @@ export default function ForWho() {
           {sectors.map(({ key, Icon, color }, idx) => (
             <motion.div
               key={key}
-              initial={{ opacity: 0, y: 24, scale: 0.96 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              initial={off ? false : { opacity: 0, y: 24, scale: 0.96 }}
+              whileInView={off ? undefined : { opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.45, delay: 0.15 + idx * 0.08 }}
               className="group flex flex-col items-center gap-3 rounded-2xl border border-border bg-bg-card/50 p-6 backdrop-blur-sm transition-all hover:border-purple-500/40 hover:bg-bg-card"

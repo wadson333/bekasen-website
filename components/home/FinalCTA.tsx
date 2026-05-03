@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, Clock } from "lucide-react";
 import CalBookingButton from "@/components/CalBookingButton";
 
@@ -22,6 +22,8 @@ import CalBookingButton from "@/components/CalBookingButton";
 export default function FinalCTA() {
   const t = useTranslations("finalCTA");
   const [time, setTime] = useState<string>("");
+  const reduced = useReducedMotion();
+  const off = !!reduced;
 
   useEffect(() => {
     function updateClock() {
@@ -52,8 +54,8 @@ export default function FinalCTA() {
 
       <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
         <motion.span
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={off ? false : { opacity: 0, y: 12 }}
+          whileInView={off ? undefined : { opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5 }}
           className="inline-flex items-center gap-2 rounded-full border border-purple-500/20 bg-purple-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-purple-400"
@@ -62,8 +64,8 @@ export default function FinalCTA() {
         </motion.span>
 
         <motion.h2
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={off ? false : { opacity: 0, y: 16 }}
+          whileInView={off ? undefined : { opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, delay: 0.05 }}
           className="mt-6 font-(family-name:--font-syne) text-3xl font-bold leading-tight text-text-primary md:text-5xl"
@@ -72,8 +74,8 @@ export default function FinalCTA() {
         </motion.h2>
 
         <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={off ? false : { opacity: 0, y: 16 }}
+          whileInView={off ? undefined : { opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, delay: 0.1 }}
           className="mx-auto mt-5 max-w-xl text-lg text-text-secondary"
@@ -82,8 +84,8 @@ export default function FinalCTA() {
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={off ? false : { opacity: 0, y: 16 }}
+          whileInView={off ? undefined : { opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, delay: 0.15 }}
           className="mt-10"
@@ -98,8 +100,8 @@ export default function FinalCTA() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={off ? false : { opacity: 0 }}
+          whileInView={off ? undefined : { opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4, duration: 0.6 }}
           className="mt-10 inline-flex items-center gap-2 text-sm text-text-secondary"
