@@ -318,7 +318,14 @@
       "messageLabel": "Mesaj",
       "messagePlaceholder": "Pale nou de pwojè w la...",
       "submitButton": "Voye Mesaj",
-      "submittingButton": "Ap Voye..."
+      "submittingButton": "Ap Voye...",
+      "successTitle": "Mesaj voye!",
+      "successMessage": "Mèsi pou mesaj la. Wadson reponn ou nan 24 èdtan (souvan pi rapid).",
+      "sendAnother": "Voye yon lòt mesaj",
+      "errorInvalid": "Tanpri verifye enfòmasyon yo epi eseye ankò.",
+      "errorEmpty": "Mesaj la pa ka vid.",
+      "errorGeneric": "Gen yon bagay ki pa mache. Eseye ankò oswa kontakte nou sou WhatsApp.",
+      "errorNetwork": "Pa ka konekte. Verifye entènèt ou epi eseye ankò."
     },
     "cards": {
       "whatsappTitle": "WhatsApp",

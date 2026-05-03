@@ -318,7 +318,14 @@
       "messageLabel": "Message",
       "messagePlaceholder": "Parlez-nous de votre projet...",
       "submitButton": "Envoyer le message",
-      "submittingButton": "Envoi en cours..."
+      "submittingButton": "Envoi en cours...",
+      "successTitle": "Message envoyé !",
+      "successMessage": "Merci pour votre message. Wadson vous répond dans les 24 heures (souvent beaucoup plus vite).",
+      "sendAnother": "Envoyer un autre message",
+      "errorInvalid": "Vérifiez vos informations et réessayez.",
+      "errorEmpty": "Le message ne peut pas être vide.",
+      "errorGeneric": "Quelque chose a échoué. Réessayez ou contactez-nous via WhatsApp.",
+      "errorNetwork": "Connexion impossible. Vérifiez votre internet et réessayez."
     },
     "cards": {
       "whatsappTitle": "WhatsApp",

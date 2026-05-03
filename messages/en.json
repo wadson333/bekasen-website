@@ -353,7 +353,14 @@
       "messageLabel": "Message",
       "messagePlaceholder": "Tell us about your project...",
       "submitButton": "Send Message",
-      "submittingButton": "Sending..."
+      "submittingButton": "Sending...",
+      "successTitle": "Message sent!",
+      "successMessage": "Thanks for reaching out. Wadson replies within 24 hours (usually much faster).",
+      "sendAnother": "Send another message",
+      "errorInvalid": "Please check your details and try again.",
+      "errorEmpty": "Message can't be empty.",
+      "errorGeneric": "Something went wrong. Try again or reach us on WhatsApp.",
+      "errorNetwork": "Can't reach the server. Check your connection and retry."
     },
     "cards": {
       "whatsappTitle": "WhatsApp",
