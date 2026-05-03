@@ -7,7 +7,9 @@
  *   2. Auth-gate /panel/{uid}/* routes (except /login, /setup-2fa,
  *      /change-password) by verifying the bk_access cookie (jose / Edge-safe).
  *   3. Skip next-intl entirely for /panel/* and /client/* paths.
- *   4. Delegate everything else to next-intl middleware for locale routing.
+ *   4. Strip any locale prefix that next-intl adds to /panel/* (redirect
+ *      /{locale}/panel/{uid}/... → /panel/{uid}/...).
+ *   5. Delegate everything else to next-intl middleware for locale routing.
  */
 import { NextResponse, type NextRequest } from "next/server";
 import createIntlMiddleware from "next-intl/middleware";
@@ -15,6 +17,9 @@ import { routing } from "@/i18n/routing";
 import { COOKIE_NAMES, safeStringEqual, verifyAccessToken } from "@/lib/auth";
 
 const intlMiddleware = createIntlMiddleware(routing);
+
+// Matches the 4 supported locales as a leading prefix segment.
+const LOCALE_PREFIX_RE = /^\/(?:fr|en|ht|es)(?=\/|$)/;
 
 const PUBLIC_PANEL_SUBPATHS = new Set([
   "login",
@@ -30,6 +35,29 @@ function notFound(req: NextRequest) {
 
 export default async function proxy(req: NextRequest): Promise<Response | undefined> {
   const { pathname } = req.nextUrl;
+
+  // ── /{locale}/panel/* — strip the locale prefix and redirect ──────────────
+  // next-intl will inject a locale prefix when the visitor's session is on a
+  // localized page (e.g. /fr/...) and they paste a panel URL afterwards.
+  // The admin panel is locale-agnostic, so we always strip it.
+  if (LOCALE_PREFIX_RE.test(pathname) && pathname.includes("/panel/")) {
+    const stripped = pathname.replace(LOCALE_PREFIX_RE, "");
+    if (stripped.startsWith("/panel/")) {
+      const url = req.nextUrl.clone();
+      url.pathname = stripped;
+      return NextResponse.redirect(url, 308); // permanent — preserves method
+    }
+  }
+
+  // Same defensive strip for /client/{token} (also locale-agnostic).
+  if (LOCALE_PREFIX_RE.test(pathname) && pathname.includes("/client/")) {
+    const stripped = pathname.replace(LOCALE_PREFIX_RE, "");
+    if (stripped.startsWith("/client/")) {
+      const url = req.nextUrl.clone();
+      url.pathname = stripped;
+      return NextResponse.redirect(url, 308);
+    }
+  }
 
   // ── /panel/{uid}/* — admin CMS ────────────────────────────────────────────
   const panelMatch = pathname.match(/^\/panel\/([^/]+)(?:\/(.*))?$/);
