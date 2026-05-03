@@ -1,6 +1,7 @@
 import { asc, eq } from "drizzle-orm";
 import { db } from "@/lib/db";
 import { portfolioProjects } from "@/drizzle/schema";
+import MockupMarqueeClient from "@/components/home/MockupMarqueeClient";
 
 type Locale = "fr" | "en" | "ht" | "es";
 
@@ -9,15 +10,9 @@ function pickLocale(value: { fr?: string; en?: string; ht?: string; es?: string 
 }
 
 /**
- * MockupMarquee — infinite horizontal scroll of portfolio thumbnails framed
- * in browser chrome (Pacivra-inspired, but auto-scrolling instead of static).
- *
- * Sits right below the hero. Reads from the DB. Each item is wrapped in a
- * compact macOS-style browser frame with traffic-light dots and the project
- * URL. Pauses on hover (hover:[animation-play-state:paused]).
- *
- * Uses the existing `animate-marquee` keyframe defined in globals.css and
- * `motion-reduce:animate-none` so prefers-reduced-motion is honored.
+ * MockupMarquee — server wrapper. Fetches every published portfolio project
+ * and delegates rendering to the client component, which handles the
+ * Desktop/Tablet/Mobile tab switcher + the auto-scrolling marquee.
  */
 export default async function MockupMarquee({ locale }: { locale: Locale }) {
   const projects = await db
@@ -28,56 +23,13 @@ export default async function MockupMarquee({ locale }: { locale: Locale }) {
 
   if (projects.length === 0) return null;
 
-  // Duplicate the list so the CSS marquee loops seamlessly.
-  const items = [...projects, ...projects];
+  const slimmed = projects.map((p) => ({
+    id: p.id,
+    slug: p.slug,
+    title: pickLocale(p.title, locale),
+    thumbnailUrl: p.thumbnailUrl,
+    demoUrl: p.demoUrl,
+  }));
 
-  return (
-    <section className="relative overflow-hidden bg-bg-primary py-10 lg:py-14">
-      {/* Side gradient masks (fades the edges instead of hard-cutting) */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-bg-primary to-transparent sm:w-40" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-bg-primary to-transparent sm:w-40" />
-
-      <div className="group relative">
-        <div className="flex w-max animate-marquee gap-6 motion-reduce:animate-none group-hover:[animation-play-state:paused]">
-          {items.map((p, idx) => {
-            const title = pickLocale(p.title, locale);
-            const domain = p.demoUrl
-              ? p.demoUrl.replace(/^https?:\/\//, "").replace(/\/$/, "")
-              : `${p.slug}.bekasen.com`;
-
-            return (
-              <a
-                key={`${p.id}-${idx}`}
-                href={p.demoUrl ?? `/${locale}/portfolio/${p.slug}`}
-                target={p.demoUrl ? "_blank" : undefined}
-                rel={p.demoUrl ? "noopener noreferrer" : undefined}
-                className="group/card relative w-[560px] shrink-0 overflow-hidden rounded-2xl border border-border bg-bg-card shadow-[0_16px_48px_rgba(15,23,42,0.10)] transition-shadow hover:shadow-[0_24px_60px_rgba(124,58,237,0.22)] dark:shadow-[0_16px_48px_rgba(0,0,0,0.45)] cursor-pointer sm:w-[640px] lg:w-[720px]"
-              >
-                {/* Browser chrome */}
-                <div className="flex items-center gap-2 border-b border-border bg-bg-secondary px-5 py-3">
-                  <span className="h-3 w-3 rounded-full bg-red-400/70" />
-                  <span className="h-3 w-3 rounded-full bg-amber-400/70" />
-                  <span className="h-3 w-3 rounded-full bg-emerald-400/70" />
-                  <div className="ml-3 inline-flex items-center gap-1.5 truncate rounded-md bg-bg-card px-3 py-1 text-[11px] text-text-secondary">
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                    {domain}
-                  </div>
-                </div>
-                {/* Thumbnail */}
-                <div className="aspect-[16/9] w-full overflow-hidden bg-bg-card">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={p.thumbnailUrl}
-                    alt={title}
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover/card:scale-[1.02]"
-                    loading="lazy"
-                  />
-                </div>
-              </a>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
+  return <MockupMarqueeClient projects={slimmed} locale={locale} />;
 }

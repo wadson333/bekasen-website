@@ -1,6 +1,5 @@
 import Script from "next/script";
 import Hero from "@/components/home/Hero";
-import DeviceShowcase from "@/components/home/DeviceShowcase";
 import MockupMarquee from "@/components/home/MockupMarquee";
 import StatsStrip from "@/components/home/StatsStrip";
 import TechMarquee from "@/components/home/TechMarquee";
@@ -23,17 +22,17 @@ type Locale = "fr" | "en" | "ht" | "es";
  *
  * Visual rhythm (light → dark → light → vibrant → light → dark → light):
  *   1. Hero            — light, sober, headline + CTAs + live availability
- *   2. DeviceShowcase  — light, featured project across desktop/tablet/mobile
- *   3. MockupMarquee   — light, infinite scroll of real portfolio thumbnails
- *   4. StatsStrip      — light, 4 animated counters
- *   5. TechMarquee     — light, small logo strip (social proof)
- *   6. BentoBenefits   — VIBRANT purple gradient, 4 asymmetric white cards
- *   7. DarkShowcase    — DARK band, big product mockup + "Our promise"
- *   8. ServicesGrid    — light, 3 service cards with starting prices
- *   9. ProcessTimeline — light, 4-step process
- *  10. ForWho          — light, 6 sector badges + "Your sector?" CTA
- *  11. FAQ             — light, accordion with category pills
- *  12. FinalCTA        — light, closing message + faux Cal slots picker
+ *   2. MockupMarquee   — light, infinite scroll WITH Desktop/Tablet/Mobile
+ *                        tab switcher that re-frames every project
+ *   3. StatsStrip      — light, 4 animated counters
+ *   4. TechMarquee     — light, small logo strip (social proof)
+ *   5. BentoBenefits   — VIBRANT purple gradient, 4 asymmetric white cards
+ *   6. DarkShowcase    — DARK band, big product mockup + "Our promise"
+ *   7. ServicesGrid    — light, 3 service cards with starting prices
+ *   8. ProcessTimeline — light, 4-step process
+ *   9. ForWho          — light, 6 sector badges + "Your sector?" CTA
+ *  10. FAQ             — light, accordion with category pills
+ *  11. FinalCTA        — light, closing message + faux Cal slots picker
  *
  * Removed from a previous iteration: floating mockup cards inside the hero
  * (now in MockupMarquee), DeviceShowcase tab section (redundant — depth
@@ -69,7 +68,6 @@ export default async function HomePage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
       />
       <Hero locale={locale} />
-      <DeviceShowcase locale={locale} />
       <MockupMarquee locale={locale} />
       <StatsStrip locale={locale} />
       <TechMarquee />
