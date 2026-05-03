@@ -1,6 +1,8 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { CalendarDays } from "lucide-react";
+import LegalNav from "@/components/legal/LegalNav";
 
 export default function PrivacyPage() {
   const t = useTranslations("legal");
@@ -8,14 +10,15 @@ export default function PrivacyPage() {
   return (
     <main className="min-h-screen bg-bg-primary">
       <div className="max-w-3xl mx-auto px-6 py-20">
-        <div className="mb-12">
-          <h1 className="mb-4 font-(family-name:--font-syne) text-4xl font-bold text-text-primary">
+        <header className="mb-12 text-center">
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-bg-secondary px-3 py-1 text-xs text-text-secondary">
+            <CalendarDays className="h-3.5 w-3.5" />
+            {t("privacy.lastUpdated")} April 24, 2026
+          </span>
+          <h1 className="mt-4 font-(family-name:--font-syne) text-4xl font-bold text-text-primary md:text-5xl">
             {t("privacy.title")}
           </h1>
-          <p className="text-text-secondary">
-            {t("privacy.lastUpdated")} April 24, 2026
-          </p>
-        </div>
+        </header>
 
         <div className="prose prose-invert max-w-none space-y-8 text-text-secondary">
           {/* Introduction */}
@@ -141,6 +144,8 @@ export default function PrivacyPage() {
             </p>
           </div>
         </div>
+
+        <LegalNav active="privacy" />
       </div>
     </main>
   );

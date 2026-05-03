@@ -1,6 +1,8 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { CalendarDays } from "lucide-react";
+import LegalNav from "@/components/legal/LegalNav";
 
 export default function TermsPage() {
   const t = useTranslations("legal");
@@ -8,14 +10,15 @@ export default function TermsPage() {
   return (
     <main className="min-h-screen bg-bg-primary">
       <div className="max-w-3xl mx-auto px-6 py-20">
-        <div className="mb-12">
-          <h1 className="text-4xl font-bold text-text-primary mb-4 font-[family-name:var(--font-syne)]">
+        <header className="mb-12 text-center">
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-bg-secondary px-3 py-1 text-xs text-text-secondary">
+            <CalendarDays className="h-3.5 w-3.5" />
+            {t("terms.lastUpdated")} April 24, 2026
+          </span>
+          <h1 className="mt-4 font-(family-name:--font-syne) text-4xl font-bold text-text-primary md:text-5xl">
             {t("terms.title")}
           </h1>
-          <p className="text-text-secondary">
-            {t("terms.lastUpdated")} April 24, 2026
-          </p>
-        </div>
+        </header>
 
         <div className="prose prose-invert max-w-none space-y-8 text-text-secondary">
           {/* Acceptance */}
@@ -133,6 +136,8 @@ export default function TermsPage() {
             </p>
           </div>
         </div>
+
+        <LegalNav active="terms" />
       </div>
     </main>
   );
