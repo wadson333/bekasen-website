@@ -1,7 +1,7 @@
 import Script from "next/script";
 import Hero from "@/components/home/Hero";
 import TechMarquee from "@/components/home/TechMarquee";
-import PortfolioSection from "@/components/home/PortfolioSection";
+import PortfolioPreview from "@/components/home/PortfolioPreview";
 import ServicesGrid from "@/components/home/ServicesGrid";
 import ProcessTimeline from "@/components/home/ProcessTimeline";
 import ForWho from "@/components/home/ForWho";
@@ -57,7 +57,7 @@ export default async function HomePage({
       />
       <Hero />
       <TechMarquee />
-      <PortfolioSection />
+      <PortfolioPreview locale={locale} />
       <ServicesGrid locale={locale} />
       <ProcessTimeline />
       <ForWho />
